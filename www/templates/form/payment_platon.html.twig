@@ -1,0 +1,6 @@
+<form action="https://secure.platononline.com/payment/auth" method="post" id="payment-send-form" class="d-none">
+    {% for key, payment in a_payment %}
+        <input type="hidden" name="{{ key }}" value="{{ payment }}">
+    {% endfor %}
+    <input type="submit" name="submit">
+</form>

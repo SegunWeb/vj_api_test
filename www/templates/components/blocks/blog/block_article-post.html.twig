@@ -1,0 +1,37 @@
+{% if blog is not empty %}
+    <div class="articles-in col-12 col-lg-9">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="col-12 title-text__md">{{ 'front.blog'|trans }}</h2>
+                <div class="articles-in__content">
+                    <div class="articles-in-img">
+                        <img src="{% path blog.images, 'big' %}">
+                    </div>
+                    <div class="articles-in-title">
+                        <p class="title-text__xs title-text__xs--black my-3 articles-in-title__title"> {{ blog.title }}</p>
+                       
+                    </div>
+                    <div class="desc-text desc-text--black desc-text__md">
+                        {{ blog.content|raw }}
+                    </div>
+                     <p class="desc-text desc-text__data  articles-in-title__data">{{ blog.createdAt|date('d.m.Y') }}</p>
+                </div>
+            </div>
+        </div>
+
+        {% if next is not empty or prev is not empty %}
+
+            {% include 'components/blocks/blog/block_navigation-post.html.twig' %}
+
+        {% endif %}
+
+    </div>
+{% else %}
+    <div class="col-12 col-lg-9 d-flex justify-content-between how-info__content flex-wrap">
+        <div class="col-md-12 m-md-auto order-1 order-lg-0">
+            <p class="desc-text desc-text--black text-center desc-text--blue">
+                {{ 'front.no_blog_found'|trans }}
+            </p>
+        </div>
+    </div>
+{% endif %}

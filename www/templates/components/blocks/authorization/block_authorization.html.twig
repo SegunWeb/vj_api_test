@@ -1,0 +1,26 @@
+<div class="aunt-wrap">
+    <div class="aunt aunt-block">
+
+        <div class="aut-box">
+            <form method="post" class="auth_form">
+                <input type="hidden" name="_locale" value="{{ app.request.locale }}">
+                <input type="hidden" id="login_form__token" name="_token" value="{{ csrf_token('authenticate') }}">
+                <p class="title-text__sm text-center">{{ 'front.authenticate'|trans }}</p>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="_username" placeholder="{{ 'front.login'|trans }}" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="_password" placeholder="{{ 'front.password'|trans }}"/>
+                </div>
+                <p class="desc-text__md desc-text--red text-center form-login-error d-none">{{ 'front.wrong_login_or_password'|trans }}</p>
+                <button class="btn btn__come-in btn_auth" type="submit">{{ 'front.to_come_in'|trans }}</button>
+            </form>
+            {# <button class="btn btn__register-open m-auto">Регистрация</button> #}
+            <button class="btn btn__forgot-pass m-auto">{{ 'front.forgot_your_password'|trans }}</button>
+            <p class="desc-text__md desc-text--blue text-center m-1">{{ 'front.description_to_modal_authenticate'|trans }}</p>
+        </div>
+        <a class="btn btn__free btn__main  btn-text" href="https://www.vijoys.com/">главную</a>
+    </div>
+
+
+</div>

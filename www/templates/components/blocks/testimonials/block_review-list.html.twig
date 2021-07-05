@@ -1,0 +1,9 @@
+<div class="testim__text" id="testim-text" style="display: block;" data-count="{{ dynamic.review|length }}">
+    <h2 class="text-center title-text__md">{{ 'front.review'|trans }}</h2>
+    <div class="container-review">
+        {% include 'components/blocks/testimonials/block_review-list-wrap.html.twig' %}
+    </div>
+    {% if dynamic.review_count > dynamic.review|length %}
+        <button class="btn btn__all btn-text show-more-review">{{ 'front.show_more'|trans }}</button>
+    {% endif %}
+</div>

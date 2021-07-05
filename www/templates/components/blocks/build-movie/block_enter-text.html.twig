@@ -1,0 +1,48 @@
+{% if placeholders[constant('App\\Constants\\VideoConstants::TEXT')] is defined %}
+
+    {% for plc in placeholders[constant('App\\Constants\\VideoConstants::TEXT')] %}
+
+        {% if loop.index == 1 %}
+        <div class="step-text steps">
+        {#<form id="texts">#}
+            <h2 class="text-center title-text__md title-text__step">{{ 'front.enter_text'|trans }}</h2>
+        {% endif %}
+
+            {% if order is defined %}
+
+                {% if placeholderRender[plc.type][plc.id] is defined %}
+
+                    {% set historyPlaceholder = placeholderRender[plc.type][plc.id] %}
+
+                    {% if historyPlaceholder is not empty %}
+
+                        {% set fn = historyPlaceholder.text %}
+
+                    {% endif %}
+
+                {% endif %}
+
+            {% endif %}
+
+            <!----form box----->
+            <div class="step-box step-box__text {% if loop.index > 1 %}mt-2{% endif %}">
+                <!----form----->
+                <form class="step-text-box word" id="words">
+                    <div class="form-group">
+                        <label for="text-name">{{ plc.description }}</label>
+                        <input class="form-control" type="text" maxlength="150" id="text-name" autocomplete="off" placeholder="Введите текст" name="{{ plc.id }}" {% if order is defined and fn is not empty %}value="{{ fn }}"{% endif %} required="required">
+                    </div>
+                </form>
+            </div>
+        {% if loop.last %}
+            {#</form>#}
+            <div class="step__btn">
+                <button class="btn btn-text btn__prev">{{ 'front.backwards'|trans }}</button>
+                <button class="btn btn-text btn__next {% if order is defined %}act_btn{% endif %}">{{ 'front.further'|trans }}</button>
+            </div>
+        </div>
+        {% endif %}
+
+    {% endfor %}
+
+{% endif %}

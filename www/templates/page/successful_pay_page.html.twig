@@ -1,0 +1,35 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+<!---header--->
+{% include 'components/blocks/header.html.twig' %}
+<!---header-end--->
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+    {% include 'components/pop-up/register_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/auth_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main>
+    {% include 'components/blocks/ successful_pay/successful_pay.twig' %}
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+</body>
+</html>

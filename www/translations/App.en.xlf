@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="en">
+  <file id="App.en">
+    <unit id="6CaqoJt" name="app.admin.group.menu">
+      <segment>
+        <source>app.admin.group.menu</source>
+        <target>Меню</target>
+      </segment>
+    </unit>
+    <unit id="jWmaxzQ" name="app.admin.group.blog">
+      <segment>
+        <source>app.admin.group.blog</source>
+        <target>Блог</target>
+      </segment>
+    </unit>
+    <unit id="Ud0NlGM" name="app.admin.group.order">
+      <segment>
+        <source>app.admin.group.order</source>
+        <target>Заказы</target>
+      </segment>
+    </unit>
+    <unit id="z4XBm0W" name="app.admin.group.page">
+      <segment>
+        <source>app.admin.group.page</source>
+        <target>Страницы</target>
+      </segment>
+    </unit>
+    <unit id="tuzAqmt" name="app.admin.group.directories">
+      <segment>
+        <source>app.admin.group.directories</source>
+        <target>Справочники</target>
+      </segment>
+    </unit>
+    <unit id="nieI7c." name="app.admin.group.currency">
+      <segment>
+        <source>app.admin.group.currency</source>
+        <target>Валюты</target>
+      </segment>
+    </unit>
+    <unit id="Fldzmxs" name="app.admin.group.review">
+      <segment>
+        <source>app.admin.group.review</source>
+        <target>Отзывы</target>
+      </segment>
+    </unit>
+    <unit id="Xhd6yzG" name="app.admin.group.promo_code">
+      <segment>
+        <source>app.admin.group.promo_code</source>
+        <target>Промокоды</target>
+      </segment>
+    </unit>
+    <unit id="Wnz47d8" name="app.admin.group.video">
+      <segment>
+        <source>app.admin.group.video</source>
+        <target>Управление видео</target>
+      </segment>
+    </unit>
+    <unit id="AjiLBzF" name="app.admin.group.users">
+      <segment>
+        <source>app.admin.group.users</source>
+        <target>Пользователи</target>
+      </segment>
+    </unit>
+    <unit id="lUUbZzd" name="app.admin.group.feedback">
+      <segment>
+        <source>app.admin.group.feedback</source>
+        <target>Сообщения</target>
+      </segment>
+    </unit>
+    <unit id="6.zF9kc" name="app.admin.group.help">
+      <segment>
+        <source>app.admin.group.help</source>
+        <target>Вопрос-Ответ</target>
+      </segment>
+    </unit>
+    <unit id="urEhNHc" name="app.admin.group.setting">
+      <segment>
+        <source>app.admin.group.setting</source>
+        <target>Настройки</target>
+      </segment>
+    </unit>
+    <unit id="beH92.E" name="app.admin.group.translations">
+      <segment>
+        <source>app.admin.group.translations</source>
+        <target>Переводы</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

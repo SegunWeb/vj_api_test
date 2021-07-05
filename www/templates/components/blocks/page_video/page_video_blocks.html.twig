@@ -1,0 +1,134 @@
+<div class="name-page container">
+{#    <image class="decor" src="{{ asset('image/new-elem/use.png') }}" alt="use">#}
+    <h1 class=" title-text__xs--black margin-text wrapper-text">{{ video.title }}</h1>
+{#    <image class="decor-aps__deg decor-aps" src="{{ asset('image/new-elem/decor-arrow.png') }}" alt="arrow">#}
+</div>
+<!---breadcrumbs--->
+{#{% include 'components/blocks/blog/block_breadcrumbs.html.twig' %}#}
+<!---breadcrumbs-end--->
+ <div class=" page-video">
+
+             <!----all-video-content----->
+             <div class="all-video-content page-video_block">
+                 <div class="all-video-box all-video-box__onevideo video-box block_wrap-video video-wrapp">
+                   {#  <image class="image-video d-none" src="{% if video.images is not empty %} {% path video.images, 'video_cover' %} {% else %} {% path video.congratulationExample, 'example' %} {% endif %}" alt="image"/> #}
+
+                     {% if video.congratulationExample is not empty %}
+                         {% if video.congratulationExample.providerName == 'sonata.media.provider.video' %}
+                             {% set fullPath %}{% path video.congratulationExample, 'reference' %}{% endset %}
+                             {% set warning_browser = "warning_browser"|trans({'%href%': fullPath }) %}
+
+
+{#                             <video autoplay data-href="#}{#%  path video.congratulationExample, 'reference'  %#}{#" class="paids-videos" src="{% path video.congratulationExample, 'reference' %}" poster="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}"  >#}
+                             <video preload="metadata" playsinline webkit-playsinline  type="video/mp4"  codecs="avc1.42E01E, mp4a.40.2" class="paids-videos" data-href="{%  path video.congratulationExample, 'reference'  %}" src="{%  path video.congratulationExample, 'reference' %}" poster="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}"  />
+
+                             {#                             <video preload="auto" playsinline webkit-playsinline controls class="paids-videos-single" src="{% path video.congratulationExample, 'reference' %}" poster="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}"  >#}
+
+{#                                 <source src="{% path video.congratulationExample, 'reference' %}"  type="video/mp4"  codecs="avc1.42E01E, mp4a.40.2">#}
+{#                                 {{ warning_browser|raw }}#}
+{#                             </video>#}
+
+{#                             <video autoplay preload="auto" playsinline webkit-playsinline data-href="{%  path video.congratulationExample, 'reference'  %}" class="paids-videos" src="#}{#% path video.congratulationExample, 'reference' %#}{#" poster="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}"  />#}
+
+{#                             <video preload="auto" playsinline webkit-playsinline controls class="paids-videos-single" src="{% path video.congratulationExample, 'reference' %}" poster="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}"  >#}
+{#                                 <source src="{% path video.congratulationExample, 'reference' %}"  type="video/mp4"  codecs="avc1.42E01E, mp4a.40.2">#}
+{#                                 {{ warning_browser|raw }}#}
+{#                             </video>#}
+
+                         {% elseif video.congratulationExample.providerName == 'sonata.media.provider.youtube' %}
+                             <img class="img-video " src="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}" alt="img"/>
+                             <iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ video.congratulationExample.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                             <button class="play-video"></button>
+                         {% elseif video.congratulationExample.providerName == 'sonata.media.provider.vimeo' %}
+                             <img class="img-video " src="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}" alt="img"/>
+                             <iframe class="d-flex justify-content-center" data-src="https://player.vimeo.com/video/{{ video.congratulationExample.providerReference }}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                             <button class="play-video"></button>
+                         {% endif %}
+                     {% endif %}
+
+                 </div>
+
+
+
+{#                 <div class="price price-new">#}
+
+{#                     {% if currency is not empty %}#}
+{#                         {% if currency.codeISO == 'UAH' %}#}
+{#                             {% set price = video.priceUah %}#}
+{#                         {% elseif currency.codeISO == 'RUB' %}#}
+{#                             {% set price = video.priceRub %}#}
+{#                         {% elseif currency.codeISO == 'EUR' %}#}
+{#                             {% set price = video.priceEur %}#}
+{#                         {% else %}#}
+{#                             {% set price = video.priceUsd %}#}
+{#                         {% endif %}#}
+{#                     {% else %}#}
+{#                         {% set price = video.priceUsd %}#}
+{#                     {% endif %}#}
+
+{#                     {% if video.hidePrice == 0 and price > 0 %}#}
+{#                         <div class="price-box">#}
+
+{#                             <div class="price-box__main">#}
+{#                                 <p class="price-text {% if video.discount > 0 %}price-text__discount{% endif %}"><span>{{ 'front.cost_of_video'|trans }}</span> {{ price }}</p><span class="price-text__currency">{% if currency is not empty %} {{ currency.sing }}{% else %}${% endif %}</span>#}
+{#                             </div>#}
+{#                             {% if video.discount > 0 %}#}
+{#                                 <div class="price-box__discount">#}
+{#                                     {% set discount = (price * video.discount) / 100 %}#}
+{#                                     {% set discount = price - discount %}#}
+{#                                     <p class="price-text price-text--red">{{ discount }}</p><span class="price-text__currency price-text__currency--red">{% if currency is not empty %} {{ currency.sing }}{% else %}${% endif %}</span>#}
+{#                                 </div>#}
+{#                             {% endif %}#}
+{#                         </div>#}
+{#                     {% endif %}#}
+{#                 </div>#}
+
+
+
+
+                 <div class="block_desc-video">
+                     <p class=" descript-text__onevideo title-text__xs--black">{{ video.description|raw }}</p>
+
+{#                     <h1 class="title-text__onevideo title-text__onevideo-sm title-text__xs--black margin-text">{{ video.title }}</h1> #}
+{#                     <h1 class="title-text__onevideo title-text__onevideo-sm title-text__xs--black margin-text">Стоимость видео 4$</h1>#}
+{#                     <div class="wrap-info__box">#}
+{#                         <p class="title-text__xs title-number-people title-number-people__onevideo title-number-people__big">Для {{ video.numberPersons }}</p>#}
+
+{#                         <div class="price">#}
+{#                             {% if dynamic.currency is not empty %}#}
+{#                                 {% if dynamic.currency.codeISO == 'UAH' %}#}
+{#                                     {% set price = video.priceUah %}#}
+{#                                 {% elseif dynamic.currency.codeISO == 'RUB' %}#}
+{#                                     {% set price = video.priceRub %}#}
+{#                                 {% elseif dynamic.currency.codeISO == 'EUR' %}#}
+{#                                     {% set price = video.priceEur %}#}
+{#                                 {% else %}#}
+{#                                     {% set price = video.priceUsd %}#}
+{#                                 {% endif %}#}
+{#                             {% else %}#}
+{#                                 {% set price = video.priceUsd %}#}
+{#                             {% endif %}#}
+
+{#                             {% if video.hidePrice == 0 and price > 0 %}#}
+{#                                 <div class="price-box">#}
+{#                                     <div class="price-box__main">#}
+{#                                         <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                     </div>#}
+{#                                     {% if video.discount > 0 %}#}
+{#                                         <div class="price-box__discount">#}
+{#                                             {% set discount = (price * video.discount) / 100 %}#}
+{#                                             {% set discount = price - discount %}#}
+{#                                             <p class="price-text price-text--lg price-text--red">{{ discount }}</p><span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                         </div>#}
+{#                                     {% endif %}#}
+{#                                 </div>#}
+{#                             {% endif %}#}
+{#                         </div>#}
+{#                     </div>#}
+                     <a class=" btn__movies btn__more btn-text btn-text--md" href="{{ path('video', {'slug' : video.slug }) }}">{{ 'front.create_movie'|trans }}</a>
+                 </div>
+             </div>
+
+
+
+ </div>

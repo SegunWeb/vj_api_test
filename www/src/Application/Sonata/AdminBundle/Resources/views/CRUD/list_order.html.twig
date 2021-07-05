@@ -1,0 +1,160 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends '@SonataAdmin/CRUD/base_list.html.twig' %}
+
+{% block list_footer %}
+
+    {#{% set price = 0 %}#}
+    {% set usersCount = admin.getUsersCount() %}
+    {% set priceArray = admin.getTotalPrices() %}
+
+   {# {% for order in admin.datagrid.results %}
+        {% if order.currencyDefault is not empty %}
+            {% set price = price + order.currencyDefault %}
+        {% endif %}
+    {% endfor %}#}
+
+    {% if priceArray > 0 %}
+        <section class="content-header" style="padding-bottom: 25px">
+            <div class="container-fluid">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown sonata-actions">
+                           {# {{ 'total_cost_order'|transchoice(null, {'%price%' : price|number_format(2, '.', ','), '%count_order%' : admin.datagrid.results|length }, 'messages') }}#}
+                            {{ 'total_order'|transchoice(null, {'%count_order%' : admin.datagrid.results|length}, 'messages') }}
+                            <ul class="sidebar-menu">
+                                {% for key, priceItem in priceArray %}
+                                    <li class="text-right"><b>{{ key }}</b>: {{ priceItem|number_format(2, '.', ',') }}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    {% if usersCount %}
+        <section class="content-header" style="padding-bottom: 25px">
+            <div class="container-fluid">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown sonata-actions">
+                            {{ 'object.users_count'|trans }}: {{ usersCount }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    {% if admin.datagrid.results|length > 0 %}
+        <div class="box-footer">
+            <div class="form-inline clearfix">
+                {% if not app.request.isXmlHttpRequest %}
+                    <div class="pull-left">
+                        {% if admin.hasRoute('batch') and batchactions|length > 0  %}
+                            {% block batch %}
+                                <script>
+                                    {% block batch_javascript %}
+                                    jQuery(document).ready(function ($) {
+                                        // Toggle individual checkboxes when the batch checkbox is changed
+                                        $('#list_batch_checkbox').on('ifChanged change', function () {
+                                            var checkboxes = $(this)
+                                                .closest('table')
+                                                .find('td.sonata-ba-list-field-batch input[type="checkbox"], div.sonata-ba-list-field-batch input[type="checkbox"]')
+                                            ;
+
+                                            if (Admin.get_config('USE_ICHECK')) {
+                                                checkboxes.iCheck($(this).is(':checked') ? 'check' : 'uncheck');
+                                            } else {
+                                                checkboxes.prop('checked', this.checked);
+                                            }
+                                        });
+
+                                        // Add a CSS class to rows when they are selected
+                                        $('td.sonata-ba-list-field-batch input[type="checkbox"], div.sonata-ba-list-field-batch input[type="checkbox"]')
+                                            .on('ifChanged change', function () {
+                                                $(this)
+                                                    .closest('tr, div.sonata-ba-list-field-batch')
+                                                    .toggleClass('sonata-ba-list-row-selected', $(this).is(':checked'))
+                                                ;
+                                            })
+                                            .trigger('ifChanged')
+                                        ;
+                                    });
+                                    {% endblock %}
+                                </script>
+
+                            {% block batch_actions %}
+                                <label class="checkbox" for="{{ admin.uniqid }}_all_elements">
+                                    <input type="checkbox" name="all_elements" id="{{ admin.uniqid }}_all_elements">
+                                    {{ 'all_elements'|trans({}, 'SonataAdminBundle') }}
+                                    ({{ admin.datagrid.pager.nbresults }})
+                                </label>
+
+                                <select name="action" style="width: auto; height: auto" class="form-control">
+                                    {% for action, options in batchactions %}
+                                        <option value="{{ action }}">{{ options.label|trans({}, options.translation_domain|default(admin.translationDomain)) }}</option>
+                                    {% endfor %}
+                                </select>
+                            {% endblock %}
+
+                                <input type="submit" class="btn btn-small btn-primary" value="{{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}">
+                            {% endblock %}
+                        {% endif %}
+                    </div>
+
+
+                    {# NEXT_MAJOR : remove this assignment #}
+                    {% set export_formats = export_formats|default(admin.exportFormats) %}
+
+                    <div class="pull-right">
+                        {% if admin.hasRoute('export') and admin.hasAccess('export') and export_formats|length %}
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-share-square-o" aria-hidden="true"></i>
+                                    {{ "label_export_download"|trans({}, "SonataAdminBundle") }}
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {% for format in export_formats %}
+                                        <li>
+                                            <a href="{{ admin.generateUrl('export', admin.modelmanager.paginationparameters(admin.datagrid, 0) + {'format' : format}) }}">
+                                                <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+                                                {{ ("export_format_" ~ format)|trans({}, 'SonataAdminBundle') }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            &nbsp;-&nbsp;
+                        {% endif %}
+
+                        {% block pager_results %}
+                            {% include get_admin_template('pager_results', admin.code) %}
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            </div>
+
+            {% block pager_links %}
+                {% if admin.datagrid.pager.haveToPaginate() %}
+                    <hr/>
+                    {% include get_admin_template('pager_links', admin.code) %}
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+
+{% endblock %}

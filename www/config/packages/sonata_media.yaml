@@ -1,0 +1,235 @@
+sonata_media:
+    db_driver: doctrine_orm
+    default_context: default
+    contexts:
+        default:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+                - sonata.media.provider.video
+                - sonata.media.provider.audio.phrase
+
+            formats:
+                small: { width: 100, height: 100, quality: 70}
+                big: { width: 500, height: 100, quality: 70}
+                meta: { width: 1200, height: 1200, quality: 70}
+
+        meta:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                meta: { width: 1200, height: 1200, quality: 70}
+
+        video_cover:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                video_cover: { width: 640, height: 488, quality: 70}
+
+        blog:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                small: { width: 335, height: 165, quality: 70}
+                big: { width: 975, height: 350, quality: 70}
+
+        category_video:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                cat: { width: 325, height: 488, quality: 70}
+
+        trailer:
+            providers:
+                - sonata.media.provider.youtube
+                - sonata.media.provider.video
+                - sonata.media.provider.vimeo
+
+            formats:
+                trailer:   { width: 1200, height: 1200, quality: 70}
+
+        preloader:
+            providers:
+                - sonata.media.provider.video
+
+            formats:
+                preloader:   { width: 240, quality: 70}
+
+        congratulation_example:
+            providers:
+                - sonata.media.provider.youtube
+                - sonata.media.provider.video
+                - sonata.media.provider.vimeo
+
+            formats:
+                example: { width: 426, height: 237, quality: 70}
+
+        avatar:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                avatar: { width: 100, height: 100, quality: 70}
+
+        logo:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                ~
+
+        video_review:
+            providers:
+                - sonata.media.provider.youtube
+                - sonata.media.provider.video
+                - sonata.media.provider.vimeo
+
+            formats:
+                video_review: { width: 640, quality: 70, resizer: sonata.media.resizer.square}
+
+        how_we_do_it:
+            providers:
+                - sonata.media.provider.youtube
+                - sonata.media.provider.video
+                - sonata.media.provider.vimeo
+
+            formats:
+                video: { width: 640, quality: 70, resizer: sonata.media.resizer.square}
+
+        examples_video:
+            providers:
+                - sonata.media.provider.youtube
+                - sonata.media.provider.video
+                - sonata.media.provider.vimeo
+
+            formats:
+                examples_video: { width: 640, quality: 70, resizer: sonata.media.resizer.square}
+
+        placeholder:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                ~
+
+        phrases_audio:
+            providers:
+                - sonata.media.provider.audio.phrase
+
+            formats:
+                ~
+
+        placeholder_many:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                placeholder_many: { width: 100, height: 100, quality: 70}
+
+        placeholder_video:
+            providers:
+                - sonata.media.provider.youtube
+                - sonata.media.provider.video
+                - sonata.media.provider.vimeo
+                - sonata.media.provider.file
+
+            formats:
+                ~
+
+        project:
+            providers:
+                - sonata.media.provider.file
+
+            formats: ~
+
+        google_api:
+            providers:
+                - sonata.media.provider.file
+
+            formats: ~
+
+        home_image_header:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                ~
+
+        home_image_tablet_header:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                ~
+
+        home_image_mobile_header:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                ~
+
+        home_image_header_circle:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                image: { width: 818, height: 820, quality: 70}
+
+        advantage_icon:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                small: { width: 90, height: 90, quality: 70}
+
+    cdn:
+        server:
+            path: /upload/media
+
+    filesystem:
+        local:
+            # Directory for uploads should be writable
+            directory: "%kernel.project_dir%/public/upload/media"
+            create: false
+
+    class:
+        media: App\Application\Sonata\MediaBundle\Entity\Media
+        gallery: App\Application\Sonata\MediaBundle\Entity\Gallery
+        gallery_has_media: App\Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+
+    providers:
+        file:
+            resizer: false
+            service:    sonata.media.provider.file
+            filesystem: sonata.media.filesystem.local
+            cdn:        sonata.media.cdn.server
+            generator:  sonata.media.generator.default
+            thumbnail:  sonata.media.thumbnail.format
+            allowed_extensions: ['pdf', 'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pttx', 'odt', 'odg', 'odp', 'ods', 'odc', 'odf', 'odb', 'csv', 'xml', 'zip']
+            allowed_mime_types: ['application/pdf', 'application/x-pdf', 'application/rtf', 'text/html', 'text/rtf', 'text/plain', 'application/zip']
+        image:
+           thumbnail: sonata.media.thumbnail.format          # default value
+           allowed_extensions: ['jpg', 'png', 'gif', 'jpeg']
+           allowed_mime_types: ['image/pjpeg','image/jpeg','image/png','image/x-png', 'image/gif']
+#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#            thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
+        vimeo:
+            thumbnail: sonata.media.thumbnail.format          # default value
+#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#           thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
+        youtube:
+            thumbnail: sonata.media.thumbnail.format          # default value
+#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#           thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
+        dailymotion:
+            thumbnail: sonata.media.thumbnail.format          # default value
+#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#           thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image

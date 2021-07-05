@@ -1,0 +1,94 @@
+{% if app.request.query.has('page') %}
+    {% set offset = dynamic.offset + dynamic.limit %}
+{% else %}
+    {% set offset = dynamic.video|length %}
+{% endif %}
+
+
+{#<img class="decor-aps" src="{{ asset('img/new-elem/decor-arrow-cicle.png') }}" alt="arrow">#}
+<div class="name-page container">
+{#    <img class="decor" src="{{ asset('img/new-elem/use.png') }}" alt="use">#}
+    <h1 class="text-center title-categ">{{ page.title }}</h1>
+</div>
+
+<!---breadcrumbs--->
+{% include 'components/blocks/blog/block_breadcrumbs.html.twig' %}
+<!---breadcrumbs-end--->
+
+<div class="wrapp-subtitle">
+    <div class="subtitle">{{ page.subTitle is not empty ? page.subTitle|raw : 'front.the_subtitle'|trans }}</div>
+</div>
+
+<div class="container in-top-videos">
+    {% if page.videoTop is not empty %}
+        <div class="row">
+            <h2 class="text-center title-text__md title-text__md--sm col-12">{{ 'front.top_videos'|trans }}</h2>
+            <div class="all-video__box col-12">
+                {% include 'components/blocks/category/block_item_video-top.html.twig' with {'videos' : page.videoTop|reverse } %}
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<div class="all-video" data-count="{{ offset }}" data-page="{{ app.request.query.get('page', 1) }}" id="allvideo">
+    <!--<img class="all-video__bg" src="{{ asset('img/bg/elem/base3.png') }}"/>-->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 wrap-tag">
+                {% include 'components/blocks/category/block_all-tag.html.twig' %}
+            </div>
+            <div class="all-video__box col-12">
+                {% if dynamic.video is not empty %}
+                    <!----all-video-content----->
+                    {% include 'components/blocks/category/block_item_video.html.twig' with {'videos' : dynamic.video } %}
+                {% else %}
+                    <div class="col-12 d-flex justify-content-between how-info__content flex-wrap">
+                        <div class="col-md-12 m-md-auto order-1 order-lg-0">
+                            <p class="desc-text desc-text--black text-center desc-text--blue">
+                                {{ 'front.no_videos_found'|trans }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{#    <img class="decor-aps__down decor-aps" src="{{ asset('img/new-elem/decor-arrow-r.png') }}" alt="arrow">#}
+</div>
+
+
+<!--- button more ---->
+<div class="wrap-btn">
+     {% if dynamic.video_count > offset %}
+         <button class="btn btn__all btn-text show-more-video">{{ 'front.show_more'|trans }}</button>
+     {% endif %}
+</div>
+
+{#<div class="name-page container">#}
+{#    <img class="decor" src="{{ asset('img/new-elem/choose.png') }}" alt="choose">#}
+{#    <h2 class="text-center title-text__md title-text__md--sm about__title">{{ page.title }}</h2>#}
+{#</div>#}
+
+
+
+
+
+{% if page.content is not empty %}
+{#<div class="blockseo__text ">#}
+    {#<div class="container">#}
+        {#<div class="">{{ page.content|raw }}</div>#}
+    {#</div>#}
+{#</div>#}
+    <div class="blockseo__text">
+        <div class="container">
+
+            <div class="seo-content hide-seo"><p>{{ page.content|raw }}</p></div>
+            {% if page.content is not empty %}
+                <div class="btn-area btn-text btn-seo"><a class="seo-more" href="#">раскрыть</a></div>
+            {% endif%}
+
+        </div>
+    </div>
+
+{% endif %}

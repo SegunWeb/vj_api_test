@@ -1,0 +1,17 @@
+{% if dynamic.video_review is not empty %}
+    {% for video in dynamic.video_review %}
+        <div class="video-testimonials__box testim-video__box justify-content-between col-12 col-md-6">
+            <div class="testimonials-video video-box">
+                <img class="img-video" src="{% if video.images is not empty %} {% path video.images, 'video_cover' %} {% else %} {% path video.video, 'video_review' %} {% endif %}" alt="img"/>
+                {% if video.video is not empty %}<iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ video.video.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>{% endif %}
+                <button class="play-video"></button>
+            </div>
+            {% if video.title is not empty %}<p class="title-text__sm margin-text">{{ video.title }}</p>{% endif %}
+            {% if video.description is not empty %}
+                <p class="desc-text desc-text--black desc-text__md margin-text-y">
+                    {{ video.description }}
+                </p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endif %}

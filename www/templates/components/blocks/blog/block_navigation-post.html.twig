@@ -1,0 +1,9 @@
+<div class="article-btn col-12">
+    {% if prev is not empty %}
+        <a href="{{ path('app_cms_blog_content', {'slug' : prev[0]['slug'] }) }}" class="btn btn-text btn__art--left btn__art btn__art--np">{{ 'front.previous'|trans }}</a>
+    {% endif %}
+
+    {% if next is not empty %}
+        <a href="{{ path('app_cms_blog_content', {'slug' : next[0]['slug'] }) }}" class="btn btn-text btn__art btn__art--np">{{ 'front.the_next'|trans }}</a>
+    {% endif %}
+</div>

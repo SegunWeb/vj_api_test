@@ -1,0 +1,17 @@
+{% if dynamic.orders.items is not empty %}
+
+    {% for order in dynamic.orders.items %}
+
+        {% if order.active > constant('App\\Constants\\ActiveConstants::ORDER_NOT_PAID_VALUE') %}
+
+            {% include 'components/blocks/account/block_paids-video.html.twig' %}
+
+        {% else %}
+
+            {% include 'components/blocks/account/block_not-paids-video.html.twig' %}
+
+        {% endif %}
+
+    {% endfor %}
+
+{% endif %}

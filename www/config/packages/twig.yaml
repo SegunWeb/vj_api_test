@@ -1,0 +1,12 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    form_themes:
+        - '@SonataMedia/Form/media_widgets.html.twig'
+        - '@SonataCore/Form/datepicker.html.twig'
+        - 'form/fields.html.twig'
+        - 'form/multipleUpload.html.twig'
+    globals:
+        locales: '%locales%'
+        win_server: '%env(WIN_SERVER)%'

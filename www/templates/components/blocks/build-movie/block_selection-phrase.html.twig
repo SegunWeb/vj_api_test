@@ -1,0 +1,56 @@
+{%  if placeholders[constant('App\\Constants\\VideoConstants::AUDIO_PHRASE')] is defined %}
+
+    {% for plc in placeholders[constant('App\\Constants\\VideoConstants::AUDIO_PHRASE')] %}
+        {% if loop.index == 1 %}
+        <div class="step-words steps">
+        {#<form id="phrases">#}
+            <h2 class="text-center title-text__md title-text__step">{{ 'front.phrases'|trans }}</h2>
+        {% endif %}
+
+        {% if order is defined %}
+
+            {% if placeholderRender[plc.type][plc.id] is defined %}
+
+                {% set historyPlaceholder = placeholderRender[plc.type][plc.id] %}
+
+                {% if historyPlaceholder is not empty %}
+
+                    {% set fn = historyPlaceholder.audioPhrases %}
+
+                {% endif %}
+
+            {% endif %}
+
+        {% endif %}
+
+            <div class="filter-store-box step-box__words step-box">
+                <div class="filter-store-words">
+                    <p class="text-center title-text__filter">{{ plc.description }}</p>
+                    <!----words list----->
+                    <div class="words-list">
+                        <p class="list__title words-list__title dropdown-toggle" data-toggle="dropdown" data-id="{% if fn is defined %}{{ fn.id }}{% endif %}" role="button" aria-expanded="false">{{ 'front.phrase_not_selected'|trans }}</p>
+                        <ul class="list__wrap dropdown-menu" data-type="selection_phrases_{{ plc.id }}">
+                            {% set phrases = phrasesList(plc.audioPhraseCategory, constant('App\\Constants\\PhrasesTypeConstants::PHRASES'), app.request.locale) %}
+                            {% if phrases is not empty %}
+                                {% for phrase in phrases %}
+                                    <li class="elem" id="{{ phrase.id }}"><span>{{ phrase.title }}</span></li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                        <input type="hidden" id="selection_phrases_{{ plc.id }}" class="form_phrases" name="{{ plc.id }}" value="{% if fn is defined %}{{ fn.id }}{% endif %}">
+                    </div>
+                </div>
+            </div>
+        {% if loop.last %}
+            {#</form>#}
+            <!----buttons box----->
+            <div class="step__btn">
+                <button class="btn btn-text btn__prev">{{ 'front.backwards'|trans }}</button>
+                <button class="btn btn-text btn__next {% if order is defined %}act_btn{% endif %}">{{ 'front.further'|trans }}</button>
+            </div>
+        </div>
+        {% endif %}
+
+    {% endfor %}
+
+{% endif %}

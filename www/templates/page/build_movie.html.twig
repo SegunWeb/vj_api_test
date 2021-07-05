@@ -1,0 +1,152 @@
+{% include 'components/blocks/head.html.twig' %}
+
+{% block style %}
+    {% if video is not empty %}
+        {% if video.variation == 2 %}
+            <link rel="stylesheet" href="{{ asset('styles/croppit/crop_full.css') }}">
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{#<div class="loaderArea">#}
+{#    <div class="loader">#}
+{#        <image src="{% path setting.logoPreloader, 'reference' %}" alt="">#}
+{#        <image src="{{ asset('image/preloaderBeta.png') }}" alt="">#}
+{#    </div>#}
+{#</div>#}
+
+
+{#<div class="loaderArea after-render" style="display:none;">#}
+{#    <div class="loader">#}
+{#        <image src="{% path setting.logoPreloader, 'reference' %}" alt="">#}
+{#        <p class="title-text__xs title-text__xs--black">{{ 'front.thank_you_your_data_load'|trans }}</p>#}
+{#    </div>#}
+{#</div>#}
+<!---header--->
+{% include 'components/blocks/header-red.html.twig' %}
+<!---header-end--->
+<!---header-end--->
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+
+    {% include 'components/pop-up/auth_pop-up-build.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main {% if order is defined %}class="editing-videos" {% endif %}>
+
+    {% if video is not empty %}
+
+        {% if placeholderRender is not defined or placeholderRender is not empty %}
+
+            {% if video.variation == 2 %}
+
+            {#{% include 'components/blocks/build-movie/block_example-movie-postcard.html.twig' %} #}
+                {% include 'components/blocks/build-movie/block_name-movie.html.twig' %}
+
+            {% else %}
+
+                {# {% include 'components/blocks/build-movie/block_example-movie.html.twig' %} #}
+                {% include 'components/blocks/build-movie/block_name-movie.html.twig' %}
+
+            {% endif %}
+
+            {% include 'components/blocks/build-movie/block_selection-name-and-sex.html.twig' %}
+
+            {% if video.variation == 2 %}
+
+                {% include 'components/blocks/build-movie/block_selection-postcard-add-foto.html.twig' %}
+
+            {% endif %}
+
+            {% if order is defined %}
+
+                {% include 'components/blocks/build-movie/block_selection-photos-and-phrases-edit.html.twig' %}
+
+            {% else %}
+
+                {% include 'components/blocks/build-movie/block_selection-photos-and-phrases.html.twig' %}
+
+            {% endif %}
+
+            {% include 'components/blocks/build-movie/block_selection-video.html.twig' %}
+
+            {% include 'components/blocks/build-movie/block_selection-photo.html.twig' %}
+
+            {% include 'components/blocks/build-movie/block_selection-phrase.html.twig' %}
+
+            {% include 'components/blocks/build-movie/block_enter-text.html.twig' %}
+
+            {% include 'components/blocks/build-movie/block_form.html.twig' %}
+        {% else %}
+
+            {% include 'components/blocks/build-movie/block_video-placeholder-not-found.html.twig' %}
+
+        {% endif %}
+    {% else %}
+
+        {% include 'components/blocks/build-movie/block_video-not-found.html.twig' %}
+
+    {% endif %}
+    <message type="video" text="{{ 'front.video_exceeds_allowable_size'|trans }}"></message>
+    <message type="error-upload" text="{{ 'front.image_time_out'|trans }}"></message>
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+
+{% if video is not empty %}
+        {% block js %}
+            <script src="{{ asset('js/build_movie.js') }}"></script>
+            {% if video.variation == 2 %}
+                <script type="text/javascript" src="{{ asset('js/webcam.min.js') }}"></script>
+                <script src="https://unpkg.com/konva@3.2.7/konva.min.js"></script>
+                <script src="{{ asset('js/croppit/crop_full.js') }}"></script>
+                <script>
+                    $( document ).ready(function() {
+                        function listener(event) {
+                            if(event.data.fb_vijoys_url !== undefined){
+                                var imageEditor = $('.image-editor.postcard.active');
+                                $(imageEditor).closest('.step-box').find('.cropit-preview').show();
+                                $(imageEditor).closest('.step-box').find('.row_canvas').css('opacity', 0);
+                                $(imageEditor).closest('.step-box').find('.square-box-loader').show();
+                                $(imageEditor).closest('.step-box').find('.cropit-preview-image-container').hide();
+                                loadingPhoto(imageEditor, event.data.fb_vijoys_url);
+                                $(imageEditor).closest('.step-box').find('.row_canvas').show();
+                                $('.popup-add-foto').hide();
+                                $('.aut-box').show();
+                                $('.webcam').hide();
+                            }
+                        }
+
+                        if (window.addEventListener) {
+                            window.addEventListener("message", listener);
+                        } else {
+                            // IE8
+                            window.attachEvent("onmessage", listener);
+                        }
+                    });
+                </script>
+            {% endif %}
+            <script src="{{ asset('js/librarys/jquery.cropit.js') }}"></script>
+        {% endblock %}
+{% endif %}
+</body>
+</html>

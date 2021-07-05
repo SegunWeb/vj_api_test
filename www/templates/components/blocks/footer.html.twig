@@ -1,0 +1,133 @@
+ <!---footer--->
+<footer class="footer">
+    <!---footer-nav--->
+    <div class="container">
+
+            <div class="d-md-flex justify-content-between align-self-center ">
+                <!---logo_home-link--->
+                <a class=" logos-wrap" href="{{ path('home') }}"><img class="logo logo__footer" src="{% path setting.logoFooter, 'reference' %}"/></a>
+                <!---navbar-link--->
+                <nav class=" d-flex align-self-center footer-nav">
+                    <ul class="footer-menu">
+                        {% if menuFooter is defined and menuFooter is not empty %}
+                            {% for menu in menuFooter %}
+                                {% if menu.typeMenuItem == 1 %}
+                                    {% set link = '/'~menu.staticPageId.slug %}
+                                {% elseif menu.typeMenuItem == 2 %}
+                                    {% set link = menu.link %}
+                                {% elseif menu.typeMenuItem == 3 %}
+                                    {% set link = path('video_category', {'slug' : menu.staticVideoCategoryId.slug }) %}
+                                {% else %}
+                                    {% set link = menu.link %}
+                                {% endif %}
+
+                                {% if menu.currentLocale != menu.defaultLocale and menu.typeMenuItem != 3 %}
+                                    {% set linkCurrentLocale = '/'~menu.currentLocale~link %}
+                                {% else %}
+                                    {% set linkCurrentLocale = link %}
+                                {% endif  %}
+                                <li class=""><a class="menu__link" href="{{ linkCurrentLocale }}">{{ menu.title }}</a></li>
+
+                            {% endfor %}
+                        {% endif %}
+
+                        <li>
+                            <a class="menu__link" href="/{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::USER_AGREEMENT_VALUES'), app.request.locale) }}">{{ 'front.terms_of_use'|trans }}</a>
+                        </li>
+                        <li>
+                            <a class="menu__link" href="/{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::REFUND_VALUES'), app.request.locale) }}">{{ 'front.refund'|trans }}</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!---end-nav--->
+
+
+                <!---mobile-nav--->
+{#                <nav class="footer-nav-mobile">#}
+{#                    <ul class="footer-nav-mobile__menu footer-nav-mobile__menu--right">#}
+{#                    {% if menuFooter is defined and menuFooter is not empty %}#}
+
+{#                        {% set lengthMenu = menuFooter|length %}#}
+{#                        {% set lengthMenu = (lengthMenu / 2)|round(1, 'ceil') %}#}
+
+{#                        {% for menu in menuFooter %}#}
+{#                            {% if menu.typeMenuItem == 1 %}#}
+{#                                {% set link = '/'~menu.staticPageId.slug %}#}
+{#                            {% elseif menu.typeMenuItem == 2 %}#}
+{#                                {% set link = menu.link %}#}
+{#                            {% elseif menu.typeMenuItem == 3 %}#}
+{#                                {% set link = path('video_category', {'slug' : menu.staticVideoCategoryId.slug }) %}#}
+{#                            {% else %}#}
+{#                                {% set link = menu.link %}#}
+{#                            {% endif %}#}
+
+{#                            {% if menu.currentLocale != menu.defaultLocale and menu.typeMenuItem != 3 %}#}
+{#                                {% set linkCurrentLocale = '/'~menu.currentLocale~link %}#}
+{#                            {% else %}#}
+{#                                {% set linkCurrentLocale = link %}#}
+{#                            {% endif  %}#}
+
+{#                            <li class=""><a class="menu__link" href="{{ linkCurrentLocale }}">{{ menu.title }}</a></li>#}
+
+{#                            {% if loop.index == lengthMenu %}#}
+{#                    </ul>#}
+{#                    <ul class="footer-nav-mobile__menu ">#}
+{#                            {% endif %}#}
+
+{#                        {% endfor %}#}
+{#                    {% endif %}#}
+{#                    </ul>#}
+
+{#                </nav>#}
+                <!---mobile-nav-end--->
+
+
+                <div class=" menu__contacts">
+{#                    <a href="mailto:{{ setting.email }}">{{ setting.email }}</a>#}
+{#                    <a href="tel:{{ setting.phone|replace({'(': '', ')': '', '-' : ''}) }}">{{ setting.phone }}</a>#}
+                       <!---messagers-links--->
+                    <div class="socials socials-new  justify-content-center socials__footer">
+                        <a class="socials__inst" target="_blank" href="{{ setting.socialInLink }}"></a>
+                        <a href="mailto:{{ setting.email }}"><i class="fas fa-envelope-square"></i></a>
+{#                        <a href="tel:{{ setting.phone|replace({'(': '', ')': '', '-' : ''}) }}"><i class="fas fa-phone-volume"></i></a>#}
+                        <a class="socials__what messa" target="_blank" href=""><i class="fab fa-whatsapp-square"></i></a>
+{#                        <a class="socials__viber messa pc" target="_blank" href="viber://chat?number=+380680910240"><i class="fab fa-viber"></i></a>#}
+{#                        <a class="socials__viber messa mobi" target="_blank" href="viber://chat?number=+380680910240"><i class="fab fa-viber"></i></a>#}
+                        <a class="socials__fb" target="_blank"  href="{{ setting.socialFbLink }}"></a>
+                        <a class="socials__yt " target="_blank" href="{{ setting.socialYtLink }}"></a>
+                        <a class="socials__tele messa" target="_blank" href=""><i class="fab fa-telegram"></i></a>
+                    </div>
+
+
+                        <div class="pay-img">
+                            <img src="{{ asset('img/logo-bank/visamaster.png') }}" alt="visa_master-card">
+                        </div>
+
+
+
+                </div>
+            </div>
+    </div>
+        <!---footer-box---->
+
+
+</footer>
+
+
+
+<!---footer-end--->
+<script src="{{ asset('js/librarys/jquery.min.js') }}"></script>
+ <script src="{{ asset('js/librarys/jquery-ui-1.10.4.custom.min.js') }}"></script>
+<script src="{{ asset('js/librarys/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/librarys/slick.min.js') }}"></script>
+{#<script src="{{ asset('js/librarys/wow.min.js') }}"></script>#}
+ <script src="{{ asset('js/librarys/counties.js') }}"></script>
+ <script src="{{ asset('js/phonecode.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.5.6/plyr.js"></script>
+ <script src="{{ asset('js/clipboard.js') }}"></script>
+
+<script src="{{ asset('js/librarys/hammer.min.js') }}"></script>
+ <script src="{{ asset('js/main.js') }}"></script>
+{% block js %}
+
+{% endblock %}

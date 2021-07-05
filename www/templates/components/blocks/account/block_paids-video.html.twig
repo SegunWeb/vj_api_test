@@ -1,0 +1,110 @@
+<div id="paids" class="paids" style="">
+
+    {% set render = order.render.last() %}
+
+    {% if render.status is not empty %}
+        {% if render.status == 'finished' %}
+            <div class="example-store-video example-store-video__account video-box">
+                <video playsinline webkit-playsinline data-href="{{ asset('project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}" data-video="" class="paids-videos" src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" preload="metadata" controls poster="{% if order.video is not empty and order.video.banner is not empty %} {% path order.video.banner, 'video_cover' %} {% elseif order.video is not empty and order.video.congratulationExample is not empty  %} {% path order.video.congratulationExample, 'example' %} {% endif %}">
+                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}"  type="video/mp4" size="1080" download>
+{#                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'_720p.mp4') }}"  type="video/mp4" size="720" download>#}
+                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}"  type="video/mp4" size="480" download>
+                    {{ 'front.browser_not_support_video5'|trans({'%link%' : '<a href="project/'~order.id~'/'~render.projectUid~'.mp4" download>', '%close_link%' : '</a>' }) }}
+                </video>
+                {#<button class="play-video"></button>#}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div class="account-info">
+        <p class="text-center title-text__info  wrapper-text">{% if order.video is not empty %}{{ order.video.title }}{% else %} {{ order.videoTitle|default('') }} ({{ 'front.video_deleted'|trans }}){% endif %}</p>
+        <div class="info-box info-box--dark">
+            <p class="title-text__info">{{ 'front.order_number'|trans }}</p>
+            <p class="desc-text__info">{{ order.id }}</p>
+        </div>
+        <div class="info-box info-box--dark">
+            <p class="title-text__info">{{ 'front.status'|trans }}</p>
+            <p class="desc-text__info">
+                {% if render.status is not empty %}
+                    {% if render.status == 'queued' %} {{ 'front.queue'|trans }} {% endif %}
+                    {% if render.status == 'started' %} {{ 'front.started'|trans }} {% endif %}
+                    {% if render.status == 'error' %} {{ 'front.error'|trans }} {% endif %}
+                    {% if render.status == 'processing' %} {{ 'front.processing'|trans }} {% endif %}
+                    {% if render.status == 'finished' %} {{ 'front.finished'|trans }} {% endif %}
+                {% else %}
+                    {{ 'front.queue'|trans }}
+                {% endif %}
+            </p>
+        </div>
+        <div class="info-box info-box--dark">
+            <p class="title-text__info">{{ 'front.date'|trans }}</p>
+            <p class="desc-text__info">{{ order.updatedAt|date('d.m.Y') }}</p>
+        </div>
+
+        {% if order.firstName.isEmpty == false %}
+            <div class="info-box info-box--dark">
+                <p class="title-text__info">{{ 'front.for_whom'|trans }}</p>
+                <p class="desc-text__info">
+                <span>
+                {% for name in order.firstName.toArray %}
+                    {% if loop.last %}
+                        {{ name.firstName.title }}
+                    {% else %}
+                        {{ name.firstName.title }},
+                    {% endif %}
+                {% endfor %}
+                </span>
+                </p>
+            </div>
+        {% endif %}
+
+
+        {% if order.removeFiles == 0 %}
+            {% if render.status is not empty %}
+                {% if render.status == 'finished' %}
+                    <a class="save__title btn btn-text btn__save" href="/project/{{ order.id }}/{{ render.projectUid }}.mp4" download="">{{ 'front.download'|trans }}</a>
+
+                    {#                <a class="save__title btn btn-text btn__save" href="/project/{{ order.id }}/{{ render.projectUid }}_480p.mp4" download="">{{ 'front.download480'|trans }}</a>#}
+
+                {% elseif render.status == 'error' %}
+                    {% if order.video is not empty %}
+                        <a class="save__title btn btn-text btn__save" href="{{ path('video_edit_render', {'id' : order.id, 'slug' : order.video.slug }) }}">{{ 'front.rendering_new_start'|trans }}</a>
+                    {% endif %}
+                {% else %}
+                    {% if render.type == 2 %}
+                        <a class="save__title btn btn-text btn__save" href="{{ path('full_video_render_processing', {'id' : order.id, 'slug' : order.video.slug }) }}">{{ 'front.rendering_proccess'|trans }}</a>
+                    {% else %}
+
+                        <a class="save__title btn btn-text btn__save" href="{{ path('video_render_processing', {'id' : order.id, 'slug' : order.video.slug }) }}">{{ 'front.rendering_proccess'|trans }}</a>
+
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+
+
+
+        {% if render.youtubeLink is not empty %}
+            <div class="info-box info-box--dark">
+                <p class="title-text__info">{{ 'front.link_to'|trans }} YouTube</p><a class="desc-text__info" href="{{ render.youtubeLink }}" target="_blank">{{ 'front.link'|trans }}</a>
+            </div>
+        {% endif %}
+{#        <div class="info-box info-box--dark">#}
+{#            <!-- <input class="copy-link" type="text"  value="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}" /> -->#}
+{#            <p class="desc-text___info desc-text__info--sm copy-link__text"  data-clipboard-text="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}">Копировать ссылку в качестве 1080p</p>#}
+{#        </div>#}
+
+{#        <div class="info-box">#}
+        <!-- 720p-->
+            <!-- <input class="copy-link" type="text"  value="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_720p.mp4') }}" /> -->
+{#            <p class="desc-text___info desc-text__info--sm copy-link__text" data-clipboard-text="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_720p.mp4') }}" >Копировать ссылку в качестве 720p</p>#}
+{#        </div>#}
+        <div class="info-box">
+            <!-- 480p-->
+            <!-- <input class="copy-link" type="text"  value="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}" /> -->
+            <p class="desc-text___info desc-text__info--sm copy-link__text" data-clipboard-text="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}" >Копировать ссылку</p>
+        </div>
+    </div>
+
+</div>

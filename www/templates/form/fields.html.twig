@@ -1,0 +1,125 @@
+{% block paragraph_widget %}
+    {% if form.vars.value.timestamp is defined %}
+        {{ form.vars.value|date('d.m.Y H:i') }}
+    {% elseif form.vars.name == 'childSex' %}
+        {% if form.vars.value is not empty %}
+            {% set childSex = form.vars.value|split(' ') %}
+            {% for sex in childSex %}
+                {% if loop.last %}
+                    {% if sex == constant('App\\Constants\\SexConstants::MALE') %} {{ 'front.boy'|trans }}{% endif %}
+                    {% if sex == constant('App\\Constants\\SexConstants::FEMALE') %} {{ 'front.girl'|trans }}{% endif %}
+                {% else %}
+                    {% if sex == constant('App\\Constants\\SexConstants::MALE') %} {{ 'front.boy'|trans }}{% endif %}
+                    {% if sex == constant('App\\Constants\\SexConstants::FEMALE') %} {{ 'front.girl'|trans }}{% endif %},
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% elseif form.vars.name == 'firstName' %}
+        {% if form.vars.value.isEmpty == false %}
+            {% for name in form.vars.value.toArray %}
+                {% if loop.last %}
+                    {{ name.firstName.title }}
+                {% else %}
+                    {{ name.firstName.title }},
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            Не выбрано
+        {% endif %}
+    {% else %}
+        {{ form.vars.value }}
+    {% endif %}
+
+    {% if form.vars.name == "projectUid" %}
+        {% if form.vars.attr['status'] is defined and form.vars.attr['status'] == "finished" %}
+            <p><a href="/project/{{ form.vars.attr['order'] }}/{{ form.vars.value }}.mp4" target="_blank">{{ 'object.order_link_render_result'|trans }}</a></p>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block generate_random_string_widget %}
+    <div class="sonata-ba-field sonata-ba-field-standard-natural">
+        <div class="input-group">
+            <div class="input-group date" id="{{ form.vars.id }}">
+                <input type="text" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" required="required" class="sonata-medium-date form-control"  value="{{ form.vars.value }}">
+                <span class="input-group-addon">
+                    <span class="fa fa-random generate_string"></span>
+                </span>
+            </div>
+        </div>
+        <script type="text/javascript">
+            jQuery(function ($) {
+                $("body").on('click', '.generate_string', function () {
+                    var random = Math.random().toString(36).substring(2, 10);
+                    $('input#{{ form.vars.id }}').attr('value', random);
+                });
+            });
+        </script>
+    </div>
+{% endblock %}
+
+{% block tags_text_widget %}
+    <input type="text" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" placeholder="separate tags with comma" data-ajax="/admin/tags.json" class=" form-control" value="{{ form.vars.value }}">
+    <script>
+        $(document).ready(function () {
+            (function () {
+                var $tagInput = $('input[name$="[tagsText]"]');
+                function tags($input) {
+                    $input.attr('type', 'hidden').select2({
+                        tags: true,
+                        tokenSeparators: [","],
+                        createSearchChoice: function(term, data) {
+                            if ($(data).filter(function () {
+                                    return this.text.localeCompare(term) === 0;
+                                }).length === 0) {
+                                return {
+                                    id: term,
+                                    text: term
+                                };
+                            }
+                        },
+                        multiple: true,
+                        ajax: {
+                            url: $input.data('ajax'),
+                            dataType: "json",
+                            data: function (term, page) {
+                                return {
+                                    q: term
+                                };
+                            },
+                            results: function (data, page) {
+                                return {
+                                    results: data
+                                };
+                            }
+                        },
+                        initSelection: function (element, callback) {
+                            var data = [];
+                            function splitVal(string, separator) {
+                                var val, i, l;
+                                if (string === null || string.length < 1) {
+                                    return [];
+                                }
+                                val = string.split(separator);
+                                for (i = 0, l = val.length; i < l; i = i + 1) {
+                                    val[i] = $.trim(val[i]);
+                                }
+                                return val;
+                            }
+                            $(splitVal(element.val(), ",")).each(function () {
+                                data.push({
+                                    id: this,
+                                    text: this
+                                });
+                            });
+                            callback(data);
+                        }
+                    });
+                }
+                if ($tagInput.length > 0) {
+                    tags($tagInput);
+                }
+            }());
+        });
+    </script>
+{% endblock %}

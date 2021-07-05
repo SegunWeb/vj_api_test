@@ -1,0 +1,7 @@
+swiftmailer:
+    transport: smtp
+    username: postmaster@post.vijoys.com
+    password: 8a65af9babae151bd94cbb8ad2070207-3e51f8d2-108b2190
+    host: smtp.eu.mailgun.org
+    port: 587
+    spool: { type: 'memory' }

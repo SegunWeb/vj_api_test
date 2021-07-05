@@ -1,0 +1,6 @@
+<form method="POST" action="https://api.privatbank.ua/p24api/ishop" id="payment-send-form" class="d-none">
+    {% for key, payment in a_payment %}
+        <input type="hidden" name="{{ key }}" value="{{ payment }}">
+    {% endfor %}
+    <button type="submit"><img src="img/buttons/api_logo_1.jpg" border="0" /></button>
+</form>

@@ -1,0 +1,7 @@
+<div class="example-store">
+    <h2 class="text-center title-text__md">{{ 'front.examples_video'|trans }}</h2>
+    <div class="example-store-video video-box"><img class="img-video" src="{% path page.catalogExamplesImageOnVideo, 'video_cover' %}" alt="img"/>
+        {% if page.catalogExamplesVideo is not empty %}<iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ page.catalogExamplesVideo.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>{% endif %}
+        <button class="play-video"></button>
+    </div>
+</div>

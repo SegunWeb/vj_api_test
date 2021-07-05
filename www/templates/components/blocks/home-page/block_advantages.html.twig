@@ -1,0 +1,61 @@
+<div class="advantages ">
+    <div class="container">
+        <div class="row">
+            <!----title-name----->
+            <h2 class="col-12 title-about text-center title-text__md--white">{{ 'front.our_advantages'|trans }}</h2>
+            <div class="col-12 advantages-box d-flex justify-content-center flex-wrap">
+                {% if page.advantageOneTitle is not empty %}
+                <!----content-block----->
+                <div class="advantages-wrap col-lg-5 justify-content-center col-md-6">
+                    <div class="advantages-wrap__content d-flex">
+                    <div class="advantages-wrap__img">
+                        <img src="{% path page.advantageOneIcon, 'small' %}">
+                    </div>
+                    
+                        <p class="align-self-center title-text__xs">{{ page.advantageOneTitle }}</p>
+                    </div>
+                    <p class="desc-text desc-text__md">{{ page.advantageOneText|raw }}</p>
+                </div>
+                {% endif %}
+                {% if page.advantageTwoTitle is not empty %}
+                <!----content-block----->
+                <div class="advantages-wrap col-lg-5 justify-content-center col-md-6">
+                    <div class="advantages-wrap__content d-flex">
+                    <div class="advantages-wrap__img">
+                         <img  src="{% path page.advantageTwoIcon, 'small' %}">
+                    </div>   
+                        <p class="align-self-center title-text__xs">{{ page.advantageTwoTitle }}</p>
+                    </div>
+                    <p class="desc-text desc-text__md">{{ page.advantageTwoText|raw }}</p>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-12 advantages-box d-flex justify-content-center flex-wrap">
+                {% if page.advantageThreeTitle is not empty %}
+                <!----content-block----->
+                <div class="advantages-wrap col-lg-5 justify-content-center col-md-6">
+                    <div class="advantages-wrap__content d-flex">
+                    <div class="advantages-wrap__img">
+                         <img  src="{% path page.advantageThreeIcon, 'small' %}">
+                    </div>   
+                        <p class="align-self-center title-text__xs">{{ page.advantageThreeTitle }}</p>
+                    </div>
+                    <p class="desc-text desc-text__md">{{ page.advantageThreeText|raw }}</p>
+                </div>
+                {% endif %}
+                {% if page.advantageFourTitle is not empty %}
+                <!----content-block----->
+                <div class="advantages-wrap col-lg-5 justify-content-center col-md-6">
+                    <div class="advantages-wrap__content d-flex">
+                    <div class="advantages-wrap__img">
+                        <img src="{% path page.advantageFourIcon, 'small' %}">
+                    </div> 
+                        <p class="align-self-center title-text__xs">{{ page.advantageFourTitle }}</p>
+                    </div>
+                    <p class="desc-text desc-text__md">{{ page.advantageFourText|raw }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

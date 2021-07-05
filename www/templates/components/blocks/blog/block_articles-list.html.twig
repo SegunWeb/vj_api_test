@@ -1,0 +1,29 @@
+<div class="articles col-12 col-lg-9">
+    <div class="row">
+        <h2 class="col-12 title-text__md">{{ 'front.blog'|trans }}</h2>
+
+        {% if dynamic.blog is not empty %}
+
+            <div class="col-12 col-lg-11 articles__box" data-count="{{ dynamic.blog|length }}">
+
+            {% include 'components/blocks/blog/block_articles-box.html.twig' %}
+
+            </div>
+
+            {% if dynamic.blog_count > dynamic.blog|length %}
+                <button class="btn btn__all btn-text show-more-blog">{{ 'front.show_more'|trans }}</button>
+            {% endif %}
+
+        {% else %}
+
+            <div class="col-12 d-flex justify-content-between how-info__content flex-wrap">
+                <div class="col-md-12 m-md-auto order-1 order-lg-0">
+                    <p class="desc-text desc-text--black text-center desc-text--blue">
+                        {{ 'front.no_blog_found'|trans }}
+                    </p>
+                </div>
+            </div>
+
+        {% endif %}
+    </div>
+</div>

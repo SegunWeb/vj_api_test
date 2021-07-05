@@ -1,0 +1,39 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+{#<div class="loaderArea">#}
+{#    <div class="loader"></div>#}
+{#</div>#}
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{% set setting = setting() %}
+<!---header--->
+{% include 'components/blocks/header-red.html.twig' %}
+<!---header-end--->
+<!---header-end--->
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+    {% include 'components/pop-up/auth_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main>
+
+    {% include "bundles/FOSUserBundle/Resetting/reset_content.html.twig" %}
+    {#{% include 'components/blocks/static_page/content.html.twig' %}#}
+
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+
+</body>
+</html>

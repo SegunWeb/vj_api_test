@@ -1,0 +1,276 @@
+{% if order is defined and order is not empty %}
+    {% set render = order.render.last() %}
+<div class="video-ready">
+
+    <h2 class="text-center title-text__md wrapper-text block-custom">
+    {% if order.video.skipDemo == false %}
+        {{ 'front.demo_version'|trans }}
+    {% else %}
+        {{ 'front.demo_version_payment'|trans }}
+    {% endif %}
+    </h2>
+    <div class="video-ready__box--demo">
+        <!----movie------>
+        {% if order.video.skipDemo == false %}
+            <div class="example-store-video video-box video-ready-box demo video-wrapp">
+    {#            <video playsinline webkit-playsinline crossorigin data-href="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" class="paids-videos" src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" preload="metadata" controls poster="{% if order.video is not empty and order.video.banner is not empty %} {% path order.video.banner, 'video_cover' %} {% elseif order.video is not empty and order.video.congratulationExample is not empty  %} {% path order.video.congratulationExample, 'example' %} {% endif %}">#}
+    {#                {{ 'front.browser_not_support_video5'|trans({'%link%' : '<a href="project/'~order.id~'/'~render.projectUid~'.mp4" download>', '%close_link%' : '</a>' }) }}#}
+    {#            </video>#}
+                {#<button class="play-video"></button>#}
+
+    {#            <video playsinline webkit-playsinline preload="metadata" class="paids-videos" src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" poster="{% if order.video is not empty and order.video.banner is not empty %} {% path order.video.banner, 'video_cover' %} {% elseif order.video is not empty and order.video.congratulationExample is not empty  %} {% path order.video.congratulationExample, 'example' %} {% endif %}">#}
+    {#                <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}"  type="video/mp4"  >#}
+    {#                {{ 'front.browser_not_support_video5'|trans({'%link%' : '<a href="project/'~order.id~'/'~render.projectUid~'.mp4" download>', '%close_link%' : '</a>' }) }}#}
+    {#            </video>#}
+                <video preload="metadata" playsinline webkit-playsinline  type="video/mp4"  codecs="avc1.42E01E, mp4a.40.2" class="paids-videos" data-href="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" poster="{% if order.video is not empty and order.video.banner is not empty %} {% path order.video.banner, 'video_cover' %} {% elseif order.video is not empty and order.video.congratulationExample is not empty  %} {% path order.video.congratulationExample, 'example' %} {% endif %}" />
+            </div>
+        {% endif %}
+
+        <!---share--->
+        <div class="share-box">
+        <!--------subss--------->
+            {% if dynamic.is_subscribe_enable %}
+                {% include 'components/blocks/pay_page_before/block_pay_sub-demo.twig' %}
+            {% endif %}
+        <!-----subss end-------->
+            <!--------purchase--------->
+            {% if dynamic.is_purchase_enable %}
+                {% include 'components/blocks/pay_page_before/block_pay_purchase-demo.twig' %}
+            {% endif %}
+            <!-----purchase end-------->
+            <div>
+                {% if order.video is not empty %}
+                    {% if order.video.skipDemo == false %}
+                        <a href="{{ path('video_edit_render', {'id' : order.id, 'slug' : order.video.slug }) }}" class=" btn-text btn__redact btn__redact--new"><i class="fas fa-long-arrow-alt-left"></i> {{ 'front.edit'|trans }}</a>
+                    {% endif %}
+                {% else %}
+                    <span style="color:red;">
+                        {{ 'front.video_deleted'|trans }}
+                    </span>
+                {% endif %}
+            </div>
+        </div>
+
+{#        <!----price---->#}
+
+{#        <div class="ready-cont">#}
+{#            {% if order.video.skipDemo == false %}#}
+{#            <div class="wow-text">#}
+{#                <p>{{ 'front.wow_text_1'|trans }}<img src="{{ asset('image/new-elem/bomb.png') }}" alt="bomb"></p>#}
+{#                <p>{{ 'front.wow_text_2'|trans }}</p>#}
+{#                <p>{{ 'front.wow_text_3'|trans }}</p>#}
+{#            </div>#}
+{#            {% endif %}#}
+
+{#            <div class="wow-image">#}
+{#                <img src="{{ asset('image/new-elem/gift-smile.png') }}" alt="gift">#}
+{#            </div>#}
+{#            <div class="price">#}
+{#                {% if order.video is not empty and order.video.hidePrice == 0 and order.video.priceUsd > 0 and subscription is empty %}#}
+{#                    <div class="price-box">#}
+
+{#                        <div>#}
+{#                            <div class="price-box__main price-wrap">#}
+{#                                <span class="price-text__currency price-text__currency--lg">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }}{% else %}грн{% endif %}</span>#}
+{#                                <span class="price-text price-text--lg {% if order.video.discount > 0 or discount is not null %}price-text__discount{% endif %}">{% if currency is not empty %}{{ order.price }}{% else %}{{ order.video.priceUah }}{% endif %}</span>#}
+{#                            </div>#}
+{#                            <div class="price-btn-wrapp">#}
+{#                                <form method="post" action="{{ path('checkout', {'id' : order.id }) }}" id="checkout">#}
+{#                                    <ul class="video-ready__bank">#}
+{#                                        {% if currency is defined and currency is not empty %}#}
+{#                                              {% if currency.codeISO == 'UAH' %}#}
+{#                                                  <li>#}
+{#                                                      <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="3" id="boy1">#}
+{#                                                      <label for="boy1">#}
+{#                                                          <img src="{{ asset('image/logo-bank/privat.png') }}" alt="">#}
+{#                                                      </label>#}
+{#                                                  </li>#}
+{#                                                  <li>#}
+{#                                            <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="2" id="platon">#}
+{#                                            <label for="platon">#}
+{#                                            <img src="{{ asset('image/logo-bank/platon.png') }}" alt="">#}
+{#                                            </label>#}
+{#                                            </li>#}
+{#                                             {% elseif currency.codeISO == 'RUB' %}#}
+
+
+{#                                            ========== кнопки visa master ==========#}
+
+{#                                            <li>#}
+{#                                                <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="1" id="visa" >#}
+
+{#                                                <!--------- кнопки платежек -------->#}
+{#                                                <label for="visa" class="inter-wrap">#}
+{#                                                    <span>{{ 'front.video_payment_visa_method'|trans }}</span>#}
+{#                                                    <img src="{{ asset('image/logo-bank/visa.png') }}" alt="">#}
+{#                                                </label>#}
+{#                                            </li>#}
+{#                                            <li>#}
+{#                                                <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="2" id="inter-mc" >#}
+{#                                                <!--------- кнопки платежек -------->#}
+{#                                                <label for="inter-mc" class="inter-wrap">#}
+{#                                                    <span>{{ 'front.video_payment_mc_method'|trans }}</span>#}
+{#                                                    <img src="{{ asset('image/logo-bank/master.png') }}" alt="">#}
+{#                                                </label>#}
+{#                                            </li>#}
+{#                                              {% else %}#}
+{#                                                  <li>#}
+{#                                                      <input class="payment btn__pay save__title  option-input__bank" type="button" name="paid" data-value="0" id="PayPal" >#}
+{#                                                      <label for="PayPal">#}
+{#                                                          <img src="{{ asset('image/logo-bank/paypal.png') }}" alt="">#}
+{#                                                      </label>#}
+{#                                                  </li>#}
+{#                                              {% endif %}#}
+{#                                        {% endif %}#}
+{#                                    </ul>#}
+{#                                    <div class="another_way">#}
+{#                                        <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="3" id="inter" >#}
+{#                                        <label for="inter">#}
+{#                                        <span class="save__title btn btn-text btn__pay promocode"></span>#}
+{#                                        <img src="{{ asset('image/logo-bank/interkkass.png') }}" alt="">#}
+{#                                        </label>#}
+
+{#                                        <label for="inter" class="desc-text___info desc-text__info--sm copy-link__text">#}
+{#                                            <span>{{ 'front.video_payment_other_method'|trans }}</span>#}
+{#                                            <img src="{{ asset('image/logo-bank/interkkass.png') }}" alt="">#}
+{#                                        </label>#}
+{#                                    </div>#}
+{#                                 <button class="save__title btn btn-text btn__pay payment">{{ 'front.to_pay'|trans }}</button>#}
+
+{#                                </form>#}
+{#                            </div>#}
+
+{#                        </div>#}
+
+
+
+{#                        {% if order.video.discount > 0 %}#}
+{#                            <div class="price-box__discount">#}
+
+{#                                {% if currency is not empty %}#}
+{#                                    {% set price = order.price %}#}
+{#                                {% else %}#}
+{#                                    {% set price = order.video.priceUah %}#}
+{#                                {% endif %}#}
+
+{#                                {% set discountOrder = (price * order.video.discount) / 100 %}#}
+{#                                {% set discountOrder = price - discountOrder %}#}
+{#                                {% if discount is not null %}#}
+{#                                    {% set discountEmailOrder = (discountOrder * discount) / 100 %}#}
+{#                                    {% set discountOrder = discountOrder - discountEmailOrder %}#}
+{#                                {% endif %}#}
+
+{#                                <p class="price-text price-text--lg price-text--red">{{ discountOrder }}</p><span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }}{% else %}грн{% endif %}</span>#}
+{#                            </div>#}
+{#                        {% elseif discount is not null %}#}
+
+{#                            {% if currency is not empty %}#}
+{#                                {% set price = order.price %}#}
+{#                            {% else %}#}
+{#                                {% set price = order.video.priceUah %}#}
+{#                            {% endif %}#}
+
+{#                            {% set discountEmailOrder = (price * discount) / 100 %}#}
+{#                            {% set discountOrder = price - discountEmailOrder %}#}
+{#                            <p class="price-text price-text--lg price-text--red">{{ discountOrder }}</p><span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }} {% else %} грн {% endif %}</span>#}
+{#                        {% endif %}#}
+{#                    </div>#}
+{#                {% else %}#}
+{#                    <div class="price-box">#}
+{#                        <div>#}
+{#                            <div class="price-btn-wrapp">#}
+{#                                <form method="post" action="{{ path('checkout', {'id' : order.id }) }}" id="checkout">#}
+{#                                    <ul class="video-ready__bank">#}
+{#                                        <li>#}
+{#                                            <input class="free btn__pay save__title option-input__bank" type="button" name="free" data-value="1" id="inter-free" >#}
+{#                                            <label for="inter">#}
+{#                                            <span class="save__title btn btn-text btn__pay promocode"></span>#}
+{#                                            <img src="{{ asset('image/logo-bank/interkkass.png') }}" alt="">#}
+{#                                            </label>#}
+
+{#                                            <label for="inter-free" class="inter-wrap">#}
+{#                                                <span>{{ 'front.video_free_create'|trans }}</span>#}
+{#                                                Создать ролик бесплатно#}
+{#                                                <img src="{{ asset('image/logo-bank/interkkass.png') }}" alt="">#}
+{#                                            </label>#}
+{#                                        </li>#}
+{#                                     </ul>#}
+{#                                 </form>#}
+{#                             </div>#}
+{#                         </div>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            </div>#}
+
+
+{#            <div>#}
+{#                {% if order.video is not empty %}#}
+{#                    {% if order.video.skipDemo == false %}#}
+{#                        <a href="{{ path('video_edit_render', {'id' : order.id, 'slug' : order.video.slug }) }}" class=" btn-text btn__redact btn__redact--new">{{ 'front.edit'|trans }}</a>#}
+{#                    {% endif %}#}
+{#                {% else %}#}
+{#                    <span style="color:red;">#}
+{#                        {{ 'front.video_deleted'|trans }}#}
+{#                    </span>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
+
+    </div>
+
+{#    {% if order.video is not empty %}#}
+{#    <div class="bank-container">#}
+{#        {% if order.video is not empty and order.video.hidePrice == 0 and order.video.priceUsd > 0 and subscription is empty %}#}
+{#            <p class="text-center">{{ 'object.payment_method'|trans }}</p>#}
+{#        {% endif %}#}
+{#        <p class="text-center">{{ 'object.del_demo_video'|trans }}</p>#}
+
+{#    </div>#}
+
+{#        {% if order.video is not empty and order.video.hidePrice == 0 and order.video.priceUsd > 0 and subscription is empty %}#}
+{#            <div class="video-ready__pay">#}
+{#                    <div class="video-ready__pay" style="display: none">#}
+{#                <p class="desc-text--blue">{{ 'front.have_a_promo_code'|trans }}</p>#}
+{#                <div class="pay-box">#}
+{#                    <form class="pay-box__form" method="post" action="{{ path('checkout', {'id' : order.id }) }}" id="promocode">#}
+{#                       <label for="promo">{{ 'front.promo_code'|trans }}</label>#}
+{#                        <input class="form-control" type="text" name="promocod" id="promo" placeholder="{{ 'front.promo_code'|trans }}" value="{{ promoCode }}" required="required">#}
+{#                    </form>#}
+{#                    <div class="form-control-feedback" style="width: 100%; display: none; font-size: 14px; font-weight: 100; color: #005dba; text-align: center;"></div>#}
+{#                    <button class="save__title btn btn-text btn__pay promocode">{{ 'front.to_pay'|trans }}</button>#}
+{#                    <button class="save__title  btn-text btn__pay promocode">{{ 'front.promo_code_activation'|trans }}</button>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endif %}#}
+{#    {% endif %}#}
+{#    <p class="text-center">{{ 'front.show_comment'|trans }}</p>#}
+{#</div>#}
+
+    <div class="promo-sub-wrap">
+{#        <p class="desc-text--blue">{{ 'front.have_a_promo_code'|trans }}</p>#}
+        <form class="promo-sub" method="post" action="{{ path('home') }}" id="subscribeFormDiscount">
+            <input class="form-control" type="text" name="promocode" placeholder="{{ 'front.promo_code'|trans }}" value="" required="required">
+            <div class="form-control-feedback"></div>
+            <button class="btn__pay" type="submit" disabled="disabled">{{ 'front.promo_code_activation'|trans }}</button>
+            {% if dynamic.subscription_type %}
+                <input type="hidden" name="id" value="{{ dynamic.subscription_type.id }}">
+            {% endif %}
+            <input type="hidden" name="order_id" value="{{ order.id }}">
+        </form>
+    </div>
+
+<div id="hidden-payment">
+
+</div>
+{#{% else %}#}
+{#<div class="video-ready">#}
+{#    <h2 class="text-center title-text__md">{{ 'front.demo_version'|trans }}</h2>#}
+{#    <div class="col-12 d-flex justify-content-between how-info__content flex-wrap">#}
+{#        <div class="col-md-12 m-md-auto order-1 order-lg-0">#}
+{#            <p class="desc-text desc-text--black text-center desc-text--blue">#}
+{#                {{ 'front.order_not_found'|trans }}#}
+{#            </p>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{% endif %}

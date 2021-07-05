@@ -1,0 +1,22 @@
+<div class="about-form">
+    <h3 class="title-text__sm text-center title-text__article title-text__article--sup">{{ 'front.form_feedback'|trans }}</h3>
+    <div class="about-form__content">
+        {#<image src="{{ asset('image/icons/camera.png') }}">#}
+        <form id="supports">
+            <div class="form-group">
+                <input class="form-control" type="text" name="fullName" minlength="3" maxlength="50" placeholder="{{ 'front.name'|trans }}" required="required" {% if app.user is not empty %}value="{{ app.user.fullName }}" {% endif %}>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email" required="required" {% if app.user is not empty %}value="{{ app.user.email }}" {% endif %}>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="{{ 'front.enter_text'|trans }}" name="text" minlength="20" maxlength="1000"  required="required"></textarea>
+            </div>
+        </form>
+        <button class="btn btn-text btn__testim-sub" type="submit" form="form-about">{{ 'front.send'|trans }}</button>
+    </div>
+    <div class="testim-info" style="display: none;">
+        {#<image src="{{ asset('image/icons/camera.png') }}">#}
+        <p class="desc-text--blue text-center">{{ 'front.success_send_callback'|trans }}</p>
+    </div>
+</div>

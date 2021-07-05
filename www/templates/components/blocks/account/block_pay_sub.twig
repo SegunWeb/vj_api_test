@@ -1,0 +1,169 @@
+<div class="subs-wrapper">
+    {% if dynamic.subscription_type is not empty %}
+
+    <div class="subs-offer">
+        <div class="subs-text">
+            {{ 'front.invitation_to_free_subscription_finish'|trans }}
+        </div>
+        <div class="subs-button">
+            <div class="another_way">
+                <div class=" desc-text___info desc-text__info--sm copy-link__text subs-pay-btn">
+                    <p class="subs-more">{{ 'front.get_premium_subscription'|trans }}</p>
+{#                    <div class="price-box__main price-wrap price-wrap-subs">#}
+{#                        <span class="price-text__currency price-text__currency--lg price-currency-subs">{{ dynamic.price.price }} {{ dynamic.price.sing }}</span>#}
+{#                    </div>#}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-wrapp">
+        <div class="popup-box">
+            <span class="close-popup"></span>
+
+
+            <div class="offer-popup">
+                <div class="subs-text">
+                    {#                    {{ dynamic.subscription_type.description|raw }}#}
+                    <div class="wow-img">
+{#                        <img src="{{ asset('img/new-logo/LOGO.png') }}" alt="logo">#}
+                        <img src="{% path setting.logoHeader, 'reference' %}" alt="logo">
+                    </div>
+                    <div class="wow-text">
+                        <p>{{ 'front.wow_text_1'|trans }}</p>
+                        {#                        <p>{{ 'front.wow_text_2'|trans }}</p>#}
+                        {#                        <p>{{ 'front.wow_text_3'|trans }}</p>#}
+                    </div>
+                </div>
+
+                <div class="button-step-offer">
+                    <div class="d-flex justify-content-center">
+                        <div class="share-text desc-text___info desc-text__info--sm copy-link__text subs-pay-btn">
+                            <p class="subs-more btn-share">{{ 'front.to_be_continued'|trans }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="subs-popup">
+
+                <div class="button-pay">
+                    <div class="wrap-box-subs">
+                        {#                <div class="price-box__main price-wrap">#}
+                        {#                    <span class="price-text__currency price-text__currency--lg .price-currency-subs">{{ dynamic.price.price }} {{ dynamic.price.sing }}</span>#}
+                        {#                </div>#}
+                        <div class="price-btn-wrapp">
+                            <form method="post" action="{{ path('home') }}" id="subscribeForm">
+                                {#                                                        <ul class="video-ready__bank">#}
+                                {#                                                            <li>#}
+                                {#                                                                <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="1" id="visa" >#}
+                                {#                                                                <!--------- кнопки платежек -------->#}
+                                {#                                                                <label for="visa" class="inter-wrap">#}
+                                {#                                                                    <img src="{{ asset('img/logo-bank/visa.png') }}" alt="">#}
+                                {#                                                                </label>#}
+                                {#                                                            </li>#}
+                                {#                                                            <li>#}
+                                {#                                                                <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="2" id="inter-mc" >#}
+                                {#                                                                <!--------- кнопки платежек -------->#}
+                                {#                                                                <label for="inter-mc" class="inter-wrap">#}
+                                {#                                                                    <img src="{{ asset('img/logo-bank/master.png') }}" alt="">#}
+                                {#                                                                </label>#}
+                                {#                                                            </li>#}
+                                {#                                                        </ul>#}
+
+                                <div class="another_way">
+                                    <input class="btn__pay save__title option-input__bank" type="button" name="paid" data-value="3" id="inter_subscribe" >
+                                    <div class="wrap-subs-lb">
+
+                                        <div class="current-price-wrap">
+                                            <div class="current-price">
+                                                <p>
+                                                    {#                                                    {{ dynamic.price.price }}#}
+                                                    {{ dynamic.price.frontPrice  }}
+{#                                                    {{ 'front.my_currency_number'|trans }}#}
+                                                </p>
+                                                <div>
+                                                    <p class="my-currency">{{ dynamic.price.sing }}</p>
+                                                    <span class="my-line"></span>
+                                                    <p class="my-currency_mount">{{ 'front.my_currency_mount'|trans }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sale-box">
+                                            <span class="full-price">{{ dynamic.price.fullPrice  }} {{ dynamic.price.sing }}</span>
+                                            <span class="full-price">{{ dynamic.price.fullPrice  }}{{ dynamic.price.sing }}/год</span>
+                                            <span class="perc-price"> (<span>{{ 'front.perc_price_discount'|trans }}</span>-{{ dynamic.price.discount  }}%)</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="more-information">
+                                    <p>{{ 'front.more_information_still'|trans }}</p>
+                                    <p>*{{ dynamic.price.price }}{{ dynamic.price.sing }} {{ 'front.more_information_still'|trans }}</p>
+                                </div>
+                                <div class="subs-text-popup">
+                                    {{ dynamic.subscription_type.description|raw }}
+                                </div>
+
+                                <div class="move-text">
+                                    <p>{{ 'front.move_text_still'|trans }}</p>
+                                </div>
+
+                                <ul class="video-ready__bank">
+                                    <li>
+                                        <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="1" id="inter_visa" >
+                                        <label for="inter_visa" class="subs-pay-btn card-btn">
+                                            <img src="{{ asset('img/logo-bank/visa-03.png') }}" alt="visa">
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="2" id="inter_mastercard">
+                                        <label for="inter_mastercard" class="subs-pay-btn card-btn">
+                                            <img src="{{ asset('img/logo-bank/master-03.png') }}" alt="master">
+                                        </label>
+                                    </li>
+
+{#                                    <li>#}
+{#                                        <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="paypal" id="pay_pal_pay">#}
+{#                                        <label for="pay_pal_pay" class="subs-pay-btn card-btn">#}
+{#                                            <img src="{{ asset('img/logo-bank/paypal-600x300.png') }}" alt="paypal">#}
+{#                                        </label>#}
+{#                                    </li>#}
+                                </ul>
+
+                                <div class="doc-payds">
+                                    <p>{{ 'front.doc_payds'|trans }}<a href="#">{{ 'front.doc_payds_link'|trans }}</a> </p>
+                                    <p>{{ 'front.doc_payds'|trans }}<a target="_blank" href="https://brand.vijoys.com/documents">{{ 'front.doc_payds_link'|trans }}</a> </p>
+                                </div>
+
+                                <div class="current-price-box">
+                                    <label for="inter_subscribe" class="subs-pay-btn more-way-pay">{{ 'front.subscribe_to_premium'|trans }}</label>
+                                </div>
+
+                                <input type="hidden" name="id" value="{{ dynamic.subscription_type.id }}">
+
+                            </form>
+
+
+                            {#                            <form method="post" action="{{ path('home') }}" id="subscribeFormDiscount">#}
+                            {#                                <input class="form-control" type="text" name="promocode" placeholder="{{ 'front.promo_code'|trans }}" value="" required="required">#}
+                            {#                                <div class="form-control-feedback"></div>#}
+                            {#                                <button class="btn__pay" type="submit" disabled="disabled">{{ 'front.promo_code_activation'|trans }}</button>#}
+                            {#                                <input type="hidden" name="id" value="{{ dynamic.subscription_type.id }}">#}
+                            {#                                <input type="hidden" name="order_id" value="{{ order.id }}">#}
+                            {#                            </form>#}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% elseif dynamic.subscription is not empty %}
+        <div class="subs-text-active">
+            {{ 'front.subscription_active_to'|trans }} {{ dynamic.subscription.expiredAt|date("d.m.Y") }}
+        </div>
+    {% endif %}
+</div>

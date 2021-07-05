@@ -1,0 +1,9 @@
+.dist_convas {
+  display: flex;
+  flex-wrap: wrap; }
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f0f0f0; }

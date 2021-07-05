@@ -1,0 +1,128 @@
+sonata_admin:
+    title: 'VideoJoy'
+    title_logo: image/icons/header-logo.png
+    templates:
+        user_block: 'bundles/Sonata/user_block.html.twig'
+    assets:
+        extra_javascripts:
+            - 'js/librarys/bootstrap-notify.min.js'
+            - 'js/admin.js'
+        extra_stylesheets:
+            - 'styles/admin.css'
+
+    dashboard:
+        blocks:
+            - { type: sonata.admin.block.admin_list, position: left }
+        groups:
+            app.admin.group.order:
+                on_top: true
+                label: app.admin.group.order
+                label_catalogue: App
+                icon: '<i class="fa fa-video-camera"></i>'
+                items:
+                    - app.admin.order
+            app.admin.group.video:
+                label: app.admin.group.video
+                label_catalogue: App
+                icon: '<i class="fa fa-video-camera"></i>'
+                items:
+                    - app.admin.video
+                    - app.admin.categories
+            app.admin.group.directories:
+                label: app.admin.group.directories
+                label_catalogue: App
+                icon: '<i class="fa fa-video-camera"></i>'
+                items:
+                    - app.admin.first_name
+                    - app.admin.country
+                    - app.admin.phrases
+                    - app.admin.phrases_categories
+                    - app.admin.holidays
+            app.admin.group.page:
+                on_top: true
+                label: app.admin.group.page
+                label_catalogue: App
+                icon: '<i class="fa fa-file-o"></i>'
+                items:
+                    - app.admin.page
+            app.admin.group.blog:
+                label: app.admin.group.blog
+                label_catalogue: App
+                icon: '<i class="fa fa-question-circle"></i>'
+                items:
+                    - app.admin.blog
+                    - app.admin.blog_categories
+            app.admin.group.menu:
+                label: app.admin.group.menu
+                label_catalogue: App
+                icon: '<i class="fa fa-list-ol"></i>'
+                items:
+                    - app.admin.header_menu
+                    - app.admin.footer_menu
+            app.admin.group.review:
+                label: app.admin.group.review
+                label_catalogue: App
+                icon: '<i class="fa fa-book"></i>'
+                items:
+                    - app.admin.review
+                    - app.admin.review_video
+            app.admin.group.promo_code:
+                on_top: true
+                label: app.admin.group.promo_code
+                label_catalogue: App
+                icon: '<i class="fa fa-usd"></i>'
+                items:
+                    - app.admin.promo_code
+            app.admin.group.feedback:
+                on_top: true
+                label: app.admin.group.feedback
+                label_catalogue: App
+                icon: '<i class="fa fa-comments-o"></i>'
+                items:
+                    - app.admin.feedback
+            app.admin.group.help:
+                on_top: true
+                label: app.admin.group.help
+                label_catalogue: App
+                icon: '<i class="fa fa-question-circle"></i>'
+                items:
+                    - app.admin.help
+            app.admin.group.translations:
+                on_top: true
+                label: app.admin.group.translations
+                label_catalogue: App
+                icon: '<i class="fa fa-user"></i>'
+                items:
+                    - app.admin.translations
+            app.admin.group.users:
+                on_top: true
+                label: app.admin.group.users
+                label_catalogue: App
+                icon: '<i class="fa fa-user"></i>'
+                items:
+                    - app.admin.users
+            app.admin.group.subscriptions:
+                label: 'Управление подписками'
+                label_catalogue: App
+                icon: '<i class="fa fa-calendar"></i>'
+                items:
+                    - app.admin.subscriptions_type
+                    - app.admin.subscriptions
+            app.admin.group.setting:
+                label: app.admin.group.setting
+                label_catalogue: App
+                icon: '<i class="fa fa-cogs"></i>'
+                items:
+                    - app.admin.currency
+                    - app.admin.mail_template
+                    - sonata.media.admin.media
+                    - route: admin_app_setting_edit
+                      route_params:
+                          id: 1
+                      label: app.admin.group.setting
+
+sonata_block:
+    blocks:
+        sonata_translation.block.locale_switcher: ~
+        sonata.admin.block.admin_list:
+            contexts: [admin]

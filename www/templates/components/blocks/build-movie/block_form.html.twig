@@ -1,0 +1,62 @@
+<div class="step-form steps {% if app.user is not empty %}d-none{% endif %}">
+    <h2 class="text-center title-text__md title-text__step">{{ 'front.enter_data'|trans }}</h2>
+    <!----form box----->
+    <div class="step-box step-box__form">
+        <!----form----->
+        <form class="step-form-box text-center" id="data">
+            <div class="form-group feedback-fullName">
+                <label for="form_name">{{ 'front.full_name'|trans }}</label>
+                <input class="form-control"  name="name" type="text" id="form_name" placeholder="Вваше имя" minlength="3" required="required" {% if order is defined %}value="{{ order.fullName }}"{% elseif app.user is not empty %}value="{{ app.user.fullName }}"{% endif %}>
+            </div>
+            <div class="form-control-feedback" style="width: 100%; display: none; font-size: 14px; font-weight: 100; color: white; text-align: right;"></div>
+            <div class="form-group feedback-email">
+                <label for="form_email">{{ 'front.email'|trans }}</label>
+                <input class="form-control"  name="email" type="email" id="form_email" placeholder="E-mail" minlength="8" required="required" {% if order is defined %}value="{{ order.email }}"{% elseif app.user is not empty %}value="{{ app.user.email }}"{% endif %}>
+            </div>
+            <div class="form-control-feedback" style="width: 100%; display: none; font-size: 14px; font-weight: 100; color: white; text-align: right;"></div>
+{#            <div class="form-group feedback-city" style="display: none">#}
+{#                <label for="text">{{ 'front.city'|trans }}</label>#}
+{#                <input class="form-control" type="text" id="form_city"  placeholder="Ваш город" minlength="3" required="required" {% if order is defined %}value="{{ order.city }}"{% elseif app.user is not empty %}value="{{ app.user.city }}"{% endif %}>#}
+{#            </div>#}
+            <div class="field form-group feedback-phone">
+                <label for="form_phone">{{ 'front.phone'|trans }}</label>
+                <input class="form-control" name="phone" type="phone" id="form_phone" placeholder="Телефон" minlength="6" required="required" {% if order is defined %}value="{{ order.phone }}"{% elseif app.user is not empty %}value="{{ app.user.phone }}"{% endif %}>
+            </div>
+
+
+{#            <div class="field form-group feedback-phone">#}
+{#                <label for="phone">Ваш телефон:</label>#}
+{#                <input type="text" id="phone" name="phone" autofocus="true" placeholder="9990000000">#}
+{#            </div>#}
+
+
+
+
+            <div class="form-control-feedback" style="width: 100%; display: none; font-size: 14px; font-weight: 100; color: white; text-align: right;"></div>
+
+            <div class="form-group info-text-tel">
+                <span>Мы НЕ будем вам звонить. Телефон требуется для идентификации.</span>
+            </div>
+
+            <div class="form-group feedback-check" >
+                {% set user_agreement = "user_agreement"|trans({'%href%': '/'~dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::USER_AGREEMENT_VALUES'), app.request.locale) }) %}
+                <input class="checkbox-form" type="checkbox"  required="required" style="display: block;" id="check" {% if app.user is not empty %}checked{% endif %}>
+                <label class="check-label" for="check">{{ user_agreement|raw }}</label>
+            </div>
+            <div class="form-control-feedback" style="width: 100%; display: none; font-size: 14px; font-weight: 100; color: white; text-align: right;"></div>
+
+
+
+        </form>
+
+        {% if app.user is empty %}
+            <button class="btn__auth text-center d-flex align-self-center btn-text btn-text--sm form-aunt-btn">{{ 'front.log_in'|trans }}</button>
+        {% endif %}
+    </div>
+    <div class="step__btn">
+        <button class="btn btn-text btn__prev">{{ 'front.backwards'|trans }}</button>
+        <button class="btn btn-text btn__sub {% if order is defined %}act_btn edit{% endif %}" type="submit">{{ 'front.further'|trans }}</button>
+    </div>
+
+
+</div>

@@ -1,0 +1,33 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/public/project/*
+!/public/project/render.js
+!/public/project/script.jsx
+/var/
+/vendor/
+.idea/
+###< symfony/framework-bundle ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
+
+/src/Utils/afterEffect/node_modules/
+/src/Utils/afterEffect/Render.avi
+/.env
+npm-debug.log
+public/githook.php
+public/test.php
+/public/youtube_key.txt
+/public/upload/tmp/*
+/public/upload/uploaded_original_image/
+/public/.htaccess
+/public/upload
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

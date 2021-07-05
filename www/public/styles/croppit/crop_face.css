@@ -1,0 +1,32 @@
+.dist_canvas {
+  display: flex;
+  flex-wrap: wrap; }
+
+.new_line {
+  flex-basis: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; }
+
+#container .konvajs-content {
+  border: 1px solid black; }
+
+#canvas_cropped, #canvas_hole {
+  border: 1px solid black; }
+
+.form_control {
+  padding: 15px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.row_canvas {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap; }
+
+.row_empty {
+  flex-basis: 100%; }

@@ -1,0 +1,66 @@
+<div id="not-paids" class="not-paids" style="">
+
+    {% set render = order.render.last() %}
+
+    {% if render is not empty and render.status is not empty %}
+        {% if render.status == 'finished' %}
+            <div class="example-store-video example-store-video__account video-box">
+                <video  data-href="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" class="paids-videos" data-video="" src="{#{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}#}"   preload="metadata" controls poster="{% if order.video is not empty and order.video.banner is not empty %} {% path order.video.banner, 'video_cover' %} {% elseif order.video is not empty and order.video.congratulationExample is not empty  %} {% path order.video.congratulationExample, 'example' %} {% endif %}">
+                    {{ 'front.browser_not_support_video5'|trans({'%link%' : '<a href="project/'~order.id~'/'~render.projectUid~'.mp4" download>', '%close_link%' : '</a>' }) }}
+                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" type="video/mp4" >
+                </video>
+                {#<button class="play-video"></button>#}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div class="account-info">
+        <p class="text-center title-text__info  wrapper-text">{% if order.video is not empty %}{{ order.video.title }}{% else %} {{ order.videoTitle|default('') }} ({{ 'front.video_deleted'|trans }}){% endif %}</p>
+        <div class="info-box info-box--dark">
+            <p class="title-text__info">{{ 'front.order_number'|trans }}</p>
+            <p class="desc-text__info">{{ order.id }}</p>
+        </div>
+        <div class="info-box info-box--dark">
+            <p class="title-text__info">{{ 'front.status'|trans }}</p>
+            <p class="desc-text__info">
+                {% if render is not empty and render.status is not empty %}
+                    {% if render.status == 'queued' %} {{ 'front.queue'|trans }} {% endif %}
+                    {% if render.status == 'started' %} {{ 'front.started'|trans }} {% endif %}
+                    {% if render.status == 'processing' %} {{ 'front.processing'|trans }} {% endif %}
+                    {% if render.status == 'finished' %} {{ 'front.finished'|trans }} {% endif %}
+                {% else %}
+                    {{ 'front.queue'|trans }}
+                {% endif %}
+            </p>
+        </div>
+        <div class="info-box info-box--dark">
+            <p class="title-text__info">{{ 'front.date'|trans }}</p>
+            <p class="desc-text__info">{{ order.updatedAt|date('d.m.Y') }}</p>
+        </div>
+
+        {% if order.firstName.isEmpty == false %}
+        <div class="info-box info-box--dark">
+            <p class="title-text__info">{{ 'front.for_whom'|trans }}</p>
+            <p class="desc-text__info">
+                <span>
+                {% for name in order.firstName.toArray %}
+                    {% if loop.last %}
+                        {{ name.firstName.title }}
+                    {% else %}
+                        {{ name.firstName.title }},
+                    {% endif %}
+                {% endfor %}
+                </span>
+            </p>
+        </div>
+        {% endif %}
+    </div>
+    {% if order.removeFiles == 0 %}
+        {% if dynamic.subscription is not empty %}
+            <a href="{{ path('checkout', {'id' : order.id }) }}" class="save__title btn-text btn__pay hasSubscription">{{ 'front.video_free_create'|trans }}</a>
+            <div class="form-control-feedback"></div>
+        {% elseif order.video is not empty %}
+            <a href="{{ path('checkout', {'id' : order.id }) }}" class="save__title btn-text btn__pay">{{ 'front.to_pay'|trans }}</a>
+        {% endif %}
+    {% endif %}
+</div>

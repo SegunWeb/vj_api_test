@@ -1,0 +1,31 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="account">
+    <h2 class="text-center title-text__md">{{ 'front.resseting_password_title_page'|trans({}, 'messages') }}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 account-box">
+                <div id="users-data" style="display: block;">
+
+                    {{ form_errors(form) }}
+
+                    {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'm-login__form m-form' } }) }}
+                        <div class="form-group form-user">
+                            <label class="title-text__user w-8" for="u-name">{{ 'form.new_password'|trans }}</label>
+                            {{ form_widget(form.plainPassword.first, {'attr': { 'placeholder': 'form.new_password'|trans, 'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group form-user">
+                            <label class="title-text__user w-8" for="u-phone">{{ 'form.new_password_confirmation'|trans }}</label>
+                            {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'form.new_password_confirmation'|trans, 'class': 'form-control'}}) }}
+                        </div>
+                        {% for errorItem in form.plainPassword.first.vars.errors %}
+                            <p class="desc-text__md desc-text--red text-center m-1">{{ errorItem.message }}</p>
+                        {% endfor %}
+
+                        <button class="btn btn__come-in mt-4" type="submit">{{ 'resetting.reset.submit'|trans }}</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

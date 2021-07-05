@@ -1,0 +1,26 @@
+<div class=" support">
+    <div class="name-page container">
+{#        <img class="decor" src="{{ asset('img/new-elem/WHY.png') }}" alt="WHY">#}
+        <h2 class="title-text__md title-sup">{{ 'front.help'|trans }}</h2>
+    </div>
+    {% if page.QaExamplesVideo is not empty %}
+   {# <div class="support-video video-box col-11 col-xl-12">
+        <img class="img-video" src="{% if page.QaExamplesImageOnVideo is not empty %}{% path page.QaExamplesImageOnVideo, 'video_cover' %}{% else %}img/family-s.jpg{% endif %}" alt="img">
+        <iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ page.QaExamplesVideo.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+        <button class="play-video"></button>
+    </div> #}
+    {% endif %}
+    <div class="support-questions">
+       {# <p class="title-text__sm text-center title-text__article">{{ 'front.frequently_asked_questions'|trans }}</p> #}
+        <div class="questions mx-auto">
+            {% if dynamic.help is not empty %}
+                {% for help in dynamic.help %}
+                    <div class="questions-box">
+                        <p class="questions-box__q title-text__info">{{ help.question|raw }}</p>
+                        <p class="questions-box__answer desc-text desc-text--black desc-text__md">{{ help.reply|raw }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>

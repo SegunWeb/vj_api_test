@@ -1,0 +1,35 @@
+<div class="testim__textarea" id="testim-textarea">
+    {% if app.user is not empty %}
+    <div class="testim-textarea" style="">
+        <div class="testim-box">
+            <div class="user-photo__img testim-box__avatar">
+                <img src="{% if app.user.avatar is not empty %} {% path app.user.avatar, 'avatar' %} {% else %}img/common/circle-chl.png{% endif %}"></div>
+            <div class="testim-box__text">
+                <div class="d-flex">
+                    <p class="desc-text desc-text__name">{{ app.user.fullName }}</p>
+                    <p class="desc-text desc-text__city">{{ app.user.city }}</p>
+                </div>
+                <form class="testim-form" id="testim-form">
+                    <textarea maxlength="1200" minlength="5" name="review" placeholder="{{ 'front.enter_text'|trans }}" required=""></textarea>
+                </form>
+            </div>
+        </div>
+        <button class="btn btn-text btn__testim-sub add-review" type="submit" form="testim-form">{{ 'front.send'|trans }}</button>
+    </div>
+    {% endif %}
+    {% if app.user is empty %}
+    <div class="testim-info" style="">
+        <img src="{{ asset('img/icons/camera.png') }}">
+        <p class="desc-text--blue text-center">{{ 'front.security_add_new_review'|trans }}</p>
+    </div>
+    {% endif %}
+    <div class="testim-mail" style="display: none;">
+        <img src="{{ asset('img/icons/camera.png') }}">
+        <p class="desc-text--blue text-center">{{ 'front.send_videos_to_email'|trans }}</p>
+        <a class="desc-text__city" href="mailto:{{ setting.email }}">{{ setting.email }}</a>
+    </div>
+    <div class="testim-success" style="display: none;">
+        <img src="{{ asset('img/icons/camera.png') }}">
+        <p class="desc-text--blue text-center">{{ 'front.success_send_review'|trans }}</p>
+    </div>
+</div>

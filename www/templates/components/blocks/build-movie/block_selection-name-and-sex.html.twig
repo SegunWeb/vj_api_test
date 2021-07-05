@@ -1,0 +1,51 @@
+{% if placeholders[constant('App\\Constants\\VideoConstants::URL_AUDIO')] is defined %}
+<div class="filter-store step-one steps {% if video.sex != 0 %}filter-store-gender-hidden{% endif %}" data-number="{{ placeholders[constant('App\\Constants\\VideoConstants::URL_AUDIO')]|length }}">
+    {% if order is defined %}
+        {% set sexList = order.childSex|split(' ') %}
+        {% set firstNameList = order.firstName.toArray %}
+    {% endif %}
+    {% for person, plc in placeholders[constant('App\\Constants\\VideoConstants::URL_AUDIO')] %}
+    <h2 class="text-center title-text__md title-text__step">{{ 'front.name_selection'|trans }}</h2>
+    <div class="filter-store__box step-one__box step-box {% if loop.index > 0 %}mt-2{% endif %}" data-item="{{ person }}" data-placeholder="{{ plc.id }}">
+        <!----filter gender----->
+        <div class="filter-store-gender" {% if video.sex != 0 %}style="display:none;"{% endif %}>
+            <p class="image-editor__descr title">{{ 'front.sex'|trans }}</p>
+            <!----gender----->
+            <ul class="gender-group-step radio-group" >
+                <li>
+                    <input class="checkbox gender" type="radio" name="gender{{ person }}" id="girl{{ person }}" value="{{ constant('App\\Constants\\SexConstants::FEMALE') }}" {% if order is defined and sexList[person] == constant('App\\Constants\\SexConstants::FEMALE')  %}checked {% elseif video.sex == constant('App\\Constants\\SexConstants::FEMALE') %}checked{% endif %}>
+                    <label for="girl{{ person }}">{{ 'front.girl'|trans }}</label>
+                </li>
+                <li>
+                    <input class="checkbox gender" type="radio" name="gender{{ person }}" id="boy{{ person }}" value="{{ constant('App\\Constants\\SexConstants::MALE') }}" {% if order is defined and sexList[person] == constant('App\\Constants\\SexConstants::MALE')  %}checked {% elseif video.sex == constant('App\\Constants\\SexConstants::MALE') %}checked{% endif %}>
+                    <label for="boy{{ person }}">{{ 'front.boy'|trans }}</label>
+                </li>
+            </ul>
+        </div>
+        <!----filter box----->
+        <div class="filter-store-box">
+            <div class="filter-store-name list-name">
+                <p class="image-editor__descr title">{% if plc.description is not empty %} {{ plc.description }} {% else %}{{ 'front.stage_one'|trans }}{% endif %}</p>
+                <!----name list----->
+                <div class="name-list item{{ person }}">
+                    <input class="list__title  name-list__title dropdown-toggle {% if video.sex != 0 %}active{% endif %}" id="name-box{{ person }}" autocomplete="off"  data-id="{% if order is defined %}{{ firstNameList[person].firstName.id }}{% endif %}" value="{% if order is defined %}{{ firstNameList[person].firstName.title }}{% endif %}" role="button" placeholder="{{ 'front.input_name'|trans }}" aria-expanded="false" {% if video.sex == 0 %}disabled="disabled"{% endif %}>
+                    <ul class="list__wrap dropdown-menu name-search" data-type="child_name_selection{{ person }}">
+                        {% if firstName is not empty %}
+                            {% for name in firstName %}
+                                {% if video.sex == 0 or name.sex == video.sex and name.active == 1 %}
+                                    <li class="elem" id="{{ name.id }}" data-sex="{{ name.sex }}"><span>{{ name.title }}</span></li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                    <input type="hidden" id="child_name_selection{{ person }}" class="form_child_name" name="form_child_name" value="{% if order is defined %}{{ firstNameList[person].firstName.id }}{% endif %}">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="step__btn">
+        <button class="btn btn-text btn__next {% if order is defined %}act_btn{% endif %}">{{ 'front.further'|trans }}</button>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="pt" trgLang="pt">
+  <file id="validation.pt">
+    <unit id="yPHGEV3" name="Bad credentials.">
+      <segment>
+        <source>Bad credentials.</source>
+        <target>Неверные учетные данные.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

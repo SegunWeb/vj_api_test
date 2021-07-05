@@ -1,0 +1,25 @@
+.dist_canvas {
+  display: flex;
+  flex-wrap: wrap; }
+
+.new_line {
+  flex-basis: 100%; }
+
+.form_control {
+  padding: 15px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+  .form_control__element {
+    margin: 5px 10px; }
+  .form_control--mt {
+    margin-top: 100px; }
+
+.row_canvas {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap; }
+
+.row_empty {
+  flex-basis: 100%; }

@@ -1,0 +1,262 @@
+<div class="name-page container">
+    {#<image class="decor decor-new" src="{{ asset('image/new-elem/use.png') }}" alt="use">#}
+    <h1 class="text-center d-block m-auto title-text__xs--black margin-text font-new wrapper-text">{{ video.title }}</h1>
+    {#<image class="decor-aps__deg decor-aps" src="{{ asset('image/new-elem/decor-arrow.png') }}" alt="arrow">#}
+</div>
+<!---breadcrumbs--->
+{#{% include 'components/blocks/blog/block_breadcrumbs.html.twig' %}#}
+<!---breadcrumbs-end--->
+ <div class=" page-video">
+
+         <!----video-desc----->
+         <div class="block_desc-video-new title-text__xs--black-new  ">
+             <p class="descript-text__onevideo descript-text__onevideo-new font-new">{{ video.description|raw }}</p>
+             {#              <h1 class="title-text__onevideo title-text__onevideo-sm title-text__xs--black margin-text">{{ video.title }}</h1> #}
+{#             <div class="wrap-info__box">#}
+{#                 #}{#                 <p class="title-text__xs title-number-people title-number-people__onevideo title-number-people__big">{{ video.numberPersons }}</p>#}
+
+{#                 <div class="price">#}
+{#                     {% if dynamic.currency is not empty %}#}
+{#                         {% if dynamic.currency.codeISO == 'UAH' %}#}
+{#                             {% set price = video.priceUah %}#}
+{#                         {% elseif dynamic.currency.codeISO == 'RUB' %}#}
+{#                             {% set price = video.priceRub %}#}
+{#                         {% elseif dynamic.currency.codeISO == 'EUR' %}#}
+{#                             {% set price = video.priceEur %}#}
+{#                         {% else %}#}
+{#                             {% set price = video.priceUsd %}#}
+{#                         {% endif %}#}
+{#                     {% else %}#}
+{#                         {% set price = video.priceUsd %}#}
+{#                     {% endif %}#}
+
+{#                     {% if video.hidePrice == 0 and price > 0 %}#}
+{#                         <div class="price-box">#}
+{#                             <div class="price-box__main price-box_p">#}
+{#                                 {% if video.title == 'Поздравление от Деда Мороза со скидкой 50%' %}#}
+{#                                     <p class="price-text price-text--lg ">цена вчера: <span class="price-text price-text--lg price-text__discount">4<span class="price-text__currency price-text__currency--lg">$</span></span> сегодня&nbsp;</p>#}
+{#                                     <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                 {% else %}#}
+{#                                     <p class="price-text price-text--lg ">{{ 'front.show_price' | trans }}&nbsp;</p>#}
+{#                                     <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                 {% endif %}#}
+
+{#                                 #}{#                 <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %} style='width: 400px; text-align: center;'">{{ price }}<span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span></p>#}
+{#                             </div>#}
+{#                             {% if video.discount > 0 %}#}
+{#                                 <div class="price-box__discount price-box_p">#}
+{#                                     {% set discount = (price * video.discount) / 100 %}#}
+{#                                     {% set discount = price - discount %}#}
+{#                                     <p class="price-text price-text--lg price-text--red">{{ discount }}</p><span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                 </div>#}
+{#                             {% endif %}#}
+{#                         </div>#}
+{#                     {% endif %}#}
+{#                 </div>#}
+{#             </div>#}
+
+             {#<a class="btn btn__movies btn__more btn-text btn-text--md" href="{{ path('video', {'id' : video.id }) }}">{{ 'front.create_movie'|trans }}</a>#}
+         </div>
+         <!----all-present-video----->
+         <div class="all-video-content page-video_block page-video_block-new ">
+             <div class="all-video-box all-video-box__onevideo video-wrapp  all-video-box__onevideo-new all-video-box__onevideo--marg video-box block_wrap-video block_wrap-video-new" style="margin: 0">
+                   <img class="img-video d-none" src="{% if video.images is not empty %} {% path video.images, 'video_cover' %} {% else %} {% path video.congratulationExample, 'example' %} {% endif %}" alt="img"/>
+
+                 {% if video.trailer is not empty %}
+                     {% if video.trailer.providerName == 'sonata.media.provider.video' %}
+                         {% set fullPath %}{% path video.trailer, 'reference' %}{% endset %}
+                         {% set warning_browser = "warning_browser"|trans({'%href%': fullPath }) %}
+
+                 <video preload="metadata" playsinline webkit-playsinline data-href="{%  path video.trailer, 'reference' %}" class="paids-videos" src="{% path video.trailer, 'reference' %}" poster="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}"  />
+
+
+{#                 <video playsinline webkit-playsinline preload="metadata"  class="paids-videos-single" src="{% path video.trailer, 'reference' %}" poster="{% if video.trailerImage is not empty %} {% path video.trailerImage, 'video_cover' %} {% endif %}"  >#}
+{#                             <source src="{% path video.trailer, 'reference' %}"  type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" >#}
+{#                             {{ warning_browser|raw }}#}
+
+{#                         </video>#}
+                     {% elseif video.trailer.providerName == 'sonata.media.provider.youtube' %}
+                         <img class="img-video " src="{% if video.trailerImage is not empty %} {% path video.trailerImage, 'video_cover' %} {% endif %}" alt="img"/>
+                         <iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ video.trailer.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                         <button class="play-video"></button>
+                     {% elseif video.trailer.providerName == 'sonata.media.provider.vimeo' %}
+                         <img class="img-video " src="{% if video.trailerImage is not empty %} {% path video.trailerImage, 'video_cover' %} {% endif %}" alt="img"/>
+                         <iframe class="d-flex justify-content-center" data-src="https://player.vimeo.com/video/{{ video.trailer.providerReference }}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                         <button class="play-video"></button>
+                     {% endif %}
+                 {% endif %}
+
+             </div>
+         </div>
+
+{#         <div class="block_desc-video-new title-text__xs--black-new col-12 ">#}
+{#             <p class="descript-text__onevideo descript-text__onevideo-new font-new">{{ video.description|raw }}</p>#}
+{#             #}{#              <h1 class="title-text__onevideo title-text__onevideo-sm title-text__xs--black margin-text">{{ video.title }}</h1> #}
+{#             <div class="wrap-info__box">#}
+{#                 #}{#                 <p class="title-text__xs title-number-people title-number-people__onevideo title-number-people__big">{{ video.numberPersons }}</p>#}
+
+{#                 <div class="price">#}
+{#                     {% if dynamic.currency is not empty %}#}
+{#                         {% if dynamic.currency.codeISO == 'UAH' %}#}
+{#                             {% set price = video.priceUah %}#}
+{#                         {% elseif dynamic.currency.codeISO == 'RUB' %}#}
+{#                             {% set price = video.priceRub %}#}
+{#                         {% elseif dynamic.currency.codeISO == 'EUR' %}#}
+{#                             {% set price = video.priceEur %}#}
+{#                         {% else %}#}
+{#                             {% set price = video.priceUsd %}#}
+{#                         {% endif %}#}
+{#                     {% else %}#}
+{#                         {% set price = video.priceUsd %}#}
+{#                     {% endif %}#}
+
+{#                     {% if video.hidePrice == 0 and price > 0 %}#}
+{#                         <div class="price-box">#}
+{#                             <div class="price-box__main price-box_p">#}
+{#                                 {% if video.title == 'Поздравление от Деда Мороза со скидкой 50%' %}#}
+{#                                     <p class="price-text price-text--lg ">цена вчера: <span class="price-text price-text--lg price-text__discount">4<span class="price-text__currency price-text__currency--lg">$</span></span> сегодня&nbsp;</p>#}
+{#                                     <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                 {% else %}#}
+{#                                     <p class="price-text price-text--lg ">{{ 'front.show_price' | trans }}&nbsp;</p>#}
+{#                                     <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                 {% endif %}#}
+
+{#                                 #}{#                 <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %} style='width: 400px; text-align: center;'">{{ price }}<span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span></p>#}
+{#                             </div>#}
+{#                             {% if video.discount > 0 %}#}
+{#                                 <div class="price-box__discount price-box_p">#}
+{#                                     {% set discount = (price * video.discount) / 100 %}#}
+{#                                     {% set discount = price - discount %}#}
+{#                                     <p class="price-text price-text--lg price-text--red">{{ discount }}</p><span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                 </div>#}
+{#                             {% endif %}#}
+{#                         </div>#}
+{#                     {% endif %}#}
+{#                 </div>#}
+{#             </div>#}
+
+{#             #}{#<a class="btn btn__movies btn__more btn-text btn-text--md" href="{{ path('video', {'id' : video.id }) }}">{{ 'front.create_movie'|trans }}</a>#}
+{#         </div>#}
+
+
+{#     <div class="price price-new">#}
+
+{#         {% if currency is not empty %}#}
+{#             {% if currency.codeISO == 'UAH' %}#}
+{#                 {% set price = video.priceUah %}#}
+{#             {% elseif currency.codeISO == 'RUB' %}#}
+{#                 {% set price = video.priceRub %}#}
+{#             {% elseif currency.codeISO == 'EUR' %}#}
+{#                 {% set price = video.priceEur %}#}
+{#             {% else %}#}
+{#                 {% set price = video.priceUsd %}#}
+{#             {% endif %}#}
+{#         {% else %}#}
+{#             {% set price = video.priceUsd %}#}
+{#         {% endif %}#}
+
+{#         {% if video.hidePrice == 0 and price > 0 %}#}
+{#             <div class="price-box">#}
+
+{#                 <div class="price-box__main">#}
+{#                     <p class="price-text {% if video.discount > 0 %}price-text__discount{% endif %}"><span>{{ 'front.cost_of_video'|trans }}</span> {{ price }}</p><span class="price-text__currency">{% if currency is not empty %} {{ currency.sing }}{% else %}${% endif %}</span>#}
+{#                 </div>#}
+{#                 {% if video.discount > 0 %}#}
+{#                     <div class="price-box__discount">#}
+{#                         {% set discount = (price * video.discount) / 100 %}#}
+{#                         {% set discount = price - discount %}#}
+{#                         <p class="price-text price-text--red">{{ discount }}</p><span class="price-text__currency price-text__currency--red">{% if currency is not empty %} {{ currency.sing }}{% else %}${% endif %}</span>#}
+{#                     </div>#}
+{#                 {% endif %}#}
+{#             </div>#}
+{#         {% endif %}#}
+{#     </div>#}
+
+
+         <div class="btn-wrapper  text-center">
+             <a class=" btn__movies btn__more btn-text btn-text--md" href="{{ path('video', {'slug' : video.slug }) }}">{{ 'front.create_movie'|trans }}</a>
+         </div>
+
+         <!----video-desc----->
+{#         <div class="block_desc-video-new title-text__xs--black-new col-12 ">#}
+{#             <p class="descript-text__onevideo descript-text__onevideo-new font-new">{{ video.description|raw }}</p>#}
+{#              <h1 class="title-text__onevideo title-text__onevideo-sm title-text__xs--black margin-text">{{ video.title }}</h1> #}
+{#             <div class="wrap-info__box">#}
+{#                 <p class="title-text__xs title-number-people title-number-people__onevideo title-number-people__big">{{ video.numberPersons }}</p>#}
+
+{#                 <div class="price">#}
+{#                 {% if dynamic.currency is not empty %}#}
+{#                 {% if dynamic.currency.codeISO == 'UAH' %}#}
+{#                 {% set price = video.priceUah %}#}
+{#                 {% elseif dynamic.currency.codeISO == 'RUB' %}#}
+{#                 {% set price = video.priceRub %}#}
+{#                 {% elseif dynamic.currency.codeISO == 'EUR' %}#}
+{#                 {% set price = video.priceEur %}#}
+{#                 {% else %}#}
+{#                 {% set price = video.priceUsd %}#}
+{#                 {% endif %}#}
+{#                 {% else %}#}
+{#                 {% set price = video.priceUsd %}#}
+{#                 {% endif %}#}
+
+{#                 {% if video.hidePrice == 0 and price > 0 %}#}
+{#                 <div class="price-box">#}
+{#                 <div class="price-box__main price-box_p">#}
+{#                     {% if video.title == 'Поздравление от Деда Мороза со скидкой 50%' %}#}
+{#                         <p class="price-text price-text--lg ">цена вчера: <span class="price-text price-text--lg price-text__discount">4<span class="price-text__currency price-text__currency--lg">$</span></span> сегодня&nbsp;</p>#}
+{#                         <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                     {% else %}#}
+{#                         <p class="price-text price-text--lg ">{{ 'front.show_price' | trans }}&nbsp;</p>#}
+{#                         <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                     {% endif %}#}
+
+{#                 <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %} style='width: 400px; text-align: center;'">{{ price }}<span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span></p>#}
+{#                 </div>#}
+{#                 {% if video.discount > 0 %}#}
+{#                 <div class="price-box__discount price-box_p">#}
+{#                 {% set discount = (price * video.discount) / 100 %}#}
+{#                 {% set discount = price - discount %}#}
+{#                 <p class="price-text price-text--lg price-text--red">{{ discount }}</p><span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                 </div>#}
+{#                 {% endif %}#}
+{#                 </div>#}
+{#                 {% endif %}#}
+{#                 </div>#}
+{#             </div>#}
+
+{#             #}{#<a class="btn btn__movies btn__more btn-text btn-text--md" href="{{ path('video', {'id' : video.id }) }}">{{ 'front.create_movie'|trans }}</a>#}
+{#         </div>#}
+
+         <!----all-video-content----->
+{#         <div class="all-video-content page-video_block page-video_block-new col-12">#}
+{#                 <div class="all-video-box all-video-box__onevideo all-video-box__onevideo--marg all-video-box__onevideo-new video-box block_wrap-video block_wrap-video-new--min">#}
+{#                   #}{#  <image class="image-video d-none" src="{% if video.images is not empty %} {% path video.images, 'video_cover' %} {% else %} {% path video.congratulationExample, 'example' %} {% endif %}" alt="image"/> #}
+
+{#                     {% if video.congratulationExample is not empty %}#}
+{#                         {% if video.congratulationExample.providerName == 'sonata.media.provider.video' %}#}
+{#                             {% set fullPath %}{% path video.congratulationExample, 'reference' %}{% endset %}#}
+{#                             {% set warning_browser = "warning_browser"|trans({'%href%': fullPath }) %}#}
+{#                             <video  data-href="#}{#  path video.congratulationExample, 'reference'  #}{#" class="paids-videos" src="{%  path video.congratulationExample, 'reference'  %}" poster="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}"  >#}
+{#                                 {{ warning_browser|raw }}#}
+{#                             </video>#}
+{#                         {% elseif video.congratulationExample.providerName == 'sonata.media.provider.youtube' %}#}
+{#                             <image class="image-video " src="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}" alt="image"/>#}
+{#                             <iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ video.congratulationExample.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>#}
+{#                             <button class="play-video"></button>#}
+{#                         {% elseif video.congratulationExample.providerName == 'sonata.media.provider.vimeo' %}#}
+{#                             <image class="image-video " src="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}" alt="image"/>#}
+{#                             <iframe class="d-flex justify-content-center" data-src="https://player.vimeo.com/video/{{ video.congratulationExample.providerReference }}" allow="autoplay; fullscreen" allowfullscreen></iframe>#}
+{#                             <button class="play-video"></button>#}
+{#                         {% endif %}#}
+{#                     {% endif %}#}
+{#                 </div>#}
+{#         </div>#}
+
+
+{#         <div class="btn-wrapper mb-4 col-12 text-center">#}
+{#             <a class="btn btn__movies btn__more btn-text btn-text--md" href="{{ path('video', {'slug' : video.slug }) }}">Создать свое видео</a>#}
+
+
+{#         </div>#}
+
+ </div>

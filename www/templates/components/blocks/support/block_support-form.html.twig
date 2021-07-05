@@ -1,0 +1,21 @@
+<div class="support-form">
+    <p class="title-text__sm text-center title-text__article title-text__article--sup">{{ 'front.frequently_asked_questions'|trans }}</p>
+    <div class="support-form__box">
+        <form id="supports">
+            <div class="form-group">
+                <input class="form-control" type="text" name="fullName" minlength="3" maxlength="50" placeholder="{{ 'front.name'|trans }}" required="required" {% if app.user is not empty %}value="{{ app.user.fullName }}" {% endif %}>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email" required="required" {% if app.user is not empty %}value="{{ app.user.email }}" {% endif %}>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" name="text" minlength="20" maxlength="1000" placeholder="{{ 'front.enter_text'|trans }}" required="required"></textarea>
+            </div>
+            <button class="btn btn-text btn__testim-sub" type="submit">{{ 'front.send'|trans }}</button>
+        </form>
+    </div>
+    <div class="testim-info" style="display: none;">
+        
+        <p class="desc-text--blue text-center">{{ 'front.success_send_callback'|trans }}</p>
+    </div>
+</div>

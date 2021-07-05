@@ -1,0 +1,110 @@
+{% block multiple_upload_widget %}
+
+    {% set inputVal = null %}
+
+    {% if form.vars.attr.subject is defined and form.vars.attr.subject is not empty %}
+
+        {% for media in form.vars.attr.subject %}
+            {% if inputVal is not empty %}
+                {% set inputVal = inputVal~','~media.id %}
+            {% else %}
+                {% set inputVal = media.id %}
+            {% endif %}
+        {% endfor %}
+
+    {% endif %}
+
+    <div class="form-group">
+        <input type="hidden" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" required="required"
+               class="sonata-medium-date form-control" value="{{ inputVal }}">
+        <div class="col-sm-12" style="padding: 0;">
+            <div class="dropzone" style="border: 1px solid #d2d6de; padding: 0; margin: 0;"></div>
+        </div>
+    </div>
+
+    <script>
+
+        // init,configure dropzone
+        Dropzone.autoDiscover = false;
+
+        var dropzone_default = new Dropzone(".dropzone", {
+            url: '/admin/file_upload',
+            maxFiles: parseInt($("#{{ sonata_admin.admin.uniqid }}_type").val() === 1 ? 1 : $("#{{ sonata_admin.admin.uniqid }}_type").val() === 3 ? 2 : 1000),
+            dictMaxFilesExceeded: 'Количество загружаемых файлов ограничено',
+            acceptedFiles: 'audio/*',
+            maxFilesize: 10,  // in Mb
+            addRemoveLinks: true,
+            init: function () {
+                this.on("maxfilesexceeded", function (file) {
+                    this.removeFile(file);
+                });
+                this.on("success", function (file, response) {
+                    if (response.uploaded) {
+                        var input = $('#{{ form.vars.id }}').val();
+                        if (input !== "") {
+                            var val = $('#{{ form.vars.id }}').val() + ',' + response.media;
+                            $('#{{ form.vars.id }}').val(val.trim());
+                        } else {
+                            $('#{{ form.vars.id }}').val(response.media);
+                        }
+                    }
+                });
+                this.on("removedfile", function (file, response) {
+                    var input = $('#{{ form.vars.id }}').val().trim();
+                    if (input !== "") {
+                        var arr = input.split(',');
+                        var position = arr.indexOf("" + file.id + "");
+                        if (~position) arr.splice(position, 1);
+                        var str = arr.join(',');
+                        $('#{{ form.vars.id }}').val(str);
+                    }
+                });
+            }
+        });
+
+        dropzone_default.on("addedfile", function (file) {
+            //Если тип 1, значит файл должен быть одним и нужно проверять топором
+            if($("#{{ sonata_admin.admin.uniqid }}_type").val() == 1){
+                if($('.dropzone.dz-clickable .dz-preview').length > 1){
+                    this.removeFile(file);
+                    $('.dz-default.dz-message').hide();
+                    return false;
+                }
+            }
+            if($("#{{ sonata_admin.admin.uniqid }}_type").val() == 3){
+                if($('.dropzone.dz-clickable .dz-preview').length > 2){
+                    this.removeFile(file);
+                    $('.dz-default.dz-message').hide();
+                    return false;
+                }
+            }
+
+            if (this.files.length) {
+                var _i, _len;
+                for (_i = 0, _len = this.files.length; _i < _len - 1; _i++) // -1 to exclude current file
+                {
+                    if (this.files[_i].name === file.name && this.files[_i].size === file.size && this.files[_i].lastModifiedDate.toString() === file.lastModifiedDate.toString()) {
+                        this.removeFile(file);
+                    }
+                }
+            }
+        });
+
+
+        {% if form.vars.attr.subject is defined and form.vars.attr.subject is not empty %}
+
+        {% for media in form.vars.attr.subject %}
+        var mockFile = {name: "{{ media.name }}", size: {{ media.size }}, id: {{ media.id }} };
+        dropzone_default.emit("addedfile", mockFile);
+        dropzone_default.emit("complete", mockFile);
+        {% endfor %}
+
+        {% endif %}
+
+        $('body').on('change', '#{{ sonata_admin.admin.uniqid }}_type', function () {
+            dropzone_default.options.maxFiles = parseInt($("#{{ sonata_admin.admin.uniqid }}_type").val() === 1 ? 1 : $("#{{ sonata_admin.admin.uniqid }}_type").val() === 3 ? 2 : 1000);
+        });
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{%  if placeholders[constant('App\\Constants\\VideoConstants::VIDEO')] is defined %}
+
+    {% for plc in placeholders[constant('App\\Constants\\VideoConstants::VIDEO')] %}
+
+        {% if loop.index == 1 %}
+            <div class="step-three steps">
+            {#<form id="videos">#}
+                <h2 class="text-center title-text__md title-text__step">{{ 'front.insert_video'|trans }}</h2>
+        {% endif %}
+
+                <div class="step-box__photo step-box {% if loop.index > 1 %}mt-2{% endif %}">
+                    <!----video editor----->
+                    <p class="image-editor__descr title">{{plc.description}}</p>
+                    <div class="image-editor">
+                        <!----video loader----->
+                        <input class="cropit-image-input load-video" type="file" name="{{ plc.id }}" id="load-video-{{ plc.id }}" accept="video/mp4">
+                        <label class="btn btn-text btn__load" for="load-video-{{ plc.id }}">{{ 'front.upload_a_video'|trans }}</label>
+                        <div class="cropit-video mb-3 w-100 h-100 d-none">
+                            <video controls>
+                                <source src="" id="video_here">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+        {% if loop.last %}
+            {#</form>#}
+                <!----buttons box----->
+                <div class="step__btn">
+                    <button class="btn btn-text btn__prev">{{ 'front.backwards'|trans }}</button>
+                    <button class="btn btn-text btn__next {% if order is defined %}act_btn{% endif %}">{{ 'front.further'|trans }}</button>
+                </div>
+            </div>
+        {% endif %}
+
+    {% endfor %}
+
+{% endif %}

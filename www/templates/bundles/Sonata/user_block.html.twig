@@ -1,0 +1,12 @@
+{% block user_block %}
+    {% if app.user %}
+        {% set _logout_uri        = url('admin_logout') %}
+        {% set _logout_text       = 'user_block_logout'|trans({}, 'messages') %}
+
+        <li class="user-footer">
+            <div style="text-align: center">
+                <a href="{{ _logout_uri }}" class="btn btn-default btn-flat"><i class="fa fa-sign-out fa-fw"></i> {{ _logout_text }}</a>
+            </div>
+        </li>
+    {% endif %}
+{% endblock %}

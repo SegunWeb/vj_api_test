@@ -1,0 +1,33 @@
+<div class="register-popap">
+    <div class="aunt mx-auto">
+        <p class="close"></p>
+        <div class="aut-box">
+            <form id="data_reg" class="register_form">
+                <input type="hidden" name="_locale" value="{{ app.request.locale }}">
+                <input type="hidden" id="login_form__token" name="_token" value="{{ csrf_token('authenticate') }}">
+                <p class="title-text__sm text-center">Регистрация</p>
+                <div class="form-group">
+                    <input class="form-control" name="user_name" type="text" value="" id="form_name_reg" placeholder="Вваше имя" minlength="3" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control"  name="user_email" type="email" value="" id="form_email_reg" placeholder="E-mail" minlength="8" required="required"/>
+                </div>
+{#                <div class="form-group">#}
+{#                    <input class="form-control" type="password" name="_password" placeholder="{{ 'front.password'|trans }}"/>#}
+{#                </div>#}
+                <div class="form-group regester-tel">
+                    <input class="form-control country-phone__reg" name="user_phone" value="" type="phone" id="form_phone_reg" placeholder="Телефон" minlength="7" required="required">
+{#                    <input class="form-control" type="tel" name="_phone" placeholder="Телефон" required="required"/>#}
+                </div>
+{#                <div class="form-group">#}
+{#                    <input class="form-control" type="text" name="_city" value="not_city" placeholder="Город" required="required"/>#}
+{#                </div>#}
+                <p class="desc-text__md desc-text--red text-center form-login-error d-none">{{ 'front.wrong_login_or_password'|trans }}</p>
+                <button id="sub_reg" class="btn btn__come-in btn__register" type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>

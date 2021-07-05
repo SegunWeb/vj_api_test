@@ -1,0 +1,6 @@
+<form name="payment" method="post" action="https://sci.interkassa.com/" accept-charset="UTF-8" class="d-none" id="payment-send-form">
+    {% for key, payment in a_payment %}
+        <input type="hidden" name="{{ key }}" value="{{ payment }}">
+    {% endfor %}
+    <input type="submit" value="Pay">
+</form>

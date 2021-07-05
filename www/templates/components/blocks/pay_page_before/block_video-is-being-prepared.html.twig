@@ -1,0 +1,82 @@
+{% if order is defined and order is not empty %}
+<div class="creating-video">
+   {% if order.firstName.empty == false %}
+        {% set firstName = '' %}
+        {% for name in order.firstName.toArray %}
+            {% if loop.last %}
+                {% set firstName = firstName ~ name.firstName.title %}
+            {% else %}
+                {% set firstName = firstName ~ name.firstName.title ~ ', ' %}
+            {% endif %}
+        {% endfor %}
+       <h2 class="text-center title-text__md"><span>{{ 'front.h2_after'|trans }}</span> <span>{{ 'your_video_is_already_being_prepared_two'|trans({'%name%' : firstName }) }}</span>  <span>{{ 'front.h2_before'|trans }}</span></h2>
+
+       {#        <p class="text-center descript-text__onevideo">{{ 'your_video_is_already_being_prepared_two'|trans({'%name%' : firstName }) }}</p>#}
+        <p class="text-center descript-text__onevideo">{{ 'front.onevideo_wait'|trans }}</p>
+    {% else %}
+        <h2 class="text-center title-text__md"><span>{{ 'front.h2_after'|trans }}</span> {#<span>{{ 'your_video_is_already_being_prepared_two'|trans({'%name%' : firstName }) }}</span>  #}  <span>{{ 'front.h2_before'|trans }}</span></h2>
+        <p class="text-center descript-text__onevideo reading">{{ 'your_video_is_already_being_prepared'|trans }}</p>
+    {% endif %}
+{#    <div class="progress">#}
+{#        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>#}
+{#    </div>#}
+    
+    <div class="gifer">
+        {% if order.video.preloader is not empty %}
+            <div class="video-gifer">
+                <!--video loader--->
+                {#            <video preload="metadata" playsinline webkit-playsinline  type="video/mp4"  codecs="avc1.42E01E, mp4a.40.2" class=""  src="" poster="" />#}
+                <video preload="metadata" playsinline webkit-playsinline  type="video/mp4"  codecs="avc1.42E01E, mp4a.40.2" src="{% path order.video.preloader, 'reference' %}" autoplay muted loop>
+                    {{ 'front.not_support_embedded_video'|trans }}
+                </video>
+            </div>
+
+        {% else %}
+            <img src="{{ asset('img/icons/joys.gif') }}" alt="gif-load">
+        {% endif %}
+    </div>
+
+    <div class="creating-video__box text-center">
+        <img class="creating-loader-logo" src="{% path setting.logoHeader, 'reference' %}">
+        {#<img class="creating-loader-logo" src="{{ asset('img/preloaderBeta.png') }}" alt="">#}
+        {#<img class="creating-loader" src="{{ asset('img/745.gif') }}">#}
+        <p class="desc-text">{{ 'front.video_is_being_prepared'|trans }}</p>
+    </div><!----movie------>
+    {#{% if render.video is not empty %}#}
+    {#<div class="example-store-video video-box create-movie-video">#}
+        {#<img class="img-video" src="{% if render.video.imgs is not empty %} {% path render.video.imgs, 'video_cover' %} {% else %} {% path render.video.congratulationExample, 'example' %} {% endif %}" alt="img">#}
+        {#{% if render.video.congratulationExample is not empty %}<iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ render.video.congratulationExample.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>{% endif %}#}
+        {#<button class="play-video"></button>#}
+    {#</div>#}
+    {#{% endif %}#}
+    <span class="renderID">{{ render.id }}</span>
+</div>
+{% else %}
+<div class="creating-video">
+
+    <h2 class="text-center title-text__md">{{ 'front.create_a_clip'|trans }}</h2>
+    <div class="col-12 d-flex justify-content-between how-info__content flex-wrap">
+        <div class="col-md-12 m-md-auto order-1 order-lg-0">
+            <p class="desc-text desc-text--black text-center desc-text--blue">
+                {{ 'front.order_not_found'|trans }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %}
+{#<script>#}
+{#    window.onload = function() {#}
+{#        const progress = document.querySelector('.progress-bar');#}
+{#        function loading() {#}
+
+{#            let width = parseInt(progress.style.width);#}
+{#            if (width >= 95) {#}
+{#                clearInterval(timerId)#}
+{#            } else {#}
+{#                width += 1;#}
+{#                progress.style.width = `${width}%`;#}
+{#            }#}
+{#        }#}
+{#        let timerId = setInterval(loading,500);#}
+{#    }#}
+{#</script>#}

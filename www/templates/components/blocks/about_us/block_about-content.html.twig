@@ -1,0 +1,15 @@
+<div class="col-sm-10 col-12 mx-auto about">
+    <h3 class="title-text__sm text-center how-about title-text__article title-text__article--about  about__desc">{{ 'object.home_content_our_advantages'|trans }}</h3>
+    {% if page.aboutExamplesVideo is not empty %}
+     {#   <div class="about-video video-box col-11 col-xl-12">
+            <image class="image-video" src="{% if page.aboutExamplesImageOnVideo is not empty %} {% path page.aboutExamplesImageOnVideo, 'video_cover' %} {% else %} {{ asset('image/family-s.jpg') }} {% endif %}" alt="image"/>
+            <iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ page.aboutExamplesVideo.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+            <button class="play-video"></button>
+        </div> #}
+    {% endif %}
+    <div class="row">
+        <div class="desc-text desc-text--black about__text m-auto col-10 col-md-11">
+            {{ page.content|raw }}
+        </div>
+    </div>
+</div>

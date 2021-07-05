@@ -1,0 +1,53 @@
+<div id="users-data">
+{#    <div class="user-photo">#}
+{#        <div class="user-photo__img">#}
+{#            {% if app.user is not empty %}#}
+{#                {% if app.user.avatar is not empty %}#}
+{#                    <image src="{% path app.user.avatar, 'avatar' %}">#}
+{#                {% else %}#}
+{#                    <image src="{{ asset('image/family-s.jpg') }}">#}
+{#                {% endif %}#}
+{#            {% endif %}#}
+{#        </div>#}
+{#        <input type="file" id="load-image">#}
+{#        <label class="desc-text__user" for="load-image"> {{ 'front.upload_a_photo'|trans }}</label>#}
+{#    </div>#}
+    <form class="user-form">
+        <div class="form-group form-user">
+            <label class="title-text__user" for="u-name">{{ 'front.full_name'|trans }}</label>
+            <input class="form-control" type="text" id="u-name" name="fullName" placeholder="{{ 'front.full_name'|trans }}" value="{{ app.user.fullName }}" required="required">
+            <p class="desc-text__user save">{{ 'front.save'|trans }}</p>
+        </div>
+        <div class="form-group form-user">
+            <label class="title-text__user" for="u-phone">{{ 'front.phone'|trans }}</label>
+            <input class="form-control" type="text" id="u-phone" name="phone" placeholder="{{ 'front.phone'|trans }}" value="{{ app.user.phone }}" required="required">
+            <p class="desc-text__user save">{{ 'front.save'|trans }}</p>
+        </div>
+        <div class="form-group form-user">
+            <label class="title-text__user" for="u-mail">{{ 'front.email'|trans }}</label>
+            <input class="form-control" type="email" id="u-mail" name="email" placeholder="{{ 'front.email'|trans }}" value="{{ app.user.email }}" required="required">
+            <p class="desc-text__user save">{{ 'front.save'|trans }}</p>
+        </div>
+{#        <div class="form-group form-user">#}
+{#            <label class="title-text__user" for="u-text">{{ 'front.city'|trans }}</label>#}
+{#            <input class="form-control" type="text" id="u-text" name="city" placeholder="{{ 'front.city'|trans }}" value="{{ app.user.city }}" required="required">#}
+{#            <p class="desc-text__user save">{{ 'front.save'|trans }}</p>#}
+{#        </div>#}
+        <div class="form-group form-user">
+            <label class="title-text__user" for="u-pass">{{ 'front.password'|trans }}</label>
+            <input class="form-control" type="password" id="u-pass" placeholder="{{ 'front.password'|trans }}" required="required" disabled>
+            <p class="desc-text__user change-pass" style="opacity: 1;">{{ 'front.change_password'|trans }}</p>
+        </div>
+        <div class="change-pass-box">
+            <div class="form-group form-user">
+                <label class="title-text__user" for="u-old">{{ 'front.old_password'|trans }}</label>
+                <input class="form-control" type="password" id="u-old" name="oldPassword" placeholder="{{ 'front.old_password'|trans }}" required="required">
+            </div>
+            <div class="form-group form-user">
+                <label class="title-text__user" for="u-new">{{ 'front.new_password'|trans }}</label>
+                <input class="form-control" type="password" id="u-new" name="password" placeholder="{{ 'front.new_password'|trans }}" required="required">
+                <p class="desc-text__user save-password">{{ 'front.save'|trans }}</p>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,250 @@
+<div class="subs-on-demo">
+
+    {% if order.video is not empty and order.video.hidePrice == 0 and order.video.priceUsd > 0 %}
+
+        <div class="subs-offer">
+            <div class="subs-text">
+                {{ 'front.invitation_to_free_subscription'|trans }}
+            </div>
+            <div class="subs-button">
+                <div class="another_way">
+                    <div class=" desc-text___info desc-text__info--sm copy-link__text subs-pay-btn">
+                        <p class="subs-more">{{ 'front.get_premium_subscription'|trans }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup-wrapp">
+            <div class="popup-box">
+                <span class="close-popup"></span>
+
+
+                <div class="offer-popup">
+                    <div class="subs-text">
+                        <div class="wow-img">
+                            <img src="{% path setting.logoHeader, 'reference' %}" alt="logo">
+                        </div>
+                        <div class="wow-text">
+                            {% if(dynamic.invitation_purchase) %}
+                              {{ dynamic.invitation_purchase|raw }}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="button-step-offer">
+                        <div class="d-flex justify-content-center">
+                            <div class="share-text desc-text___info desc-text__info--sm copy-link__text subs-pay-btn">
+                                <p class="subs-more btn-share">{{ 'front.to_be_continued'|trans }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="subs-popup">
+
+                    <div class="button-pay">
+                        <div class="wrap-box-subs">
+                            <div class="price-btn-wrapp">
+                                <form method="post" action="{{ path('home') }}">
+
+                                    <div class="another_way">
+                                        <input class="btn__pay save__title option-input__bank" type="button" name="paid" data-value="3" id="inter_subscribe" >
+                                        <div class="wrap-subs-lb">
+
+                                            <div class="current-price-wrap">
+                                                <div class="current-price">
+                                                    {% if order.video.discount > 0 %}
+
+                                                    <div class="purch-box">
+                                                              {% if currency is not empty %}
+                                                                  {% set price = order.price %}
+                                                              {% else %}
+                                                                  {% set price = order.video.priceUah %}
+                                                              {% endif %}
+
+                                                        {% set discountOrder = (price * order.video.discount) / 100 %}
+                                                        {% set discountOrder = price - discountOrder %}
+                                                        {% if discount is not null %}
+                                                            {% set discountEmailOrder = (discountOrder * discount) / 100 %}
+                                                            {% set discountOrder = discountOrder - discountEmailOrder %}
+                                                        {% endif %}
+
+
+                                                        <p>{{ discountOrder }}</p>
+                                                    <div>
+                                                        <p class="my-currency">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }}{% else %}грн{% endif %}</p>
+{#                                                        <span class="my-line"></span>#}
+                                                    </div>
+
+                                                    </div>
+                                                    <!----------------------------->
+                                                    {% elseif discount is not null %}
+
+                                                        {% if currency is not empty %}
+                                                            {% set price = order.price %}
+                                                        {% else %}
+                                                            {% set price = order.video.priceUah %}
+                                                        {% endif %}
+
+                                                        {% set discountEmailOrder = (price * discount) / 100 %}
+                                                        {% set discountOrder = price - discountEmailOrder %}
+
+                                                        <p>{{ discountOrder }}</p>
+                                                        <div>
+                                                            <p class="my-currency">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }}{% else %}грн{% endif %}</p>
+{#                                                            <span class="my-line"></span>#}
+                                                        </div>
+
+                                                    {% else %}
+                                                        <p>{{ order.price }}</p>
+                                                        <div>
+                                                            <p class="my-currency">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }}{% else %}грн{% endif %}</p>
+                                                            {#                                                            <span class="my-line"></span>#}
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+
+                                            <div class="sale-box">
+                                                <span class="full-price purch_price">{% if currency is not empty %}{{ order.price }}{% else %}{{ order.video.priceUah }}{% endif %} {% if currency is not empty and currency.codeISO != 'UAH' %}{{ currency.sing }}{% else %}грн{% endif %}</span>
+
+                                                {% if order.video.discount > 0 or discount is not null %}
+                                                    {% if order.video.discount > 0 %}
+                                                        {% set discount_string = order.video.discount %}
+                                                    {% elseif discount is not null %}
+                                                        {% set discount_string = discount %}
+                                                    {% endif %}
+                                                    <span class="perc-price"> (<span>{{ 'front.perc_price_discount'|trans }}</span>-{{ discount_string }}%)</span>
+{#                                                    <p class="discount_string"><span>({{ 'front.perc_price_discount'|trans }}</span>-{{ discount_string }}%)</p>#}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+{#                                    <div class="another_way">#}
+{#                                        <input class="btn__pay save__title option-input__bank" type="button" name="paid"#}
+{#                                               data-value="3" id="inter_subscribe">#}
+{#                                        <div class="wrap-subs-lb">#}
+{#                                            <div class="current-price-wrap">#}
+{#                                                <div class="current-price">#}
+{#                                                    {% if order.video.discount > 0 %}#}
+{#                                                        <div class="price-box__discount">#}
+
+{#                                                            {% if currency is not empty %}#}
+{#                                                                {% set price = order.price %}#}
+{#                                                            {% else %}#}
+{#                                                                {% set price = order.video.priceUah %}#}
+{#                                                            {% endif %}#}
+
+{#                                                            {% set discountOrder = (price * order.video.discount) / 100 %}#}
+{#                                                            {% set discountOrder = price - discountOrder %}#}
+{#                                                            {% if discount is not null %}#}
+{#                                                                {% set discountEmailOrder = (discountOrder * discount) / 100 %}#}
+{#                                                                {% set discountOrder = discountOrder - discountEmailOrder %}#}
+{#                                                            {% endif %}#}
+
+{#                                                            <p class="price-text price-text--lg price-text--red">{{ discountOrder }}</p>#}
+{#                                                            <span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }}{% else %}грн{% endif %}</span>#}
+
+{#                                                        </div>#}
+{#                                                    {% elseif discount is not null %}#}
+
+{#                                                        {% if currency is not empty %}#}
+{#                                                            {% set price = order.price %}#}
+{#                                                        {% else %}#}
+{#                                                            {% set price = order.video.priceUah %}#}
+{#                                                        {% endif %}#}
+
+{#                                                        {% set discountEmailOrder = (price * discount) / 100 %}#}
+{#                                                        {% set discountOrder = price - discountEmailOrder %}#}
+{#                                                        <p class="price-text price-text--lg price-text--red">{{ discountOrder }}</p>#}
+{#                                                        <span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }} {% else %} грн {% endif %}</span>#}
+{#                                                    {% endif %}#}
+{#                                                </div>#}
+{#                                            </div>#}
+
+{#                                            <div class="price-box__main price-wrap">#}
+{#                                                <span class="price-text__currency price-text__currency--lg">{% if currency is not empty and currency.codeISO != 'UAH' %} {{ currency.sing }}{% else %}грн{% endif %}</span>#}
+{#                                                <span class="price-text price-text--lg {% if order.video.discount > 0 or discount is not null %}price-text__discount{% endif %}">{% if currency is not empty %}{{ order.price }}{% else %}{{ order.video.priceUah }}{% endif %}</span>#}
+{#                                                {% if order.video.discount > 0 or discount is not null %}#}
+{#                                                    {% if order.video.discount > 0 %}#}
+{#                                                        {% set discount_string = order.video.discount %}#}
+{#                                                    {% elseif discount is not null %}#}
+{#                                                        {% set discount_string = discount %}#}
+{#                                                    {% endif %}#}
+
+{#                                                    <p class="discount_string">(-{{ discount_string }}%)</p>#}
+{#                                                {% endif %}#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+
+                                    {% if(dynamic.description_purchase) %}
+                                        <div class="subs-text-popup purch_text">{{ dynamic.description_purchase|raw }}
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="move-text">
+                                        <p>{{ 'front.move_text_still'|trans }}</p>
+                                    </div>
+
+                                    <ul class="video-ready__bank">
+                                        <li>
+                                            <input class="payment btn__pay save__title option-input__bank" type="button"
+                                                   name="paid" data-value="1" id="inter_visa">
+                                            <label for="inter_visa" class="subs-pay-btn card-btn">
+                                                <img src="{{ asset('img/logo-bank/visa-03.png') }}" alt="visa">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input class="payment btn__pay save__title option-input__bank" type="button"
+                                                   name="paid" data-value="2" id="inter_mastercard">
+                                            <label for="inter_mastercard" class="subs-pay-btn card-btn">
+                                                <img src="{{ asset('img/logo-bank/master-03.png') }}" alt="master">
+                                            </label>
+                                        </li>
+                                        {#                                    <li>#}
+                                        {#                                        <input class="payment btn__pay save__title option-input__bank" type="button" name="paid" data-value="paypal" id="pay_pal_pay">#}
+                                        {#                                        <label for="pay_pal_pay" class="subs-pay-btn card-btn">#}
+                                        {#                                            <img src="{{ asset('img/logo-bank/paypal-600x300.png') }}" alt="paypal">#}
+                                        {#                                        </label>#}
+                                        {#                                    </li>#}
+                                    </ul>
+
+                                    <div class="doc-payds">
+                                        <p>{{ 'front.doc_payds'|trans }}<a target="_blank"
+                                                                           href="https://brand.vijoys.com/documents">{{ 'front.doc_payds_link'|trans }}</a>
+                                        </p>
+                                    </div>
+
+                                    <div class="current-price-box">
+                                        <button type="submit" class="save__title btn btn-text btn__pay payment"
+                                                data-value="3">{{ 'front.subscribe_to_premium'|trans }}</button>
+                                    </div>
+
+                                </form>
+
+
+                                {#                            <form method="post" action="{{ path('home') }}" id="subscribeFormDiscount">#}
+                                {#                                <input class="form-control" type="text" name="promocode" placeholder="{{ 'front.promo_code'|trans }}" value="" required="required">#}
+                                {#                                <div class="form-control-feedback"></div>#}
+                                {#                                <button class="btn__pay" type="submit" disabled="disabled">{{ 'front.promo_code_activation'|trans }}</button>#}
+                                {#                                <input type="hidden" name="id" value="{{ dynamic.subscription_type.id }}">#}
+                                {#                                <input type="hidden" name="order_id" value="{{ order.id }}">#}
+                                {#                            </form>#}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% elseif dynamic.subscription is not empty %}
+        <div class="subs-text-active">
+            {{ 'front.subscription_active_to'|trans }} {{ dynamic.subscription.expiredAt|date("d.m.Y") }}
+        </div>
+    {% endif %}
+</div>

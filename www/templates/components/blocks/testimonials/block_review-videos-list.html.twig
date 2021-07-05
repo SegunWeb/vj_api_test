@@ -1,0 +1,13 @@
+<div class="testim-video" id="testim-video" style="display: none;" data-count="{{ dynamic.video_review|length }}">
+    <h2 class="text-center title-text__md">{{ 'front.review_videos'|trans }}</h2>
+    <div class="container-video-review">
+        <div class="video-testimonials-wrap testim-video-box col-12">
+
+            {% include 'components/blocks/testimonials/block_review-videos-list-wrap.html.twig' %}
+
+        </div>
+    </div>
+    {% if dynamic.video_review_count > dynamic.video_review|length %}
+        <button class="btn btn__all btn-text show-more-review-video">{{ 'front.show_more'|trans }}</button>
+    {% endif %}
+</div>

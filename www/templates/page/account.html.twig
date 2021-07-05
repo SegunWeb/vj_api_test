@@ -1,0 +1,87 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{#<div class="loaderArea">#}
+{#     <div class="loader">#}
+{#        <image src="{% path setting.logoPreloader, 'reference' %}" alt="">#}
+{#        <image src="{{ asset('image/preloaderBeta.png') }}" alt="">#}
+{#    </div>#}
+{#</div>#}
+<!---header--->
+{% include 'components/blocks/header-red.html.twig' %}
+<!---header-end--->
+<!---header-end--->
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+    {% include 'components/pop-up/register_pop-up.html.twig' %}
+    {% include 'components/pop-up/auth_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main>
+
+    <div class="account">
+{#        <image class="decor-aps" src="{{ asset('image/new-elem/decor-arrow-cicle.png') }}" alt="arrow">#}
+{#        <image class="decor-aps__down decor-aps" src="{{ asset('image/new-elem/decor-arrow-r.png') }}" alt="arrow">#}
+{#        <image class="decor-aps__center " src="{{ asset('image/new-elem/decor-arrow.png') }}" alt="arrow">#}
+
+{#        <div class="container">#}
+{#            <div class="text-right">#}
+{#                <a class="btn__out" href="/logout">{{ 'front.logout'|trans }}</a>#}
+{#            </div>#}
+{#         </div>#}
+        <h2 class="text-center title-text__md">{{ 'front.account'|trans }}</h2>
+
+        {% if(dynamic.is_subscribe_enable) %}
+            {% include "components/blocks/account/block_pay_sub.twig" %}
+        {% endif %}
+
+        <div class="container">
+            <div class="row">
+
+                {% include 'components/blocks/account/block_account-radio-type.html.twig' with { 'type' : 'all' } %}
+
+                <div class="col-12 account-box">
+
+                    <h2 class="text-center title-text__account" id="names">{{ 'front.all_videos'|trans }}</h2>
+
+                    {% if dynamic.orders is not empty %}
+                    <div class="container-orders">
+
+                        {% include 'components/blocks/account/block_order-list.html.twig' %}
+
+                    </div>
+
+                    <div class="navigation">
+                        {{ knp_pagination_render(dynamic.orders) }}
+                    </div>
+
+                    {% endif %}
+
+                    <div id="hidden-payment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+</body>
+</html>

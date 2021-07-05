@@ -1,0 +1,57 @@
+
+
+<div class="name-page container">
+    <h1 class="text-center title-categ">{{ 'front.all_video_categories'|trans }}</h1>
+</div>
+
+<!---breadcrumbs--->
+{% include 'components/blocks/blog/block_breadcrumbs.html.twig' %}
+<!---breadcrumbs-end--->
+
+<div class="container categories">
+
+    <div class="row">
+        <div class="categories-block col-12 error-rending-text">
+            {% if dynamic.categories is defined and dynamic.categories is not empty %}
+                {% for category in dynamic.categories %}
+                    <div class="categories-elem">
+                        <a href="{{ path('video_category', {'slug': category.slug}) }}">
+                            {% if category.images is not empty %}
+                                <img src="{% path category.images, 'cat' %}" style="display: block; position: relative; opacity: 1; left: unset; top: unset; transform: unset; width: 10%; margin-top: 0;">
+                            {% endif %}
+                           <p>{{ category.titleAbbreviated }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{#<img class="decor-aps__down decor-aps" src="{{ asset('img/new-elem/decor-arrow-r.png') }}" alt="arrow">#}
+
+{#<div class="name-page container">#}
+{#    <img class="decor" src="{{ asset('img/new-elem/choose.png') }}" alt="choose">#}
+{#    <h2 class="text-center title-text__md title-text__md--sm about__title">{{ page.title }}</h2>#}
+{#</div>#}
+
+
+
+{% if page.pageContentSeo is not empty %}
+{#<div class="blockseo__text ">#}
+    {#<div class="container">#}
+        {#<div class="">{{ page.pageContentSeo|raw }}</div>#}
+    {#</div>#}
+{#</div>#}
+
+    <div class="blockseo__text">
+        <div class="container">
+
+            <div class="seo-content hide-seo"><p>{{ page.pageContentSeo|raw }}</p></div>
+            {% if page.pageContentSeo is not empty %}
+                <div class="btn-area btn-text btn-seo"><a class="seo-more" href="#">раскрыть</a></div>
+            {% endif%}
+
+        </div>
+    </div>
+
+{% endif %}

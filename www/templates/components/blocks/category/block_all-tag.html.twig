@@ -1,0 +1,19 @@
+<div class="tags-wrapp" >
+    <button class="tag-filter btn__load" ><i class="fas fa-filter"></i>{{ 'front.filter_button'|trans }}</button>
+
+    <div class="tag-list" id="tags">
+        {#<p>{{ 'front.tag_cloud'|trans }}</p> #}
+
+        {% if dynamic.tag_cloud is defined %}
+            {% if dynamic.tag_cloud is not empty %}
+                {% for tag in dynamic.tag_cloud %}
+                    <a {% if app.request.query.has('tag') %} {% set url = url_tagging(app.request.query.get('tag'), tag.slug) %} {% else %} {% set url = tag.slug %} {% endif %} {% if url is not empty %} {% if url is iterable %} href="{% for u in url %}{% if loop.index > 1 %}&{% else %}?{% endif %}tag[]={{ u }}{% endfor %}" {% else %} href="?tag[]={{ url }}" {% endif %} {% else %} href="{{ app.request.pathInfo }}" {% endif %} {% if active_tagging(app.request.query.get('tag'), tag.slug) %}class="active"{% endif %} data-slug="{{ tag.slug }}">{{ tag.name }}</a>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+
+
+        <a class="close-tag" {% if  app.request.query.has('tag') == false %}style="display:none;"{% endif %} href="{{ app.request.pathInfo }}">{{ 'front.reset_tags'|trans }}</a>
+    </div>
+</div>
+

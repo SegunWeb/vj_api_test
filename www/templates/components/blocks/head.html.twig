@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if meta is defined and meta != null %}
+    {% if meta.title is not empty %}
+        <title>{{ meta.title }}</title>
+        <meta property="og:title" id="meta_title" content="{{ meta.title }}"/>
+        <meta name="twitter:title" id="twitter_title" content="{{ meta.title }}"/>
+    {% else %}
+        <title>{% if video is defined %}{{ video.title }} |{% endif %} ViJoys</title>
+        <meta property="og:title" id="meta_title" content="{% if video is defined %}{{ video.title }} |{% endif %} ViJoys"/>
+        <meta name="twitter:title" id="twitter_title" content="{% if video is defined %}{{ video.title }} |{% endif %} ViJoys"/>
+    {% endif %}
+    {% if meta.keywords %}
+        <meta property="og:keywords" name="keywords" id="meta_keywords" content="{{ meta.keywords}}"/>
+        <meta name="keywords" content="{{ meta.keywords}}">
+    {% endif %}
+        <meta property="og:description" name="description" id="meta_description" content="{{ meta.description }}"/>
+        <meta name="twitter:description" id="twitter_description" content="{{ meta.description }}"/>
+        <meta name="description" content="{{ meta.description }}">
+    {% if meta.canonical is not empty %}
+        <link rel="canonical" href="{{ meta.canonical }}" />
+    {% endif %}
+        <meta name="twitter:card"  content="summary"/>
+    {% if meta.image %}
+        <meta property="og:image" id="og:image" content="{{ app.request.getSchemeAndHttpHost() }}{% path meta.image, 'reference' %}" />
+        <link rel="image_src" id="image_src" href="{{ app.request.getSchemeAndHttpHost() }}{% path meta.image, 'reference' %}" />
+        <meta name="twitter:image" id="twitter:image" content="{{ app.request.getSchemeAndHttpHost() }}{% path meta.image, 'reference' %}"/>
+    {% endif %}
+    {% endif %}
+    {% if app.request.get('_route') == 'app_cms_content' %}
+        {% if page.type == constant('App\\Constants\\TypePageConstants::ALL_VIDEO_VALUES') %}
+            {% if app.request.query.all is not empty %}
+                <meta name="robots" content="noindex, nofollow" />
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    <meta name="theme-color" content="#c9e0e04d">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('img/favicons/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/favicons/apple-touch-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/favicons/apple-touch-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('img/favicons/apple-touch-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('img/favicons/apple-touch-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/favicons/apple-touch-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicons/apple-touch-icon-180x180.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/favicons/favicon-32x32.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('styles/librarys/bootstrap.css') }}">
+{#    <link rel="stylesheet" href="{{ asset('styles/librarys/animate.css') }}">#}
+    <link rel="stylesheet" href="{{ asset('styles/librarys/slick.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
+    <link rel="stylesheet" href="{{ asset('styles/librarys/phonecode.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/styles.css') }}">
+    {% block style %} {% endblock %}
+
+    <!-- hreflang attribute for specifying a language -->
+    {% set language = change_language(true) %}
+    {% for url, lg in language %}
+        <link rel="alternate" href="{{ app.request.getSchemeAndHttpHost() }}{{ url }}" hreflang="{{ lg }}" />
+    {% endfor %}
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MBDQLTK');</script>
+    <!-- End Google Tag Manager -->
+</head>

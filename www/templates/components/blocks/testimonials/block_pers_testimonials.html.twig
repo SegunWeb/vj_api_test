@@ -1,0 +1,33 @@
+{% if video.review.empty  == false %}
+<div class="testimonials testimonials-new">
+    <div class="container">
+        <div class="row">
+            <!----title-name----->
+            <h2 class="col-12 title-text__md mb-2">{{ 'front.review'|trans }}</h2>
+            <div class="testimonials-wrap testimonials-slider col-12">
+                {% for review in video.review if review.active == 1 and review.locale == app.request.locale %}
+                <!----testimonials-block----->
+                <!----testimonials-box----->
+                <div class="row">
+                    <div class="testimonials__box justify-content-between d-flex col-lg-8 col-md-10 mx-auto">
+                        <div class="user-photo__img-new testimonials__avatar">
+
+                            {#<img src="{% if review.users.avatar is not empty %} {% path review.users.avatar, 'avatar' %} {% else %} {{ asset('img/common/circle-chl.png') }} {% endif %}"/>#}
+                            <img src="{% if review.users.avatar is not empty %}{% path review.users.avatar, 'reference' %}{% else %}img/common/circle-chl.png{% endif %}">
+
+                        </div>
+                        <div class="user-photo__text">
+                            <div class="d-flex">
+                                <p class="desc-text desc-text__name">{{ review.users.fullName }}</p>
+                                {#<p class="desc-text desc-text__city">{{ review.users.city }}</p>#}
+                            </div>
+                            <p class="desc-text desc-text--black desc-text__md margin-text-y">{{ review.text|raw }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {#<a class="btn btn__all btn-text" href="{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::REVIEW_VALUES'), app.request.locale) }}">{{ 'front.show_all'|trans }}</a>#}
+        </div>
+</div>
+{% endif %}

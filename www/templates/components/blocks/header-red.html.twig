@@ -1,0 +1,64 @@
+<div class="header-blue">
+    <!---header--->
+    <header class="container header-top">
+        <!---header-nav--->
+        <div class="row ">
+            <!---logo_home-link--->
+            <a class="header-top__logo col-2 offset-1 offset-sm-0" href="{{ path('home') }}">
+                <img class="logo" src="{% path setting.logoHeader, 'reference' %}"/>
+            </a>
+            <!---navbar-link--->
+            <button class="toggle-hamburger toggle-hamburger__animx btn__hamburger offset-7 offset-sm-9"><span></span></button>
+            <div class="filter" id="filt"></div>
+            <div class="col-lg-10  header-nav-box">
+
+
+                <nav class="col-lg-6 col-xl-5 col-12">
+                    <ul class="menu header-menu col">
+                        {% if menuHeader is defined and menuHeader is not empty %}
+                            {% for menu in menuHeader %}
+                                {% if menu.typeMenuItem == 1 %}
+                                    {% set link = '/'~menu.staticPageId.slug %}
+                                {% elseif menu.typeMenuItem == 2 %}
+                                    {% set link = menu.link %}
+                                {% elseif menu.typeMenuItem == 3 %}
+                                    {% set link = path('video_category', {'slug' : menu.staticVideoCategoryId.slug }) %}
+                                {% else %}
+                                    {% set link = menu.link %}
+                                {% endif %}
+
+                                {% if menu.currentLocale != menu.defaultLocale and menu.typeMenuItem != 3 %}
+                                    {% set linkCurrentLocale = '/'~menu.currentLocale~link %}
+                                {% else %}
+                                    {% set linkCurrentLocale = link %}
+                                {% endif  %}
+                                <li><a class="menu__link" href="{{ linkCurrentLocale }}">{{ menu.title }}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </nav>
+                <div class="col-lg-5 header-nav-box__cont offset-lg-2 offset-xl-3 col-12">
+                    <!---lang--->
+                    <div class="nav lang-menu">
+                        {% if app.request.attributes.get('slug') is not empty %}
+                            {% if locales is defined and locales is not empty and locales|length > 1 %}
+                                <div class="dropdown"><a class="dropdown-toggle lang-menu__button" href="#" data-toggle="dropdown" role="button" aria-expanded="false">{{ app.request.locale|trans }}<span class="caret"></span></a>
+                                    <ul class="dropdown-menu header-lang" role="menu">
+                                        {% for locale in locales %}
+                                            <li class="header-lang__item"><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': locale })) }}">{{ locale|trans }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <a href="/{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::USER_ACCOUNT_VALUES'), app.request.locale) }}" class="link_nav_account btn__auth text-center align-self-center btn-text btn-text--sm {% if app.user is empty %}d-none{% else %}d-flex{% endif %}">{{ 'front.account'|trans }}</a>
+                    <button class="link_nav_account btn__auth text-center align-self-center btn-text btn-text--sm {% if app.user is not empty %}d-none{% else %}d-flex{% endif %}">{{ 'front.log_in'|trans }}</button>
+                </div>
+            </div>
+            <!---end-nav--->
+        </div>
+    </header>
+    <!---header-end--->
+</div>

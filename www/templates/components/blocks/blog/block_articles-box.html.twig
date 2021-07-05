@@ -1,0 +1,19 @@
+{% if dynamic.blog is not empty %}
+    {% for blog in dynamic.blog %}
+        <div class="articles-box col">
+            <div class="articles-box__img col-lg-5 col-xl-4">
+                <img src="{% path blog.images, 'small' %}">
+            </div>
+            <div class="articles-box__content col-lg-7 col-xl-8 col-12">
+                <p class="title-text__xs title-text__xs--black">{{ blog.title }}</p>
+                <p class="desc-text desc-text--black desc-text__md my-2 my-xl-3">
+                    {{ blog.description }}
+                </p>
+                <div class="d-flex justify-content-between align-self-center">
+                    <a class="btn btn__more btn__more--arct btn-text btn-text--blue btn-text--md" href="{{ path('app_cms_blog_content', {'slug' : blog.slug }) }}">{{ 'front.more'|trans }}</a>
+                    <p class="desc-text desc-text__data desc-text__data--right">{{ blog.createdAt|date('d.m.Y') }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

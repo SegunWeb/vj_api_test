@@ -1,0 +1,2952 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="en">
+  <file id="messages.en">
+    <unit id="7VrTMsE" name="ru">
+      <segment>
+        <source>ru</source>
+        <target>Русский</target>
+      </segment>
+    </unit>
+    <unit id="29OknQ2" name="en">
+      <segment>
+        <source>en</source>
+        <target>English</target>
+      </segment>
+    </unit>
+    <unit id="NIVjn68" name="pl">
+      <segment>
+        <source>pl</source>
+        <target>Polish</target>
+      </segment>
+    </unit>
+    <unit id="51sR2mk" name="pt">
+      <segment>
+        <source>pt</source>
+        <target>Portuguese</target>
+      </segment>
+    </unit>
+    <unit id="8XNytC_" name="app.admin.label.page">
+      <segment>
+        <source>app.admin.label.page</source>
+        <target>Страницы</target>
+      </segment>
+    </unit>
+    <unit id="Q9P4RAG" name="app.admin.label.header_menu">
+      <segment>
+        <source>app.admin.label.header_menu</source>
+        <target>Хедер</target>
+      </segment>
+    </unit>
+    <unit id="MeuEC6h" name="app.admin.label.footer_menu">
+      <segment>
+        <source>app.admin.label.footer_menu</source>
+        <target>Футер</target>
+      </segment>
+    </unit>
+    <unit id="lsDK061" name="app.admin.label.holidays">
+      <segment>
+        <source>app.admin.label.holidays</source>
+        <target>Праздники</target>
+      </segment>
+    </unit>
+    <unit id="1eSo6OS" name="app.admin.label.placeholder">
+      <segment>
+        <source>app.admin.label.placeholder</source>
+        <target>Плейсхолдеры</target>
+      </segment>
+    </unit>
+    <unit id="2cjLgav" name="app.admin.label.feedback">
+      <segment>
+        <source>app.admin.label.feedback</source>
+        <target>Сообщения</target>
+      </segment>
+    </unit>
+    <unit id="bJN9qZA" name="app.admin.label.phrases">
+      <segment>
+        <source>app.admin.label.phrases</source>
+        <target>Фразы</target>
+      </segment>
+    </unit>
+    <unit id="9QqGa.4" name="app.admin.label.phrases_categories">
+      <segment>
+        <source>app.admin.label.phrases_categories</source>
+        <target>Категории фраз</target>
+      </segment>
+    </unit>
+    <unit id="ota12aJ" name="app.admin.label.first_name">
+      <segment>
+        <source>app.admin.label.first_name</source>
+        <target>Имена</target>
+      </segment>
+    </unit>
+    <unit id="oA6R7ZP" name="app.admin.label.intended">
+      <segment>
+        <source>app.admin.label.intended</source>
+        <target>Предназначения</target>
+      </segment>
+    </unit>
+    <unit id="NcMIDOP" name="app.admin.label.promo_code">
+      <segment>
+        <source>app.admin.label.promo_code</source>
+        <target>Промокоды</target>
+      </segment>
+    </unit>
+    <unit id="y_JvMN2" name="app.admin.label.help">
+      <segment>
+        <source>app.admin.label.help</source>
+        <target>Вопрос-Ответ</target>
+      </segment>
+    </unit>
+    <unit id="eLWtKsI" name="app.admin.label.video_categories">
+      <segment>
+        <source>app.admin.label.video_categories</source>
+        <target>Категории видео</target>
+      </segment>
+    </unit>
+    <unit id="3wywaTX" name="app.admin.label.video">
+      <segment>
+        <source>app.admin.label.video</source>
+        <target>Видео</target>
+      </segment>
+    </unit>
+    <unit id="TxqBu5L" name="app.admin.label.users">
+      <segment>
+        <source>app.admin.label.users</source>
+        <target>Пользователи</target>
+      </segment>
+    </unit>
+    <unit id="VwPL8Rn" name="app.admin.label.currency">
+      <segment>
+        <source>app.admin.label.currency</source>
+        <target>Валюты</target>
+      </segment>
+    </unit>
+    <unit id="o4bccy." name="app.admin.label.setting">
+      <segment>
+        <source>app.admin.label.setting</source>
+        <target>Настройки</target>
+      </segment>
+    </unit>
+    <unit id="6Bdjojx" name="app.admin.label.mail_template">
+      <segment>
+        <source>app.admin.label.mail_template</source>
+        <target>Шаблоны письм</target>
+      </segment>
+    </unit>
+    <unit id="4Wr1i.E" name="app.admin.label.review">
+      <segment>
+        <source>app.admin.label.review</source>
+        <target>Отзывы</target>
+      </segment>
+    </unit>
+    <unit id="FvwYI_A" name="app.admin.label.review_video">
+      <segment>
+        <source>app.admin.label.review_video</source>
+        <target>Видео отзывы</target>
+      </segment>
+    </unit>
+    <unit id="m1l30P0" name="app.admin.label.order">
+      <segment>
+        <source>app.admin.label.order</source>
+        <target>Заказы</target>
+      </segment>
+    </unit>
+    <unit id="U2yo0x5" name="app.admin.label.country">
+      <segment>
+        <source>app.admin.label.country</source>
+        <target>Страны</target>
+      </segment>
+    </unit>
+    <unit id="i2KgHdc" name="app.admin.label.blog">
+      <segment>
+        <source>app.admin.label.blog</source>
+        <target>Блог</target>
+      </segment>
+    </unit>
+    <unit id="Bm4C.Sn" name="app.admin.label.blog_categories">
+      <segment>
+        <source>app.admin.label.blog_categories</source>
+        <target>Категории блога</target>
+      </segment>
+    </unit>
+    <unit id="cQqoeCL" name="app.admin.label.translations">
+      <segment>
+        <source>app.admin.label.translations</source>
+        <target>Переводы</target>
+      </segment>
+    </unit>
+    <unit id="hkMQs_z" name="app.admin.label.our_advantages">
+      <segment>
+        <source>app.admin.label.our_advantages</source>
+        <target>Наши преимущества</target>
+      </segment>
+    </unit>
+    <unit id="NfBwCox" name="list.actions">
+      <segment>
+        <source>list.actions</source>
+        <target>Действия</target>
+      </segment>
+    </unit>
+    <unit id="tmrnJ3T" name="object.content">
+      <segment>
+        <source>object.content</source>
+        <target>Контент</target>
+      </segment>
+    </unit>
+    <unit id="os71BXb" name="object.discount_email_marketing">
+      <segment>
+        <source>object.discount_email_marketing</source>
+        <target>Скидка для e-mail маркетинга, %</target>
+      </segment>
+    </unit>
+    <unit id="Lnd1Bst" name="object.number_of_persons">
+      <segment>
+        <source>object.number_of_persons</source>
+        <target>Количество человек</target>
+      </segment>
+    </unit>
+    <unit id="01gBiui" name="object.locale_version">
+      <segment>
+        <source>object.locale_version</source>
+        <target>Языковая версия</target>
+      </segment>
+    </unit>
+    <unit id="Mnjbjqh" name="First Name List">
+      <segment>
+        <source>First Name List</source>
+        <target>Список имен</target>
+      </segment>
+    </unit>
+    <unit id="ybTa8ZE" name="First Name Create">
+      <segment>
+        <source>First Name Create</source>
+        <target>Добавление имени</target>
+      </segment>
+    </unit>
+    <unit id="h_W.hf6" name="object.title">
+      <segment>
+        <source>object.title</source>
+        <target>Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="Y5Zzl4s" name="object.images_blog">
+      <segment>
+        <source>object.images_blog</source>
+        <target>Изображение</target>
+      </segment>
+    </unit>
+    <unit id="yacv61c" name="object.description">
+      <segment>
+        <source>object.description</source>
+        <target>Описание</target>
+      </segment>
+    </unit>
+    <unit id="15DWxn8" name="object.order_created_at">
+      <segment>
+        <source>object.order_created_at</source>
+        <target>Дата создание заказа</target>
+      </segment>
+    </unit>
+    <unit id="LFILbaW" name="object.update_at_profile">
+      <segment>
+        <source>object.update_at_profile</source>
+        <target>Последнее редактирование</target>
+      </segment>
+    </unit>
+    <unit id="gyzCFkT" name="object.order_activity">
+      <segment>
+        <source>object.order_activity</source>
+        <target>Статус заказа</target>
+      </segment>
+    </unit>
+    <unit id="luwq66b" name="object.country_name">
+      <segment>
+        <source>object.country_name</source>
+        <target>Название страны</target>
+      </segment>
+    </unit>
+    <unit id="gEmg2Tq" name="object.email">
+      <segment>
+        <source>object.email</source>
+        <target>Электронная почта</target>
+      </segment>
+    </unit>
+    <unit id=".3xQtbH" name="object.last_login">
+      <segment>
+        <source>object.last_login</source>
+        <target>Последний вход</target>
+      </segment>
+    </unit>
+    <unit id="GBaMxJr" name="object.city">
+      <segment>
+        <source>object.city</source>
+        <target>Город</target>
+      </segment>
+    </unit>
+    <unit id="x24h12m" name="object.phone">
+      <segment>
+        <source>object.phone</source>
+        <target>Телефон</target>
+      </segment>
+    </unit>
+    <unit id="6.vh5v0" name="object.avatar">
+      <segment>
+        <source>object.avatar</source>
+        <target>Аватар</target>
+      </segment>
+    </unit>
+    <unit id="zc_3yQ6" name="object.enabled">
+      <segment>
+        <source>object.enabled</source>
+        <target>Подтвержденный аккаунт</target>
+      </segment>
+    </unit>
+    <unit id="SPOi7re" name="object.sex">
+      <segment>
+        <source>object.sex</source>
+        <target>Пол</target>
+      </segment>
+    </unit>
+    <unit id="jXHJiZQ" name="object.activity">
+      <segment>
+        <source>object.activity</source>
+        <target>Статус</target>
+      </segment>
+    </unit>
+    <unit id="ofKoovB" name="object.selected_currency_country">
+      <segment>
+        <source>object.selected_currency_country</source>
+        <target>Выберите страну</target>
+      </segment>
+    </unit>
+    <unit id="kkr0PFQ" name="object.age_from">
+      <segment>
+        <source>object.age_from</source>
+        <target>Возраст (от)</target>
+      </segment>
+    </unit>
+    <unit id="kvgwXfM" name="object.age_up">
+      <segment>
+        <source>object.age_up</source>
+        <target>Возраст (до)</target>
+      </segment>
+    </unit>
+    <unit id="C1IRQ6N" name="Holidays List">
+      <segment>
+        <source>Holidays List</source>
+        <target>Список праздников</target>
+      </segment>
+    </unit>
+    <unit id="DypV5Bh" name="object.parent">
+      <segment>
+        <source>object.parent</source>
+        <target>Родительский пункт</target>
+      </segment>
+    </unit>
+    <unit id="wZkSKWv" name="object.type_menu_item">
+      <segment>
+        <source>object.type_menu_item</source>
+        <target>Тип</target>
+      </segment>
+    </unit>
+    <unit id="AqMxKfB" name="object.project">
+      <segment>
+        <source>object.project</source>
+        <target>Проект (.zip)</target>
+      </segment>
+    </unit>
+    <unit id="GymIDgd" name="object.choice_type_menu_item">
+      <segment>
+        <source>object.choice_type_menu_item</source>
+        <target>Выберите тип пункта</target>
+      </segment>
+    </unit>
+    <unit id="bXryG87" name="object.render_youtube_link">
+      <segment>
+        <source>object.render_youtube_link</source>
+        <target>Ссылка на YouTube</target>
+      </segment>
+    </unit>
+    <unit id="qBn2qV7" name="total_cost_order">
+      <segment>
+        <source>total_cost_order</source>
+        <target>Выбрано заказов: %count_order% на сумму $%price%</target>
+      </segment>
+    </unit>
+    <unit id="cdJyhrE" name="object.static_page">
+      <segment>
+        <source>object.static_page</source>
+        <target>Страница</target>
+      </segment>
+    </unit>
+    <unit id="XJWZjuG" name="object.choice_static_page">
+      <segment>
+        <source>object.choice_static_page</source>
+        <target>Выберите страницу</target>
+      </segment>
+    </unit>
+    <unit id="k6sP887" name="object.link">
+      <segment>
+        <source>object.link</source>
+        <target>Ссылка</target>
+      </segment>
+    </unit>
+    <unit id="u7dXqzB" name="object.type_page">
+      <segment>
+        <source>object.type_page</source>
+        <target>Тип страницы</target>
+      </segment>
+    </unit>
+    <unit id="ii.ymQV" name="object.selected">
+      <segment>
+        <source>object.selected</source>
+        <target>Выбрать</target>
+      </segment>
+    </unit>
+    <unit id="6Ngi2qk" name="object.selected_parent">
+      <segment>
+        <source>object.selected_parent</source>
+        <target>Выберите родительский пункт</target>
+      </segment>
+    </unit>
+    <unit id="cenHWE2" name="object.selected_holidays">
+      <segment>
+        <source>object.selected_holidays</source>
+        <target>Выберите праздник</target>
+      </segment>
+    </unit>
+    <unit id="5z7h7c5" name="object.users">
+      <segment>
+        <source>object.users</source>
+        <target>Пользователь</target>
+      </segment>
+    </unit>
+    <unit id="EqjlesR" name="object.users_city">
+      <segment>
+        <source>object.users_city</source>
+        <target>Город</target>
+      </segment>
+    </unit>
+    <unit id="S5s9DiZ" name="object.text_review">
+      <segment>
+        <source>object.text_review</source>
+        <target>Отзыв</target>
+      </segment>
+    </unit>
+    <unit id="4blPxPy" name="object.video_review">
+      <segment>
+        <source>object.video_review</source>
+        <target>Видео отзыв</target>
+      </segment>
+    </unit>
+    <unit id="Yw4NhiB" name="object.preview_video">
+      <segment>
+        <source>object.preview_video</source>
+        <target>Превью к видео</target>
+      </segment>
+    </unit>
+    <unit id="hcZMm6b" name="object.text_reply">
+      <segment>
+        <source>object.text_reply</source>
+        <target>Ответ на отзыв</target>
+      </segment>
+    </unit>
+    <unit id="CfAaNQt" name="object.author_text_reply">
+      <segment>
+        <source>object.author_text_reply</source>
+        <target>Администратор</target>
+      </segment>
+    </unit>
+    <unit id="Qy9dkb6" name="object.type_video_placeholder">
+      <segment>
+        <source>object.type_video_placeholder</source>
+        <target>Тип плейсхолдера</target>
+      </segment>
+    </unit>
+    <unit id="SEYWFRs" name="object.choice_type_video_placeholder">
+      <segment>
+        <source>object.choice_type_video_placeholder</source>
+        <target>Выберите тип плейсхолдера</target>
+      </segment>
+    </unit>
+    <unit id="39kK4z0" name="object.type_video_placeholder_help">
+      <segment>
+        <source>object.type_video_placeholder_help</source>
+        <target>Форматы: изображения - .jpg, аудио - .mp3, видео - .mp4</target>
+      </segment>
+    </unit>
+    <unit id="HTBJEKV" name="object.video_placeholder">
+      <segment>
+        <source>object.video_placeholder</source>
+        <target>Плейсхолдер</target>
+      </segment>
+    </unit>
+    <unit id="i7IKB91" name="object.video_layer_name">
+      <segment>
+        <source>object.video_layer_name</source>
+        <target>Название слоя</target>
+      </segment>
+    </unit>
+    <unit id="benw481" name="object.video_layer_index">
+      <segment>
+        <source>object.video_layer_index</source>
+        <target>Индекс слоя</target>
+      </segment>
+    </unit>
+    <unit id="Uqh5wld" name="object.video_layer_index_help">
+      <segment>
+        <source>object.video_layer_index_help</source>
+        <target>Обязателен для текстовых плейсхолдеров (http://vijoys.com/img/layer_index_examples.png)</target>
+      </segment>
+    </unit>
+    <unit id="bM47yn2" name="object.video_placeholder_composition">
+      <segment>
+        <source>object.video_placeholder_composition</source>
+        <target>Композиция в которой находится слой</target>
+      </segment>
+    </unit>
+    <unit id="8vLUZ5z" name="object.video_placeholder_composition_help">
+      <segment>
+        <source>object.video_placeholder_composition_help</source>
+        <target>Обязателен для текстовых плейсхолдеров. Можно использовать в тех случая когда нужно заменить один и тот же слой разными изображениями/видео/аудио.</target>
+      </segment>
+    </unit>
+    <unit id="0enEpU4" name="object.video_placeholder_all">
+      <segment>
+        <source>object.video_placeholder_all</source>
+        <target>Плейсхолдеры к видео</target>
+      </segment>
+    </unit>
+    <unit id="bR5_ZLZ" name="object.video_placeholder_text">
+      <segment>
+        <source>object.video_placeholder_text</source>
+        <target>Текст</target>
+      </segment>
+    </unit>
+    <unit id="9GH7ClA" name="object.video_placeholder_audio">
+      <segment>
+        <source>object.video_placeholder_audio</source>
+        <target>Путь к аудио файлам</target>
+      </segment>
+    </unit>
+    <unit id="8lG0G_F" name="object.video_placeholder_audio_help">
+      <segment>
+        <source>object.video_placeholder_audio_help</source>
+        <target>В указаной директории должен быть файл id_имени.mp3</target>
+      </segment>
+    </unit>
+    <unit id="38Zsi9R" name="object.video_placeholder_audio_phrase">
+      <segment>
+        <source>object.video_placeholder_audio_phrase</source>
+        <target>Путь к папке аудио файлам</target>
+      </segment>
+    </unit>
+    <unit id="V0sLsEP" name="object.api_key_platon_merchant_url">
+      <segment>
+        <source>object.api_key_platon_merchant_url</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="_NEqzNH" name="object.api_key_platon_merchant_url_help">
+      <segment>
+        <source>object.api_key_platon_merchant_url_help</source>
+        <target>URL на который посылается POST-эапрос для отображения платежной формы</target>
+      </segment>
+    </unit>
+    <unit id="176rgbI" name="object.video_placeholder_video_max_size">
+      <segment>
+        <source>object.video_placeholder_video_max_size</source>
+        <target>Макс. размер</target>
+      </segment>
+    </unit>
+    <unit id="LlyHhoj" name="object.video_placeholder_video_max_length">
+      <segment>
+        <source>object.video_placeholder_video_max_length</source>
+        <target>Макс. длина</target>
+      </segment>
+    </unit>
+    <unit id="G64HEJU" name="object.video_placeholder_format">
+      <segment>
+        <source>object.video_placeholder_format</source>
+        <target>Требуемый формат</target>
+      </segment>
+    </unit>
+    <unit id="tZYJdem" name="object.audio_phrase_category">
+      <segment>
+        <source>object.audio_phrase_category</source>
+        <target>Категория</target>
+      </segment>
+    </unit>
+    <unit id=".SAEMlB" name="object.video_placeholder_image_orientation">
+      <segment>
+        <source>object.video_placeholder_image_orientation</source>
+        <target>Выбор ориентации</target>
+      </segment>
+    </unit>
+    <unit id="9YghfGa" name="object.video_placeholder_description">
+      <segment>
+        <source>object.video_placeholder_description</source>
+        <target>Описание плейсхолдера</target>
+      </segment>
+    </unit>
+    <unit id="cOZQ7ES" name="object.text_reply_message">
+      <segment>
+        <source>object.text_reply_message</source>
+        <target>Ответ на сообщение (отправится при смене статуса на "обработано")</target>
+      </segment>
+    </unit>
+    <unit id="yeRFI_g" name="object.created">
+      <segment>
+        <source>object.created</source>
+        <target>Дата добавления</target>
+      </segment>
+    </unit>
+    <unit id="dQfLz5W" name="object.created_order">
+      <segment>
+        <source>object.created_order</source>
+        <target>Дата заказа</target>
+      </segment>
+    </unit>
+    <unit id="q3YIzWN" name="object.published">
+      <segment>
+        <source>object.published</source>
+        <target>Дата публикации</target>
+      </segment>
+    </unit>
+    <unit id="3k1GZrF" name="Review List">
+      <segment>
+        <source>Review List</source>
+        <target>Список отзывов</target>
+      </segment>
+    </unit>
+    <unit id="YDdjAR_" name="object.content_template">
+      <segment>
+        <source>object.content_template</source>
+        <target>Контент шаблона</target>
+      </segment>
+    </unit>
+    <unit id="47dCsX0" name="object.from_email">
+      <segment>
+        <source>object.from_email</source>
+        <target>E-mail отправителя</target>
+      </segment>
+    </unit>
+    <unit id="xgyZt3Z" name="object.mail_theme_admin">
+      <segment>
+        <source>object.mail_theme_admin</source>
+        <target>Заголовок письма (администратору)</target>
+      </segment>
+    </unit>
+    <unit id="kn8qMcH" name="object.mail_theme_users">
+      <segment>
+        <source>object.mail_theme_users</source>
+        <target>Заголовок письма (пользователю)</target>
+      </segment>
+    </unit>
+    <unit id="zY_KWsY" name="object.help_subject">
+      <segment>
+        <source>object.help_subject</source>
+        <target>Дополнительно доступны данные что и ниже</target>
+      </segment>
+    </unit>
+    <unit id="S.87FUa" name="object.admin_email">
+      <segment>
+        <source>object.admin_email</source>
+        <target>E-mail администратора</target>
+      </segment>
+    </unit>
+    <unit id="O56BHdS" name="object.help.admin_email">
+      <segment>
+        <source>object.help.admin_email</source>
+        <target>Важно для случая когда в событии есть сообщение для администратора.</target>
+      </segment>
+    </unit>
+    <unit id="DlBip7E" name="object.event">
+      <segment>
+        <source>object.event</source>
+        <target>Событие</target>
+      </segment>
+    </unit>
+    <unit id="tLHhg5M" name="object.promo_code">
+      <segment>
+        <source>object.promo_code</source>
+        <target>Промокод</target>
+      </segment>
+    </unit>
+    <unit id=".TQhX.G" name="object.text_message">
+      <segment>
+        <source>object.text_message</source>
+        <target>Текст сообщения</target>
+      </segment>
+    </unit>
+    <unit id="hHLYg7b" name="object.type_feedback">
+      <segment>
+        <source>object.type_feedback</source>
+        <target>Тип обращения</target>
+      </segment>
+    </unit>
+    <unit id="veNdGm2" name="object.number_of_uses">
+      <segment>
+        <source>object.number_of_uses</source>
+        <target>Количество использований</target>
+      </segment>
+    </unit>
+    <unit id="oGGaI2Q" name="object.date_end_of_action">
+      <segment>
+        <source>object.date_end_of_action</source>
+        <target>Действителен до</target>
+      </segment>
+    </unit>
+    <unit id="h9xSfNo" name="object.slug_page">
+      <segment>
+        <source>object.slug_page</source>
+        <target>Слаг (url)</target>
+      </segment>
+    </unit>
+    <unit id="dSCM18I" name="object.updated">
+      <segment>
+        <source>object.updated</source>
+        <target>Дата обновления</target>
+      </segment>
+    </unit>
+    <unit id="8Qo.U6n" name="object.meta.title">
+      <segment>
+        <source>object.meta.title</source>
+        <target>Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="Hpeq6H3" name="object.meta.keywords">
+      <segment>
+        <source>object.meta.keywords</source>
+        <target>Ключевые слова</target>
+      </segment>
+    </unit>
+    <unit id="sJjyMH0" name="object.meta.description">
+      <segment>
+        <source>object.meta.description</source>
+        <target>Описание</target>
+      </segment>
+    </unit>
+    <unit id="8sc_pk5" name="object.meta.canonical">
+      <segment>
+        <source>object.meta.canonical</source>
+        <target>Каноническая ссылка</target>
+      </segment>
+    </unit>
+    <unit id="odbPQds" name="object.meta.image">
+      <segment>
+        <source>object.meta.image</source>
+        <target>Картинка</target>
+      </segment>
+    </unit>
+    <unit id="gQOqMug" name="object.images">
+      <segment>
+        <source>object.images</source>
+        <target>Изображение</target>
+      </segment>
+    </unit>
+    <unit id="udjtgCk" name="object.image_many">
+      <segment>
+        <source>object.image_many</source>
+        <target>Изображения</target>
+      </segment>
+    </unit>
+    <unit id="Mj31klH" name="object.price_uah">
+      <segment>
+        <source>object.price_uah</source>
+        <target>Гривны</target>
+      </segment>
+    </unit>
+    <unit id="t9JLnms" name="object.price_enb">
+      <segment>
+        <source>object.price_enb</source>
+        <target>Рубли</target>
+      </segment>
+    </unit>
+    <unit id="8K6r.ow" name="object.price_eur">
+      <segment>
+        <source>object.price_eur</source>
+        <target>Евро</target>
+      </segment>
+    </unit>
+    <unit id="f.ZoqOe" name="object.price_usd">
+      <segment>
+        <source>object.price_usd</source>
+        <target>Доллар</target>
+      </segment>
+    </unit>
+    <unit id="b_NnG5i" name="object.discount">
+      <segment>
+        <source>object.discount</source>
+        <target>Скидка, %</target>
+      </segment>
+    </unit>
+    <unit id="qp5M_E7" name="object.hide_price">
+      <segment>
+        <source>object.hide_price</source>
+        <target>Скрыть цену</target>
+      </segment>
+    </unit>
+    <unit id="RGHgw9I" name="object.trailer">
+      <segment>
+        <source>object.trailer</source>
+        <target>Трейлер</target>
+      </segment>
+    </unit>
+    <unit id="ucnWb2N" name="object.congratulation_example">
+      <segment>
+        <source>object.congratulation_example</source>
+        <target>Пример поздравления</target>
+      </segment>
+    </unit>
+    <unit id="ktKfti8" name="object.categories">
+      <segment>
+        <source>object.categories</source>
+        <target>Категория видео</target>
+      </segment>
+    </unit>
+    <unit id="vP6PDJ5" name="object.categories_blog">
+      <segment>
+        <source>object.categories_blog</source>
+        <target>Категории</target>
+      </segment>
+    </unit>
+    <unit id="aYrN2iX" name="object.phrases_categories">
+      <segment>
+        <source>object.phrases_categories</source>
+        <target>Категория фразы</target>
+      </segment>
+    </unit>
+    <unit id="pGbdPXD" name="object.phrases">
+      <segment>
+        <source>object.phrases</source>
+        <target>Фраза</target>
+      </segment>
+    </unit>
+    <unit id="aRg9ozw" name="object.selected_categories">
+      <segment>
+        <source>object.selected_categories</source>
+        <target>Выберите видео категорию</target>
+      </segment>
+    </unit>
+    <unit id="WPqOyej" name="object.selected_categories_phrase">
+      <segment>
+        <source>object.selected_categories_phrase</source>
+        <target>Выберите категорию фразы</target>
+      </segment>
+    </unit>
+    <unit id="Y5F9a.2" name="object.selected_phrases">
+      <segment>
+        <source>object.selected_phrases</source>
+        <target>Выберите категорию для фразы</target>
+      </segment>
+    </unit>
+    <unit id="M5PcKSn" name="object.selected_video">
+      <segment>
+        <source>object.selected_video</source>
+        <target>Выберите видео</target>
+      </segment>
+    </unit>
+    <unit id="bY_esiU" name="object.video">
+      <segment>
+        <source>object.video</source>
+        <target>Видео</target>
+      </segment>
+    </unit>
+    <unit id="Cti2YP_" name="object.question">
+      <segment>
+        <source>object.question</source>
+        <target>Вопрос</target>
+      </segment>
+    </unit>
+    <unit id="BBfUscL" name="object.reply">
+      <segment>
+        <source>object.reply</source>
+        <target>Ответ</target>
+      </segment>
+    </unit>
+    <unit id="9uUDBRh" name="object.holidays">
+      <segment>
+        <source>object.holidays</source>
+        <target>Праздник</target>
+      </segment>
+    </unit>
+    <unit id="6gLIXNL" name="object.skype">
+      <segment>
+        <source>object.skype</source>
+        <target>Скайп</target>
+      </segment>
+    </unit>
+    <unit id="ITOSyzb" name="object.fb">
+      <segment>
+        <source>object.fb</source>
+        <target>Facebook</target>
+      </segment>
+    </unit>
+    <unit id="Nqd86fr" name="object.in">
+      <segment>
+        <source>object.in</source>
+        <target>Instagram</target>
+      </segment>
+    </unit>
+    <unit id="6evuEsU" name="object.yt">
+      <segment>
+        <source>object.yt</source>
+        <target>YouTube</target>
+      </segment>
+    </unit>
+    <unit id="41sR1q6" name="object.tw">
+      <segment>
+        <source>object.tw</source>
+        <target>Twitter</target>
+      </segment>
+    </unit>
+    <unit id="DVQmGHs" name="object.google_analytics">
+      <segment>
+        <source>object.google_analytics</source>
+        <target>Код Google Analytics</target>
+      </segment>
+    </unit>
+    <unit id="wWWUZJL" name="object.facebook_pixel">
+      <segment>
+        <source>object.facebook_pixel</source>
+        <target>Код Facebook Pixel</target>
+      </segment>
+    </unit>
+    <unit id="cLNV9cW" name="object.logo">
+      <segment>
+        <source>object.logo</source>
+        <target>Логотип</target>
+      </segment>
+    </unit>
+    <unit id="4EvjOtg" name="object.render_list">
+      <segment>
+        <source>object.render_list</source>
+        <target>Список рендеринга</target>
+      </segment>
+    </unit>
+    <unit id="qObuCYT" name="object.render_status">
+      <segment>
+        <source>object.render_status</source>
+        <target>Статус</target>
+      </segment>
+    </unit>
+    <unit id="FSJ33yu" name="object.render_name">
+      <segment>
+        <source>object.render_name</source>
+        <target>Название рендеринга</target>
+      </segment>
+    </unit>
+    <unit id="PF2buiG" name="object.render_start">
+      <segment>
+        <source>object.render_start</source>
+        <target>Дата старта рендеринга</target>
+      </segment>
+    </unit>
+    <unit id="N5_1gzS" name="button.render_start">
+      <segment>
+        <source>button.render_start</source>
+        <target>Запустить рендер еще раз</target>
+      </segment>
+    </unit>
+    <unit id="vlxIjav" name="object.render_finish">
+      <segment>
+        <source>object.render_finish</source>
+        <target>Дата окончания</target>
+      </segment>
+    </unit>
+    <unit id="plb5Xmm" name="tab.content_template_admin">
+      <segment>
+        <source>tab.content_template_admin</source>
+        <target>Контент сообщения администратору</target>
+      </segment>
+    </unit>
+    <unit id="vRxcx2E" name="tab.content_template_users">
+      <segment>
+        <source>tab.content_template_users</source>
+        <target>Контент сообщения пользователю</target>
+      </segment>
+    </unit>
+    <unit id="HLJQtgN" name="tab.common_info">
+      <segment>
+        <source>tab.common_info</source>
+        <target>Основная информация</target>
+      </segment>
+    </unit>
+    <unit id="WF77AUy" name="tab.common_info_users">
+      <segment>
+        <source>tab.common_info_users</source>
+        <target>Информация о покупателе</target>
+      </segment>
+    </unit>
+    <unit id="h06h6Q4" name="tab.common_info_other">
+      <segment>
+        <source>tab.common_info_other</source>
+        <target>Дополнительные данные</target>
+      </segment>
+    </unit>
+    <unit id="inntJ_8" name="tab.render_list">
+      <segment>
+        <source>tab.render_list</source>
+        <target>Список рендеринга</target>
+      </segment>
+    </unit>
+    <unit id="qQR6Q3h" name="tab.placeholder">
+      <segment>
+        <source>tab.placeholder</source>
+        <target>Найстройка плейсхолдеров</target>
+      </segment>
+    </unit>
+    <unit id="vRZyGzY" name="tab.api_key_info">
+      <segment>
+        <source>tab.api_key_info</source>
+        <target>API ключи сторонник сервисов</target>
+      </segment>
+    </unit>
+    <unit id="kMUC019" name="tab.common_info_price">
+      <segment>
+        <source>tab.common_info_price</source>
+        <target>Цены</target>
+      </segment>
+    </unit>
+    <unit id=".Ved.nE" name="tab.content">
+      <segment>
+        <source>tab.content</source>
+        <target>Контент</target>
+      </segment>
+    </unit>
+    <unit id="kV8hsez" name="tab.analytics">
+      <segment>
+        <source>tab.analytics</source>
+        <target>Настройка аналитики</target>
+      </segment>
+    </unit>
+    <unit id="aIIGP7K" name="tab.setting">
+      <segment>
+        <source>tab.setting</source>
+        <target>Настройки</target>
+      </segment>
+    </unit>
+    <unit id="DbkIzhM" name="tab.soc_network">
+      <segment>
+        <source>tab.soc_network</source>
+        <target>Ссылки на социальные сети</target>
+      </segment>
+    </unit>
+    <unit id="Coz2HmM" name="tab.meta">
+      <segment>
+        <source>tab.meta</source>
+        <target>Управление мета данными</target>
+      </segment>
+    </unit>
+    <unit id="GcTD1jI" name="tab.image">
+      <segment>
+        <source>tab.image</source>
+        <target>Изображение</target>
+      </segment>
+    </unit>
+    <unit id="kAQ0u0G" name="object.currency_name">
+      <segment>
+        <source>object.currency_name</source>
+        <target>Название валюты</target>
+      </segment>
+    </unit>
+    <unit id="vjHh1s8" name="object.currency_abbreviation">
+      <segment>
+        <source>object.currency_abbreviation</source>
+        <target>Сокращение</target>
+      </segment>
+    </unit>
+    <unit id="WQLWh3L" name="object.currency_sing">
+      <segment>
+        <source>object.currency_sing</source>
+        <target>Знак</target>
+      </segment>
+    </unit>
+    <unit id="IWzMZ3k" name="object.currency_course">
+      <segment>
+        <source>object.currency_course</source>
+        <target>Курс к дефолтной валюте</target>
+      </segment>
+    </unit>
+    <unit id="OALfBPD" name="object.currency_country">
+      <segment>
+        <source>object.currency_country</source>
+        <target>Страны</target>
+      </segment>
+    </unit>
+    <unit id="cMUtTcl" name="object.currency_default">
+      <segment>
+        <source>object.currency_default</source>
+        <target>Валюта по умолчанию</target>
+      </segment>
+    </unit>
+    <unit id="lO5OeR2" name="object.iso_code">
+      <segment>
+        <source>object.iso_code</source>
+        <target>ISO</target>
+      </segment>
+    </unit>
+    <unit id="3cHTVME" name="admin.block.google">
+      <segment>
+        <source>admin.block.google</source>
+        <target>Google API</target>
+      </segment>
+    </unit>
+    <unit id="6ErgYqx" name="admin.block.youtube">
+      <segment>
+        <source>admin.block.youtube</source>
+        <target>Youtube API</target>
+      </segment>
+    </unit>
+    <unit id="CQc45pT" name="admin.block.paypal">
+      <segment>
+        <source>admin.block.paypal</source>
+        <target>PayPal API</target>
+      </segment>
+    </unit>
+    <unit id="sxRbHih" name="admin.block.turbosms">
+      <segment>
+        <source>admin.block.turbosms</source>
+        <target>Turbosms API</target>
+      </segment>
+    </unit>
+    <unit id="IM4kH.3" name="admin.block.platon">
+      <segment>
+        <source>admin.block.platon</source>
+        <target>Platon API</target>
+      </segment>
+    </unit>
+    <unit id="LViGtyF" name="object.api_google_client_secret_file">
+      <segment>
+        <source>object.api_google_client_secret_file</source>
+        <target>Файл, json</target>
+      </segment>
+    </unit>
+    <unit id="upVr.7r" name="object.api_youtube_client_secret_file">
+      <segment>
+        <source>object.api_youtube_client_secret_file</source>
+        <target>Файл, json</target>
+      </segment>
+    </unit>
+    <unit id="aM9pkYT" name="object.api_key_pay_pal_client_id">
+      <segment>
+        <source>object.api_key_pay_pal_client_id</source>
+        <target>Клиент ID</target>
+      </segment>
+    </unit>
+    <unit id="ZDzLqaN" name="object.api_key_pay_pal_client_secret">
+      <segment>
+        <source>object.api_key_pay_pal_client_secret</source>
+        <target>Клиент секрет</target>
+      </segment>
+    </unit>
+    <unit id="gCKyP4R" name="object.api_turbosms_login">
+      <segment>
+        <source>object.api_turbosms_login</source>
+        <target>Логин</target>
+      </segment>
+    </unit>
+    <unit id="1JerA5p" name="object.api_turbosms_password">
+      <segment>
+        <source>object.api_turbosms_password</source>
+        <target>Пароль</target>
+      </segment>
+    </unit>
+    <unit id="7Yr5KwZ" name="object.api_key_platon_merchant_id">
+      <segment>
+        <source>object.api_key_platon_merchant_id</source>
+        <target>Ключ (merchant ID)</target>
+      </segment>
+    </unit>
+    <unit id="cqIF5y9" name="object.api_key_platon_merchant_password">
+      <segment>
+        <source>object.api_key_platon_merchant_password</source>
+        <target>Пароль</target>
+      </segment>
+    </unit>
+    <unit id="hQMrFRo" name="object.home_image_header">
+      <segment>
+        <source>object.home_image_header</source>
+        <target>Фоновое изображение</target>
+      </segment>
+    </unit>
+    <unit id="rnoFoiF" name="object.home_image_header_circle">
+      <segment>
+        <source>object.home_image_header_circle</source>
+        <target>Круглое изображение</target>
+      </segment>
+    </unit>
+    <unit id="KKtVE6a" name="object.home_title_header">
+      <segment>
+        <source>object.home_title_header</source>
+        <target>Заголовок хедера</target>
+      </segment>
+    </unit>
+    <unit id="aatN8lI" name="object.home_description_header">
+      <segment>
+        <source>object.home_description_header</source>
+        <target>Описание в хедере</target>
+      </segment>
+    </unit>
+    <unit id="aZBj03p" name="object.home_link_examples">
+      <segment>
+        <source>object.home_link_examples</source>
+        <target>Ссылка на посмотреть пример</target>
+      </segment>
+    </unit>
+    <unit id="IOee2Nz" name="object.home_video_greetings">
+      <segment>
+        <source>object.home_video_greetings</source>
+        <target>Видеопоздравления</target>
+      </segment>
+    </unit>
+    <unit id="EBjONbp" name="object.selected_home_video_greetings">
+      <segment>
+        <source>object.selected_home_video_greetings</source>
+        <target>Выберете ролики, которые выводить в блоке</target>
+      </segment>
+    </unit>
+    <unit id="7I8VG4A" name="object.home_video_review">
+      <segment>
+        <source>object.home_video_review</source>
+        <target>Видео-отзывы</target>
+      </segment>
+    </unit>
+    <unit id="p4wRWDg" name="object.selected_home_video_review">
+      <segment>
+        <source>object.selected_home_video_review</source>
+        <target>Выберете видео-отзывы, которые выводить в блоке</target>
+      </segment>
+    </unit>
+    <unit id="FnGCPGd" name="object.home_review">
+      <segment>
+        <source>object.home_review</source>
+        <target>Отзывы</target>
+      </segment>
+    </unit>
+    <unit id="lxcv4Zl" name="object.selected_home_review">
+      <segment>
+        <source>object.selected_home_review</source>
+        <target>Выберете отзывы, которые выводить в блоке</target>
+      </segment>
+    </unit>
+    <unit id="kX8FG0T" name="object.home_content_our_advantages">
+      <segment>
+        <source>object.home_content_our_advantages</source>
+        <target>Как мы это делаем</target>
+      </segment>
+    </unit>
+    <unit id="4bV5ubc" name="object.advantage_one_title">
+      <segment>
+        <source>object.advantage_one_title</source>
+        <target>Наши преимущества. Первый блок. Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="HqM4x2T" name="object.advantage_one_text">
+      <segment>
+        <source>object.advantage_one_text</source>
+        <target>Наши преимущества. Первый блок. Текст</target>
+      </segment>
+    </unit>
+    <unit id="_RQKb8P" name="object.advantage_one_icon">
+      <segment>
+        <source>object.advantage_one_icon</source>
+        <target>Наши преимущества. Первый блок. Иконка</target>
+      </segment>
+    </unit>
+    <unit id="9kVzMWz" name="object.advantage_two_title">
+      <segment>
+        <source>object.advantage_two_title</source>
+        <target>Наши преимущества. Второй блок. Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="arj729x" name="object.advantage_two_text">
+      <segment>
+        <source>object.advantage_two_text</source>
+        <target>Наши преимущества. Второй блок. Текст</target>
+      </segment>
+    </unit>
+    <unit id="NpdF5bm" name="object.advantage_two_icon">
+      <segment>
+        <source>object.advantage_two_icon</source>
+        <target>Наши преимущества. Второй блок. Иконка</target>
+      </segment>
+    </unit>
+    <unit id="v8Z7w6S" name="object.advantage_three_title">
+      <segment>
+        <source>object.advantage_three_title</source>
+        <target>Наши преимущества. Третий блок. Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="CofPcig" name="object.advantage_three_text">
+      <segment>
+        <source>object.advantage_three_text</source>
+        <target>Наши преимущества. Третий блок. Текст</target>
+      </segment>
+    </unit>
+    <unit id="wUqpfVr" name="object.advantage_three_icon">
+      <segment>
+        <source>object.advantage_three_icon</source>
+        <target>Наши преимущества. Третий блок. Иконка</target>
+      </segment>
+    </unit>
+    <unit id="MlhLG8b" name="object.advantage_four_title">
+      <segment>
+        <source>object.advantage_four_title</source>
+        <target>Наши преимущества. Четвертый блок. Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="GkNpnb9" name="object.advantage_four_text">
+      <segment>
+        <source>object.advantage_four_text</source>
+        <target>Наши преимущества. Четвертый блок. Текст</target>
+      </segment>
+    </unit>
+    <unit id="9UM.B5h" name="object.advantage_four_icon">
+      <segment>
+        <source>object.advantage_four_icon</source>
+        <target>Наши преимущества. Четвертый блок. Иконка</target>
+      </segment>
+    </unit>
+    <unit id="Qqhlahb" name="object.order_full_name">
+      <segment>
+        <source>object.order_full_name</source>
+        <target>Полное имя</target>
+      </segment>
+    </unit>
+    <unit id="_dP.oMT" name="object.order_price">
+      <segment>
+        <source>object.order_price</source>
+        <target>Оплачено</target>
+      </segment>
+    </unit>
+    <unit id="87.4Ntq" name="object.on_course">
+      <segment>
+        <source>object.on_course</source>
+        <target>По курсу</target>
+      </segment>
+    </unit>
+    <unit id="0U9gOnv" name="object.order_price_currency">
+      <segment>
+        <source>object.order_price_currency</source>
+        <target>Валюта оплаты</target>
+      </segment>
+    </unit>
+    <unit id="c7KyJFN" name="object.review_video_title">
+      <segment>
+        <source>object.review_video_title</source>
+        <target>Заголовок отзыва</target>
+      </segment>
+    </unit>
+    <unit id="QsqdU0i" name="object.review_video_description">
+      <segment>
+        <source>object.review_video_description</source>
+        <target>Описание отзыва</target>
+      </segment>
+    </unit>
+    <unit id="ottnZAc" name="object.order_price_list">
+      <segment>
+        <source>object.order_price_list</source>
+        <target>Сумма</target>
+      </segment>
+    </unit>
+    <unit id="xEQwC5N" name="object.order_link_render_result">
+      <segment>
+        <source>object.order_link_render_result</source>
+        <target>Просмотреть видео</target>
+      </segment>
+    </unit>
+    <unit id="0pOZUwD" name="object.payment_method">
+      <segment>
+        <source>object.payment_method</source>
+        <target>Способ оплаты</target>
+      </segment>
+    </unit>
+    <unit id="gAhj1C5" name="object.order_type">
+      <segment>
+        <source>object.order_type</source>
+        <target>Тип</target>
+      </segment>
+    </unit>
+    <unit id="TX5WPdS" name="object.first_name">
+      <segment>
+        <source>object.first_name</source>
+        <target>Выбранное имя для видео</target>
+      </segment>
+    </unit>
+    <unit id="Ky2MxiM" name="object.selected_promo_code">
+      <segment>
+        <source>object.selected_promo_code</source>
+        <target>Промокод не выбран</target>
+      </segment>
+    </unit>
+    <unit id="LBQtbc6" name="object.page_home_image_header">
+      <segment>
+        <source>object.page_home_image_header</source>
+        <target>Слайдеры в хедере</target>
+      </segment>
+    </unit>
+    <unit id="zzY_Yc3" name="object.order_currency_default">
+      <segment>
+        <source>object.order_currency_default</source>
+        <target>Оплачено в дефолтной валюте</target>
+      </segment>
+    </unit>
+    <unit id="b2UN6ew" name="object.full_name">
+      <segment>
+        <source>object.full_name</source>
+        <target>ФИО</target>
+      </segment>
+    </unit>
+    <unit id="Z8m3aYF" name="object.how_we_do_it_video">
+      <segment>
+        <source>object.how_we_do_it_video</source>
+        <target>Видео (как мы это делаем)</target>
+      </segment>
+    </unit>
+    <unit id="FaLEMEc" name="object.examples_video">
+      <segment>
+        <source>object.examples_video</source>
+        <target>Видео пример</target>
+      </segment>
+    </unit>
+    <unit id="sKxu.z2" name="object.examples_video_image">
+      <segment>
+        <source>object.examples_video_image</source>
+        <target>Постер к видео примеру</target>
+      </segment>
+    </unit>
+    <unit id="xl9rCj0" name="object.qa_examples_video">
+      <segment>
+        <source>object.qa_examples_video</source>
+        <target>Видео</target>
+      </segment>
+    </unit>
+    <unit id="JszV_j0" name="object.qa_examples_video_image">
+      <segment>
+        <source>object.qa_examples_video_image</source>
+        <target>Постер к видео</target>
+      </segment>
+    </unit>
+    <unit id="69HLNTY" name="object.how_we_do_it_image">
+      <segment>
+        <source>object.how_we_do_it_image</source>
+        <target>Постер к видео</target>
+      </segment>
+    </unit>
+    <unit id="g4kWPNb" name="front.how_we_do_it">
+      <segment>
+        <source>front.how_we_do_it</source>
+        <target>О нас</target>
+      </segment>
+    </unit>
+    <unit id="kUtOEb6" name="front.try_for_free">
+      <segment>
+        <source>front.try_for_free</source>
+        <target>Все видео</target>
+      </segment>
+    </unit>
+    <unit id="F8NmH1R" name="front.see_an_example">
+      <segment>
+        <source>front.see_an_example</source>
+        <target>Создать видео</target>
+      </segment>
+    </unit>
+    <unit id="vDuRA_U" name="front.create_movie">
+      <segment>
+        <source>front.create_movie</source>
+        <target>создать ролик</target>
+      </segment>
+    </unit>
+    <unit id="iybJ_YG" name="front.more">
+      <segment>
+        <source>front.more</source>
+        <target>подробнее</target>
+      </segment>
+    </unit>
+    <unit id="mcrGN6h" name="front.no_blog_found">
+      <segment>
+        <source>front.no_blog_found</source>
+        <target>Записи блога не найдены</target>
+      </segment>
+    </unit>
+    <unit id="BNWWGxj" name="front.video_greeting_for_your_holiday">
+      <segment>
+        <source>front.video_greeting_for_your_holiday</source>
+        <target>Популярные видео</target>
+      </segment>
+    </unit>
+    <unit id="Y2q9X5r" name="front.our_advantages">
+      <segment>
+        <source>front.our_advantages</source>
+        <target>Наши преимущества</target>
+      </segment>
+    </unit>
+    <unit id="s7ckZw9" name="front.video_reviews">
+      <segment>
+        <source>front.video_reviews</source>
+        <target>Видео Отзывы</target>
+      </segment>
+    </unit>
+    <unit id="1pmxvqi" name="front.show_all">
+      <segment>
+        <source>front.show_all</source>
+        <target>показать все</target>
+      </segment>
+    </unit>
+    <unit id="FoOLS1v" name="front.review">
+      <segment>
+        <source>front.review</source>
+        <target>Отзывы</target>
+      </segment>
+    </unit>
+    <unit id="S9_gjEo" name="front.examples_video">
+      <segment>
+        <source>front.examples_video</source>
+        <target>Видео пример</target>
+      </segment>
+    </unit>
+    <unit id="C3pf6Uo" name="front.choose_movie">
+      <segment>
+        <source>front.choose_movie</source>
+        <target>Выберете ролик</target>
+      </segment>
+    </unit>
+    <unit id="J7c79vr" name="front.language">
+      <segment>
+        <source>front.language</source>
+        <target>Язык</target>
+      </segment>
+    </unit>
+    <unit id="0OGv.xS" name="front.to_whom">
+      <segment>
+        <source>front.to_whom</source>
+        <target>Кому</target>
+      </segment>
+    </unit>
+    <unit id="_VzCSfu" name="front.sex">
+      <segment>
+        <source>front.sex</source>
+        <target>Пол</target>
+      </segment>
+    </unit>
+    <unit id="H3D7dfG" name="front.all">
+      <segment>
+        <source>front.all</source>
+        <target>Всем</target>
+      </segment>
+    </unit>
+    <unit id="ATHoVmn" name="front.girl">
+      <segment>
+        <source>front.girl</source>
+        <target>Девочка</target>
+      </segment>
+    </unit>
+    <unit id="6ltOerd" name="front.boy">
+      <segment>
+        <source>front.boy</source>
+        <target>Мальчик</target>
+      </segment>
+    </unit>
+    <unit id="qgQBqf9" name="front.event">
+      <segment>
+        <source>front.event</source>
+        <target>Мероприятие</target>
+      </segment>
+    </unit>
+    <unit id="XBnyEQQ" name="front.number_of_persons">
+      <segment>
+        <source>front.number_of_persons</source>
+        <target>Количество человек</target>
+      </segment>
+    </unit>
+    <unit id="ANZ_xo3" name="front.video_for_one_person">
+      <segment>
+        <source>front.video_for_one_person</source>
+        <target>Видео для 1 человека</target>
+      </segment>
+    </unit>
+    <unit id="E0RbR1f" name="front.video_for_two_person">
+      <segment>
+        <source>front.video_for_two_person</source>
+        <target>Видео для 2 человека</target>
+      </segment>
+    </unit>
+    <unit id="lxydpE6" name="front.video_for_three_person">
+      <segment>
+        <source>front.video_for_three_person</source>
+        <target>Видео для 3 человека</target>
+      </segment>
+    </unit>
+    <unit id="Im8d24l" name="front.video_for_four_person">
+      <segment>
+        <source>front.video_for_four_person</source>
+        <target>Видео для 4 человека</target>
+      </segment>
+    </unit>
+    <unit id="fOKXDr2" name="front.video_for_five_person">
+      <segment>
+        <source>front.video_for_five_person</source>
+        <target>Видео для 5 человека</target>
+      </segment>
+    </unit>
+    <unit id="kgbQDZE" name="front.selected_videos">
+      <segment>
+        <source>front.selected_videos</source>
+        <target>Подобранные ролики</target>
+      </segment>
+    </unit>
+    <unit id="4I4RIWz" name="front.show_more">
+      <segment>
+        <source>front.show_more</source>
+        <target>показать еще</target>
+      </segment>
+    </unit>
+    <unit id=".UMu0fs" name="front.no_videos_found">
+      <segment>
+        <source>front.no_videos_found</source>
+        <target>По заданым критериям, ролики не найдены.</target>
+      </segment>
+    </unit>
+    <unit id="q4ig6ho" name="front.create_a_clip">
+      <segment>
+        <source>front.create_a_clip</source>
+        <target>Создание ролика</target>
+      </segment>
+    </unit>
+    <unit id="tUsZE9n" name="front.edit_a_clip">
+      <segment>
+        <source>front.edit_a_clip</source>
+        <target>Редактирование ролика</target>
+      </segment>
+    </unit>
+    <unit id="UAOs295" name="front.browser_not_support_video5">
+      <segment>
+        <source>front.browser_not_support_video5</source>
+        <target>Извините, ваш браузер не поддерживает встроенные видео, но не волнуйтесь, вы можете %link% загрузить его %close_link% и смотреть его с вашим любимым видеоплеером!</target>
+      </segment>
+    </unit>
+    <unit id="HJ7LjQb" name="front.return_to_editor">
+      <segment>
+        <source>front.return_to_editor</source>
+        <target>Вернуться в редактор</target>
+      </segment>
+    </unit>
+    <unit id="d7QzQpP" name="front.return_to_home">
+      <segment>
+        <source>front.return_to_home</source>
+        <target>на главную</target>
+      </segment>
+    </unit>
+    <unit id="OO2JM9J" name="front.order_not_found">
+      <segment>
+        <source>front.order_not_found</source>
+        <target>Заказ не найден</target>
+      </segment>
+    </unit>
+    <unit id="CEkgGW1" name="front.demo_version">
+      <segment>
+        <source>front.demo_version</source>
+        <target>Демо версия</target>
+      </segment>
+    </unit>
+    <unit id="j87J6ny" name="front.edit">
+      <segment>
+        <source>front.edit</source>
+        <target>Редактировать</target>
+      </segment>
+    </unit>
+    <unit id="ipyal2G" name="front.promo_code">
+      <segment>
+        <source>front.promo_code</source>
+        <target>Промокод</target>
+      </segment>
+    </unit>
+    <unit id="yR.jokP" name="front.to_pay">
+      <segment>
+        <source>front.to_pay</source>
+        <target>Оплатить</target>
+      </segment>
+    </unit>
+    <unit id="gFxWYDh" name="front.have_a_promo_code">
+      <segment>
+        <source>front.have_a_promo_code</source>
+        <target>Еcли у вас есть промокод вы можете воспользоваться им!</target>
+      </segment>
+    </unit>
+    <unit id="jlNSGqa" name="front.video_is_being_prepared">
+      <segment>
+        <source>front.video_is_being_prepared</source>
+        <target>Отлично! Ваш ролик готовиться. В течении нескольки минут вы увидете бесплатную демо версию ролика.</target>
+      </segment>
+    </unit>
+    <unit id="Ki6wR3m" name="front.video_is_being_prepared_full">
+      <segment>
+        <source>front.video_is_being_prepared_full</source>
+        <target>Ваш ролик готовиться. Это может занять некоторое время.</target>
+      </segment>
+    </unit>
+    <unit id="NWw9kgP" name="front.link_finished_video_send_to_email">
+      <segment>
+        <source>front.link_finished_video_send_to_email</source>
+        <target>Ссылка с готовым роликом будет отправлена вам на почту</target>
+      </segment>
+    </unit>
+    <unit id="Fh6X7P." name="front.stage_one">
+      <segment>
+        <source>front.stage_one</source>
+        <target>Этап 1</target>
+      </segment>
+    </unit>
+    <unit id="seJLcvQ" name="front.is_done">
+      <segment>
+        <source>front.is_done</source>
+        <target>Готово!</target>
+      </segment>
+    </unit>
+    <unit id="h7ZI47B" name="front.download">
+      <segment>
+        <source>front.download</source>
+        <target>Скачать</target>
+      </segment>
+    </unit>
+    <unit id="1Jy9L_k" name="front.share_videos">
+      <segment>
+        <source>front.share_videos</source>
+        <target>Хотите поделиться вашем видео?</target>
+      </segment>
+    </unit>
+    <unit id="azHTXkK" name="front.name_selection">
+      <segment>
+        <source>front.name_selection</source>
+        <target>Выбор имени</target>
+      </segment>
+    </unit>
+    <unit id="gl92uId" name="front.no_name_selection">
+      <segment>
+        <source>front.no_name_selection</source>
+        <target>Имя не выбрано</target>
+      </segment>
+    </unit>
+    <unit id="1d1D4q7" name="front.further">
+      <segment>
+        <source>front.further</source>
+        <target>далее</target>
+      </segment>
+    </unit>
+    <unit id="N4AGuWq" name="front.backwards">
+      <segment>
+        <source>front.backwards</source>
+        <target>назад</target>
+      </segment>
+    </unit>
+    <unit id="vuQJua2" name="front.upload_a_photo">
+      <segment>
+        <source>front.upload_a_photo</source>
+        <target>Загрузить фото</target>
+      </segment>
+    </unit>
+    <unit id="34YbXUF" name="front.upright">
+      <segment>
+        <source>front.upright</source>
+        <target>Вертикально</target>
+      </segment>
+    </unit>
+    <unit id="jlOiUWR" name="front.horizontally">
+      <segment>
+        <source>front.horizontally</source>
+        <target>Горизонтально</target>
+      </segment>
+    </unit>
+    <unit id="nY1vHUn" name="front.choose_a_phrase">
+      <segment>
+        <source>front.choose_a_phrase</source>
+        <target>Выберите фразу</target>
+      </segment>
+    </unit>
+    <unit id="oCttNCT" name="front.phrase_not_selected">
+      <segment>
+        <source>front.phrase_not_selected</source>
+        <target>Фраза не выбрана</target>
+      </segment>
+    </unit>
+    <unit id="jBXWH_e" name="front.insert_video">
+      <segment>
+        <source>front.insert_video</source>
+        <target>Вставьте видео</target>
+      </segment>
+    </unit>
+    <unit id="xuqO8uP" name="front.upload_a_video">
+      <segment>
+        <source>front.upload_a_video</source>
+        <target>Загрузите видео</target>
+      </segment>
+    </unit>
+    <unit id="gaR2cNM" name="front.phrases">
+      <segment>
+        <source>front.phrases</source>
+        <target>Фраза</target>
+      </segment>
+    </unit>
+    <unit id="3rwW7EU" name="front.enter_text">
+      <segment>
+        <source>front.enter_text</source>
+        <target>Введите текст</target>
+      </segment>
+    </unit>
+    <unit id="oZXpZaJ" name="front.full_name">
+      <segment>
+        <source>front.full_name</source>
+        <target>ФИО</target>
+      </segment>
+    </unit>
+    <unit id="GCoc.vO" name="front.phone">
+      <segment>
+        <source>front.phone</source>
+        <target>Телефон</target>
+      </segment>
+    </unit>
+    <unit id="h6sCZup" name="front.email">
+      <segment>
+        <source>front.email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="8XmxQWB" name="front.city">
+      <segment>
+        <source>front.city</source>
+        <target>Город</target>
+      </segment>
+    </unit>
+    <unit id="iDmsOKu" name="front.video_not_found">
+      <segment>
+        <source>front.video_not_found</source>
+        <target>Видео не найдено</target>
+      </segment>
+    </unit>
+    <unit id="dqEy.bF" name="front.enter_data">
+      <segment>
+        <source>front.enter_data</source>
+        <target>Введите данные</target>
+      </segment>
+    </unit>
+    <unit id="wkoUn09" name="front.review_videos">
+      <segment>
+        <source>front.review_videos</source>
+        <target>Видео отзывы</target>
+      </segment>
+    </unit>
+    <unit id="Zs_ipi_" name="front.send">
+      <segment>
+        <source>front.send</source>
+        <target>отправить</target>
+      </segment>
+    </unit>
+    <unit id="EudwWCe" name="front.security_add_new_review">
+      <segment>
+        <source>front.security_add_new_review</source>
+        <target>Отзывы могут оставлять только авторезированые пользователи</target>
+      </segment>
+    </unit>
+    <unit id="E8BHPiF" name="front.send_videos_to_email">
+      <segment>
+        <source>front.send_videos_to_email</source>
+        <target>Свое видео вы можете прислать к нам на почту</target>
+      </segment>
+    </unit>
+    <unit id="Bd0sND2" name="front.success_send_review">
+      <segment>
+        <source>front.success_send_review</source>
+        <target>Спасибо за отзыв, после модерации отзыв будет опубликован на сайте.</target>
+      </segment>
+    </unit>
+    <unit id="0yBRFBp" name="front.success_send_callback">
+      <segment>
+        <source>front.success_send_callback</source>
+        <target>Спасибо за вопрос, ожидайте ответ в течении одного рабочего дня.</target>
+      </segment>
+    </unit>
+    <unit id="9XAzbaV" name="front.administrator">
+      <segment>
+        <source>front.administrator</source>
+        <target>Администратор</target>
+      </segment>
+    </unit>
+    <unit id="BZ2p4Rz" name="front.help">
+      <segment>
+        <source>front.help</source>
+        <target>Помощь</target>
+      </segment>
+    </unit>
+    <unit id="elZV__B" name="front.frequently_asked_questions">
+      <segment>
+        <source>front.frequently_asked_questions</source>
+        <target>Часто задаваемые вопросы</target>
+      </segment>
+    </unit>
+    <unit id="MvvTf17" name="front.form_feedback">
+      <segment>
+        <source>front.form_feedback</source>
+        <target>Форма обратной связи</target>
+      </segment>
+    </unit>
+    <unit id="HXTDLij" name="front.name">
+      <segment>
+        <source>front.name</source>
+        <target>Имя</target>
+      </segment>
+    </unit>
+    <unit id="vwsK7fx" name="front.blog">
+      <segment>
+        <source>front.blog</source>
+        <target>Блог</target>
+      </segment>
+    </unit>
+    <unit id="ERBxq5X" name="front.theme">
+      <segment>
+        <source>front.theme</source>
+        <target>Темы</target>
+      </segment>
+    </unit>
+    <unit id="1nG5T7J" name="front.previous">
+      <segment>
+        <source>front.previous</source>
+        <target>предыдущая</target>
+      </segment>
+    </unit>
+    <unit id="3MRg6EU" name="front.the_next">
+      <segment>
+        <source>front.the_next</source>
+        <target>следующая</target>
+      </segment>
+    </unit>
+    <unit id="ekbN0A5" name="front.account">
+      <segment>
+        <source>front.account</source>
+        <target>Личный кабинет</target>
+      </segment>
+    </unit>
+    <unit id="864R6Uw" name="front.logout">
+      <segment>
+        <source>front.logout</source>
+        <target>Выйти</target>
+      </segment>
+    </unit>
+    <unit id="rrF.AKC" name="front.sorry_mail_is_busy">
+      <segment>
+        <source>front.sorry_mail_is_busy</source>
+        <target>Этот e-mail занят, попробуте другой или авторизируйтесь.</target>
+      </segment>
+    </unit>
+    <unit id="APXKQSn" name="front.all_videos">
+      <segment>
+        <source>front.all_videos</source>
+        <target>Все ролики</target>
+      </segment>
+    </unit>
+    <unit id="XsLu4Wo" name="front.authenticate">
+      <segment>
+        <source>front.authenticate</source>
+        <target>Авторизация</target>
+      </segment>
+    </unit>
+    <unit id="YqdLCwH" name="front.resseting">
+      <segment>
+        <source>front.resseting</source>
+        <target>Восстановление пароля</target>
+      </segment>
+    </unit>
+    <unit id="3WD_Ut4" name="front.login">
+      <segment>
+        <source>front.login</source>
+        <target>Логин</target>
+      </segment>
+    </unit>
+    <unit id="DvcViZk" name="front.wrong_login_or_password">
+      <segment>
+        <source>front.wrong_login_or_password</source>
+        <target>Неверный логин или пароль</target>
+      </segment>
+    </unit>
+    <unit id="ymCLJ9f" name="front.to_come_in">
+      <segment>
+        <source>front.to_come_in</source>
+        <target>Войти</target>
+      </segment>
+    </unit>
+    <unit id="LnnF8xA" name="front.restore">
+      <segment>
+        <source>front.restore</source>
+        <target>Восстановить</target>
+      </segment>
+    </unit>
+    <unit id="WjGzciE" name="front.forgot_your_password">
+      <segment>
+        <source>front.forgot_your_password</source>
+        <target>Забыли пароль?</target>
+      </segment>
+    </unit>
+    <unit id="bGjCYhx" name="front.paid">
+      <segment>
+        <source>front.paid</source>
+        <target>Оплаченные</target>
+      </segment>
+    </unit>
+    <unit id="kXMi6Ac" name="front.not_paid">
+      <segment>
+        <source>front.not_paid</source>
+        <target>Не оплаченные</target>
+      </segment>
+    </unit>
+    <unit id="i3pGnyg" name="front.personal_data">
+      <segment>
+        <source>front.personal_data</source>
+        <target>Личные данные</target>
+      </segment>
+    </unit>
+    <unit id="Us5t4C6" name="front.password">
+      <segment>
+        <source>front.password</source>
+        <target>Пароль</target>
+      </segment>
+    </unit>
+    <unit id="hsvb5by" name="front.change_password">
+      <segment>
+        <source>front.change_password</source>
+        <target>Изменить пароль</target>
+      </segment>
+    </unit>
+    <unit id="sILPFF_" name="front.old_password">
+      <segment>
+        <source>front.old_password</source>
+        <target>Старый  пароль</target>
+      </segment>
+    </unit>
+    <unit id="AFopkim" name="front.new_password">
+      <segment>
+        <source>front.new_password</source>
+        <target>Новый пароль</target>
+      </segment>
+    </unit>
+    <unit id="61s1ML2" name="front.save">
+      <segment>
+        <source>front.save</source>
+        <target>Сохранить</target>
+      </segment>
+    </unit>
+    <unit id="MqiTVMK" name="front.queue">
+      <segment>
+        <source>front.queue</source>
+        <target>В очереди</target>
+      </segment>
+    </unit>
+    <unit id="kDu28RT" name="front.finished">
+      <segment>
+        <source>front.finished</source>
+        <target>Готово</target>
+      </segment>
+    </unit>
+    <unit id="_XZnhHY" name="front.processing">
+      <segment>
+        <source>front.processing</source>
+        <target>Выгрузка на YouTube</target>
+      </segment>
+    </unit>
+    <unit id="fFsRZ9Y" name="front.started">
+      <segment>
+        <source>front.started</source>
+        <target>Обрабатывается</target>
+      </segment>
+    </unit>
+    <unit id="aMlfDFO" name="front.order_number">
+      <segment>
+        <source>front.order_number</source>
+        <target>Номер заказа</target>
+      </segment>
+    </unit>
+    <unit id="3B91Ky." name="front.status">
+      <segment>
+        <source>front.status</source>
+        <target>Статус</target>
+      </segment>
+    </unit>
+    <unit id="ShI8T0X" name="front.date">
+      <segment>
+        <source>front.date</source>
+        <target>Дата</target>
+      </segment>
+    </unit>
+    <unit id="70GPHnD" name="front.for_whom">
+      <segment>
+        <source>front.for_whom</source>
+        <target>Для кого</target>
+      </segment>
+    </unit>
+    <unit id="c.tGxBc" name="front.link_to">
+      <segment>
+        <source>front.link_to</source>
+        <target>Ссылка на</target>
+      </segment>
+    </unit>
+    <unit id="rpuQSMG" name="front.link">
+      <segment>
+        <source>front.link</source>
+        <target>ссылка</target>
+      </segment>
+    </unit>
+    <unit id="G8Kfnbn" name="front.terms_of_use">
+      <segment>
+        <source>front.terms_of_use</source>
+        <target>Пользовательское  соглашение</target>
+      </segment>
+    </unit>
+    <unit id="pjeWYqa" name="front.refund">
+      <segment>
+        <source>front.refund</source>
+        <target>Возврат средств</target>
+      </segment>
+    </unit>
+    <unit id="i1Eh8jF" name="front.description_to_modal_authenticate">
+      <segment>
+        <source>front.description_to_modal_authenticate</source>
+        <target>На указанный емаил при создании ролика приходит пароль авторизации кабинета. Только пользователи создавшие ролик получают доступ к кабинету</target>
+      </segment>
+    </unit>
+    <unit id="e6FI_BJ" name="security.password_reset_notification">
+      <segment>
+        <source>security.password_reset_notification</source>
+        <target>Уведомление о восстановлении пароля уже отправлено, следующий запрос возможен лишь по истечении двух часов.</target>
+      </segment>
+    </unit>
+    <unit id="nL2bRQC" name="security.user_not_found">
+      <segment>
+        <source>security.user_not_found</source>
+        <target>Пользователь не найден.</target>
+      </segment>
+    </unit>
+    <unit id="JRbRPhs" name="security.success_send_email_resseting_password">
+      <segment>
+        <source>security.success_send_email_resseting_password</source>
+        <target>На электронную почту отправлено письмо с инструкцией по восстановлению пароля.</target>
+      </segment>
+    </unit>
+    <unit id="W9kM.hD" name="front.error_text_500">
+      <segment>
+        <source>front.error_text_500</source>
+        <target>Страница не доступна</target>
+      </segment>
+    </unit>
+    <unit id="qboc7l." name="front.error_text_403">
+      <segment>
+        <source>front.error_text_403</source>
+        <target>Доступ запрещен</target>
+      </segment>
+    </unit>
+    <unit id="COhgRzG" name="front.error_text_404">
+      <segment>
+        <source>front.error_text_404</source>
+        <target>Страница не найдена</target>
+      </segment>
+    </unit>
+    <unit id="u0FhTFh" name="email.text_about_that">
+      <segment>
+        <source>email.text_about_that</source>
+        <target>Текст о том чтобы человек</target>
+      </segment>
+    </unit>
+    <unit id="t9n_XEx" name="email.made_the_transition">
+      <segment>
+        <source>email.made_the_transition</source>
+        <target>совершал переход на соцсети</target>
+      </segment>
+    </unit>
+    <unit id="dMg6q74" name="email.no_longer_want">
+      <segment>
+        <source>email.no_longer_want</source>
+        <target>Если вы больше не хотите получать письма</target>
+      </segment>
+    </unit>
+    <unit id="tQKDlFW" name="email.click_this_button">
+      <segment>
+        <source>email.click_this_button</source>
+        <target>Вы получили это письмо, потому что оставили свои контакты на сайте http://vijoys.com/ Если вы больше не хотите получать уведомления от videojoy, нажмите на эту кнопку, и мы вас больше не побеспокоим.</target>
+      </segment>
+    </unit>
+    <unit id="Zg3uF3o" name="email.unsubscribe">
+      <segment>
+        <source>email.unsubscribe</source>
+        <target>ОТПИСАТЬСЯ</target>
+      </segment>
+    </unit>
+    <unit id="4SogFH8" name="email.received_this_letter">
+      <segment>
+        <source>email.received_this_letter</source>
+        <target>Вы получили это письмо потому что вы супер герой</target>
+      </segment>
+    </unit>
+    <unit id=".oKXDkR" name="email.title.resseting">
+      <segment>
+        <source>email.title.resseting</source>
+        <target>Восстановить</target>
+      </segment>
+    </unit>
+    <unit id="45Lgd2a" name="front.resseting_password_title_page">
+      <segment>
+        <source>front.resseting_password_title_page</source>
+        <target>Изменение пароля</target>
+      </segment>
+    </unit>
+    <unit id="NeWyhvb" name="user_block_logout">
+      <segment>
+        <source>user_block_logout</source>
+        <target>Выйти</target>
+      </segment>
+    </unit>
+    <unit id="j9_596D" name="user_block_profile">
+      <segment>
+        <source>user_block_profile</source>
+        <target>Профиль</target>
+      </segment>
+    </unit>
+    <unit id="AMnqGG7" name="switch_user_exit">
+      <segment>
+        <source>switch_user_exit</source>
+        <target>Выйти из режима воплощения</target>
+      </segment>
+    </unit>
+    <unit id="u_RA10Y" name="object.home_image_tablet_header">
+      <segment>
+        <source>object.home_image_tablet_header</source>
+        <target>Фоновое изображение (планшетная версия)</target>
+      </segment>
+    </unit>
+    <unit id="N9WvYyn" name="object.home_image_mobile_header">
+      <segment>
+        <source>object.home_image_mobile_header</source>
+        <target>Фоновое изображение (мобильная версия)</target>
+      </segment>
+    </unit>
+    <unit id="2jVmok3" name="front.add_more_photo">
+      <segment>
+        <source>front.add_more_photo</source>
+        <target>Добавить еще</target>
+      </segment>
+    </unit>
+    <unit id="gcaHBHV" name="object.video_placeholder_composition_replacement_pictures">
+      <segment>
+        <source>object.video_placeholder_composition_replacement_pictures</source>
+        <target>object.video_placeholder_composition_replacement_pictures</target>
+      </segment>
+    </unit>
+    <unit id="q3kVuhc" name="object.audio">
+      <segment>
+        <source>object.audio</source>
+        <target>Аудио к фразе</target>
+      </segment>
+    </unit>
+    <unit id="5f76WfO" name="object.type_phrases">
+      <segment>
+        <source>object.type_phrases</source>
+        <target>Тип фразы</target>
+      </segment>
+    </unit>
+    <unit id="p5c90r8" name="object.video_layer_name_audio">
+      <segment>
+        <source>object.video_layer_name_audio</source>
+        <target>Название слоя аудио</target>
+      </segment>
+    </unit>
+    <unit id="Vg7TeoI" name="object.video_placeholder_image_width">
+      <segment>
+        <source>object.video_placeholder_image_width</source>
+        <target>Ширина</target>
+      </segment>
+    </unit>
+    <unit id="8Uf45jJ" name="object.video_placeholder_image_height">
+      <segment>
+        <source>object.video_placeholder_image_height</source>
+        <target>Высота</target>
+      </segment>
+    </unit>
+    <unit id="wozMMRO" name="object.project_demo">
+      <segment>
+        <source>object.project_demo</source>
+        <target>Демо-Проект (.zip)</target>
+      </segment>
+    </unit>
+    <unit id="VlhtfIh" name="object.api_turbosms_signature">
+      <segment>
+        <source>object.api_turbosms_signature</source>
+        <target>Подпись (обязательно)</target>
+      </segment>
+    </unit>
+    <unit id="QuacVg6" name="front.minimal_images">
+      <segment>
+        <source>front.minimal_images</source>
+        <target>Минимальный размер фото %width% x %height%</target>
+      </segment>
+    </unit>
+    <unit id="eLbJEIo" name="object.currency_code_iso">
+      <segment>
+        <source>object.currency_code_iso</source>
+        <target>ISO код</target>
+      </segment>
+    </unit>
+    <unit id="VyxTVZc" name="front.payment_expect">
+      <segment>
+        <source>front.payment_expect</source>
+        <target>Ожидайте. Заканчивается оплата..</target>
+      </segment>
+    </unit>
+    <unit id="fPklSjQ" name="front.payment_success_paid">
+      <segment>
+        <source>front.payment_success_paid</source>
+        <target>Вы успешно оплатили видео!</target>
+      </segment>
+    </unit>
+    <unit id="XreS9pt" name="front.payment_not_found">
+      <segment>
+        <source>front.payment_not_found</source>
+        <target>Заказ для оплаты не найден!</target>
+      </segment>
+    </unit>
+    <unit id="PnaMyNj" name="front.payment_did_not_happen">
+      <segment>
+        <source>front.payment_did_not_happen</source>
+        <target>Оплата не произведена или отменена!</target>
+      </segment>
+    </unit>
+    <unit id="kazawKE" name="front.error_rendering_video_with_order">
+      <segment>
+        <source>front.error_rendering_video_with_order</source>
+        <target>Ошибка рендеринга</target>
+      </segment>
+    </unit>
+    <unit id="TN9JgGe" name="front.error_rendering_video_with_order_content">
+      <segment>
+        <source>front.error_rendering_video_with_order_content</source>
+        <target>Во время рендеринга произошла ошибка. Мы уже работаем над этим.</target>
+      </segment>
+    </unit>
+    <unit id="E2GBcm2" name="admin.block.privat">
+      <segment>
+        <source>admin.block.privat</source>
+        <target>Privat24 API</target>
+      </segment>
+    </unit>
+    <unit id="SntE8wY" name="object.api_key_privat_merchant">
+      <segment>
+        <source>object.api_key_privat_merchant</source>
+        <target>Мерчант</target>
+      </segment>
+    </unit>
+    <unit id="QRcY6U." name="object.api_key_privat_password">
+      <segment>
+        <source>object.api_key_privat_password</source>
+        <target>Пароль</target>
+      </segment>
+    </unit>
+    <unit id="usuzs2p" name="object.api_key_platon_merchant_secret_key">
+      <segment>
+        <source>object.api_key_platon_merchant_secret_key</source>
+        <target>Секретный ключ</target>
+      </segment>
+    </unit>
+    <unit id="2W_MqdW" name="object.api_key_platon_merchant_test_key">
+      <segment>
+        <source>object.api_key_platon_merchant_test_key</source>
+        <target>Тестовый ключ</target>
+      </segment>
+    </unit>
+    <unit id="eHjCfLd" name="7fbeec5">
+      <segment>
+        <source>URL на который посылается POST-эапрос для отображения платежной формы</source>
+        <target>Нужен на этапе тестирования, после чего заменить на секретный ключ</target>
+      </segment>
+    </unit>
+    <unit id="Td_nfPc" name="admin.block.interkassa">
+      <segment>
+        <source>admin.block.interkassa</source>
+        <target>Interkassa API</target>
+      </segment>
+    </unit>
+    <unit id="_TQuOpM" name="object.video_placeholder_max_files">
+      <segment>
+        <source>object.video_placeholder_max_files</source>
+        <target>Максимальное количество картинок</target>
+      </segment>
+    </unit>
+    <unit id="KiWvi2W" name="front.promo_code_not_found">
+      <segment>
+        <source>front.promo_code_not_found</source>
+        <target>Промокод не найден</target>
+      </segment>
+    </unit>
+    <unit id="T.egsFs" name="front.promotional_code_is_not_valid">
+      <segment>
+        <source>front.promotional_code_is_not_valid</source>
+        <target>Промокод уже не действителен</target>
+      </segment>
+    </unit>
+    <unit id="02FJjEG" name="front.no_subscription_data_found">
+      <segment>
+        <source>front.no_subscription_data_found</source>
+        <target>Данные подписки не найдены</target>
+      </segment>
+    </unit>
+    <unit id="tkwuHVV" name="front.subscription_successfully_canceled">
+      <segment>
+        <source>front.subscription_successfully_canceled</source>
+        <target>Подписка успешно отменена</target>
+      </segment>
+    </unit>
+    <unit id="eK2seBl" name="front.unsubscribe_from_email_newsletters">
+      <segment>
+        <source>front.unsubscribe_from_email_newsletters</source>
+        <target>Отписаться от e-mail рассылок</target>
+      </segment>
+    </unit>
+    <unit id="Uy0lMdr" name="front.subscription_not_active">
+      <segment>
+        <source>front.subscription_not_active</source>
+        <target>Подписка не активна</target>
+      </segment>
+    </unit>
+    <unit id="Yk8oamL" name="app.admin.label.page_home_slider">
+      <segment>
+        <source>app.admin.label.page_home_slider</source>
+        <target>Слайдер</target>
+      </segment>
+    </unit>
+    <unit id="mWnL6nQ" name="object.home_header_help">
+      <segment>
+        <source>object.home_header_help</source>
+        <target>Изменить текст можно через раздел "Переводы" для каждого языка.</target>
+      </segment>
+    </unit>
+    <unit id="aMb0C34" name="front.page_home_title_1">
+      <segment>
+        <source>front.page_home_title_1</source>
+        <target>Видео поздравления к вашему празднику.</target>
+      </segment>
+    </unit>
+    <unit id="ojG_lrc" name="front.page_home_title_2">
+      <segment>
+        <source>front.page_home_title_2</source>
+        <target>Видеооткрытки и видеоприколы.
+</target>
+      </segment>
+    </unit>
+    <unit id="nLxSmGb" name="front.page_home_description_1">
+      <segment>
+        <source>front.page_home_description_1</source>
+        <target>Яркое креативное видео, созданное командой лучших режиссеров и сценаристов. </target>
+      </segment>
+    </unit>
+    <unit id="wjVAvbp" name="front.page_home_description_2">
+      <segment>
+        <source>front.page_home_description_2</source>
+        <target> Мы превратим ваши будни в праздники, а праздники сделаем незабываемыми. </target>
+      </segment>
+    </unit>
+    <unit id="gMuX5Az" name="object.api_youtube_application_name">
+      <segment>
+        <source>object.api_youtube_application_name</source>
+        <target>Заголовок проекта</target>
+      </segment>
+    </unit>
+    <unit id="FrGYrOS" name="object.api_youtube_client_secret">
+      <segment>
+        <source>object.api_youtube_client_secret</source>
+        <target>Клиент секрет</target>
+      </segment>
+    </unit>
+    <unit id="kZUycFW" name="object.api_youtube_client_id">
+      <segment>
+        <source>object.api_youtube_client_id</source>
+        <target>Клиент ID</target>
+      </segment>
+    </unit>
+    <unit id="3L.dE66" name="front.not_selected">
+      <segment>
+        <source>front.not_selected</source>
+        <target>Не выбрано</target>
+      </segment>
+    </unit>
+    <unit id="ebZopfW" name="button.render_now_start">
+      <segment>
+        <source>button.render_now_start</source>
+        <target>Тестовый рендеринг</target>
+      </segment>
+    </unit>
+    <unit id="B9mDEG." name="front.rendering_proccess">
+      <segment>
+        <source>front.rendering_proccess</source>
+        <target>В процессе</target>
+      </segment>
+    </unit>
+    <unit id="cpWG8xL" name="front.error">
+      <segment>
+        <source>front.error</source>
+        <target>Ошибка рендеринга</target>
+      </segment>
+    </unit>
+    <unit id="kbfXCDj" name="front.rendering_new_start">
+      <segment>
+        <source>front.rendering_new_start</source>
+        <target>Попробовать еще раз</target>
+      </segment>
+    </unit>
+    <unit id=".im51WP" name="object.variation">
+      <segment>
+        <source>object.variation</source>
+        <target>Варианты ролика</target>
+      </segment>
+    </unit>
+    <unit id="X23pLQF" name="front.variable_video">
+      <segment>
+        <source>front.variable_video</source>
+        <target>Варианты ролика</target>
+      </segment>
+    </unit>
+    <unit id="ebGCXg5" name="front.personal_vodeo">
+      <segment>
+        <source>front.personal_vodeo</source>
+        <target>Персональный ролик</target>
+      </segment>
+    </unit>
+    <unit id="YiiK8o6" name="front.postcard">
+      <segment>
+        <source>front.postcard</source>
+        <target>Видео открытка</target>
+      </segment>
+    </unit>
+    <unit id="yLr.EtW" name="front.everything">
+      <segment>
+        <source>front.everything</source>
+        <target>Все</target>
+      </segment>
+    </unit>
+    <unit id="4RVwTI9" name="front.size">
+      <segment>
+        <source>front.size</source>
+        <target>Размер</target>
+      </segment>
+    </unit>
+    <unit id="yluwI8T" name="front.slopes">
+      <segment>
+        <source>front.slopes</source>
+        <target>Наклон</target>
+      </segment>
+    </unit>
+    <unit id="EffKMH6" name="front.create_a_postcard">
+      <segment>
+        <source>front.create_a_postcard</source>
+        <target>Создание открытки</target>
+      </segment>
+    </unit>
+    <unit id="FD_uMlz" name="front.photo_editor">
+      <segment>
+        <source>front.photo_editor</source>
+        <target>Редактор фото</target>
+      </segment>
+    </unit>
+    <unit id="5MOaX36" name="front.you_can_edit_photos_by_moving_mixers">
+      <segment>
+        <source>front.you_can_edit_photos_by_moving_mixers</source>
+        <target>Редактировать фото можете перемещением микшеров</target>
+      </segment>
+    </unit>
+    <unit id="iol4Y0Y" name="front.see">
+      <segment>
+        <source>front.see</source>
+        <target>Посмотреть</target>
+      </segment>
+    </unit>
+    <unit id="ZyasbK5" name="object.video_layer_name_mouth">
+      <segment>
+        <source>object.video_layer_name_mouth</source>
+        <target>Название слоя рта</target>
+      </segment>
+    </unit>
+    <unit id="X69YVw_" name="front.edit_a_postcard">
+      <segment>
+        <source>front.edit_a_postcard</source>
+        <target>Редактирование открытки</target>
+      </segment>
+    </unit>
+    <unit id="mIJz9CD" name="front.resseting_success">
+      <segment>
+        <source>front.resseting_success</source>
+        <target>Пароль успешно изменен!</target>
+      </segment>
+    </unit>
+    <unit id="axNiZ67" name="front.log_in">
+      <segment>
+        <source>front.log_in</source>
+        <target>Вход</target>
+      </segment>
+    </unit>
+    <unit id="bSfjZHh" name="front.promotional_code_has_reached_the_limit_of_use">
+      <segment>
+        <source>front.promotional_code_has_reached_the_limit_of_use</source>
+        <target>Промокод исчерпал свой лимит использования</target>
+      </segment>
+    </unit>
+    <unit id="WXWVa2Y" name="object.audio_phrase">
+      <segment>
+        <source>object.audio_phrase</source>
+        <target>Фраза с именами</target>
+      </segment>
+    </unit>
+    <unit id="OilQ83E" name="object.selected_phrase">
+      <segment>
+        <source>object.selected_phrase</source>
+        <target>Выберите фразу с именами</target>
+      </segment>
+    </unit>
+    <unit id="DuJKMaB" name="front.authorize_facebook_error">
+      <segment>
+        <source>front.authorize_facebook_error</source>
+        <target>Ошибка авторизации, попробуйте еще раз!</target>
+      </segment>
+    </unit>
+    <unit id="rymW2Pz" name="front.authorize_facebook">
+      <segment>
+        <source>front.authorize_facebook</source>
+        <target>Авторизация через Facebook</target>
+      </segment>
+    </unit>
+    <unit id="Z_XO5Zk" name="front.authorize_facebook_success">
+      <segment>
+        <source>front.authorize_facebook_success</source>
+        <target>Вы успешно авторизировались через Facebook. Фото профиля подгружается, спасибо.</target>
+      </segment>
+    </unit>
+    <unit id="RXUJ7so" name="front.to_make_photo">
+      <segment>
+        <source>front.to_make_photo</source>
+        <target>Сделать фото</target>
+      </segment>
+    </unit>
+    <unit id="hyJ1Tdv" name="front.download_from_device">
+      <segment>
+        <source>front.download_from_device</source>
+        <target>Загрузить с устройства</target>
+      </segment>
+    </unit>
+    <unit id="MVblCOn" name="front.from_my_facebook">
+      <segment>
+        <source>front.from_my_facebook</source>
+        <target>С моего Facebook</target>
+      </segment>
+    </unit>
+    <unit id="xycM14P" name="admin.block.facebook">
+      <segment>
+        <source>admin.block.facebook</source>
+        <target>Facebook API</target>
+      </segment>
+    </unit>
+    <unit id="fv7niDy" name="front.thank_you_your_data_loading">
+      <segment>
+        <source>front.thank_you_your_data_loading</source>
+        <target>"Спасибо, Ваши данные загружаються"</target>
+      </segment>
+    </unit>
+    <unit id="y6rDnCJ" name="front.thank_you_your_data_load">
+      <segment>
+        <source>front.thank_you_your_data_load</source>
+        <target>Отправка данных</target>
+      </segment>
+    </unit>
+    <unit id=".pdprff" name="front.video_exceeds_allowable_size">
+      <segment>
+        <source>front.video_exceeds_allowable_size</source>
+        <target>Размер загружаемого видео должен быть меньше 70 мб.</target>
+      </segment>
+    </unit>
+    <unit id="hKtCp5g" name="front.image_exceeds_allowable_size">
+      <segment>
+        <source>front.image_exceeds_allowable_size</source>
+        <target>Размер превышает 10 мб</target>
+      </segment>
+    </unit>
+    <unit id="Ed.HHrD" name="front.image_exceeds_allowable_type">
+      <segment>
+        <source>front.image_exceeds_allowable_type</source>
+        <target>Можно выбрать только jpg, png или gif</target>
+      </segment>
+    </unit>
+    <unit id="PE2NKwP" name="movie_for %number% people">
+      <segment>
+        <source>movie_for %number% people</source>
+        <target>Ролик для %number% человек</target>
+      </segment>
+    </unit>
+    <unit id="kVywBE3" name="front.placeholder_video_empty">
+      <segment>
+        <source>front.placeholder_video_empty</source>
+        <target>Видео не содержит истории плейсхолдеров</target>
+      </segment>
+    </unit>
+    <unit id="h.xWXot" name="object.logo_header">
+      <segment>
+        <source>object.logo_header</source>
+        <target>Логотип (хедер)</target>
+      </segment>
+    </unit>
+    <unit id="s.L6mD5" name="object.logo_footer">
+      <segment>
+        <source>object.logo_footer</source>
+        <target>Логотип (футер)</target>
+      </segment>
+    </unit>
+    <unit id="krt7Fem" name="object.logo_preloader">
+      <segment>
+        <source>object.logo_preloader</source>
+        <target>Логотип (прелоадер)</target>
+      </segment>
+    </unit>
+    <unit id="0V4lt4D" name="user_agreement">
+      <segment>
+        <source>user_agreement</source>
+        <target><![CDATA[Нажимая кнопку "Создать поздравление", вы подтверждаете, что ознакомились с <a class='agreement' target='_blank' href='%href%'>пользовательским соглашением</a> и принимаете его]]></target>
+      </segment>
+    </unit>
+    <unit id="CK67g8d" name="front.image_time_out">
+      <segment>
+        <source>front.image_time_out</source>
+        <target>Превышено время ожидания. Проверьте соединение к интернету и попробуйте заново.</target>
+      </segment>
+    </unit>
+    <unit id="jZcHFSm" name="admin.block.liqpay">
+      <segment>
+        <source>admin.block.liqpay</source>
+        <target>LiqPay API</target>
+      </segment>
+    </unit>
+    <unit id="Ff4.0VN" name="object.api_key_liqpay_privat_key">
+      <segment>
+        <source>object.api_key_liqpay_privat_key</source>
+        <target>Приватный ключ</target>
+      </segment>
+    </unit>
+    <unit id="bojh0tq" name="object.api_key_liqpay_public_key">
+      <segment>
+        <source>object.api_key_liqpay_public_key</source>
+        <target>Публичный ключ</target>
+      </segment>
+    </unit>
+    <unit id="OuQOyMb" name="object.default_country_locale">
+      <segment>
+        <source>object.default_country_locale</source>
+        <target>Языковая версия по умолчанию</target>
+      </segment>
+    </unit>
+    <unit id="Gb6PUuQ" name="object.home_video_novelty">
+      <segment>
+        <source>object.home_video_novelty</source>
+        <target>Новинки</target>
+      </segment>
+    </unit>
+    <unit id="TIFGe0Q" name="object.selected_home_video_novelty">
+      <segment>
+        <source>object.selected_home_video_novelty</source>
+        <target>Выберите видео</target>
+      </segment>
+    </unit>
+    <unit id="5H2HDRL" name="front.video_novelty">
+      <segment>
+        <source>front.video_novelty</source>
+        <target>Новинки</target>
+      </segment>
+    </unit>
+    <unit id="lshH0H9" name="front.header_block_novelties">
+      <segment>
+        <source>front.header_block_novelties</source>
+        <target>Лучшие видео приколы и поздравления</target>
+      </segment>
+    </unit>
+    <unit id="DO5mxkE" name="object.page_content_title">
+      <segment>
+        <source>object.page_content_title</source>
+        <target>Заголовок страницы</target>
+      </segment>
+    </unit>
+    <unit id="ikHScA." name="object.page_content_seo">
+      <segment>
+        <source>object.page_content_seo</source>
+        <target>SEO контент</target>
+      </segment>
+    </unit>
+    <unit id="fvFBiwM" name="object.title_abbreviated">
+      <segment>
+        <source>object.title_abbreviated</source>
+        <target>Сокращенный заголовок</target>
+      </segment>
+    </unit>
+    <unit id="Qiv8TyX" name="object.selected_top_video">
+      <segment>
+        <source>object.selected_top_video</source>
+        <target>Выберите топ видео для категории</target>
+      </segment>
+    </unit>
+    <unit id="MGITju6" name="object.video_top">
+      <segment>
+        <source>object.video_top</source>
+        <target>Топ видео категории</target>
+      </segment>
+    </unit>
+    <unit id="RBKQnCS" name="front.filter">
+      <segment>
+        <source>front.filter</source>
+        <target>Фильтр</target>
+      </segment>
+    </unit>
+    <unit id="llOFdUy" name="front.all_video_categories">
+      <segment>
+        <source>front.all_video_categories</source>
+        <target>Все категории</target>
+      </segment>
+    </unit>
+    <unit id="2Jg4dsw" name="object.choice_video_category_page">
+      <segment>
+        <source>object.choice_video_category_page</source>
+        <target>Выберите видео категорию</target>
+      </segment>
+    </unit>
+    <unit id="TUy5b0l" name="object.video_category">
+      <segment>
+        <source>object.video_category</source>
+        <target>Видео категория</target>
+      </segment>
+    </unit>
+    <unit id="wTviZIY" name="tab.robots_txt">
+      <segment>
+        <source>tab.robots_txt</source>
+        <target>Robots.txt</target>
+      </segment>
+    </unit>
+    <unit id="_HqSrgJ" name="object.robots_txt">
+      <segment>
+        <source>object.robots_txt</source>
+        <target>Управление файлом Robots.txt</target>
+      </segment>
+    </unit>
+    <unit id="aDWpc74" name="object.tags">
+      <segment>
+        <source>object.tags</source>
+        <target>Метки</target>
+      </segment>
+    </unit>
+    <unit id="HH5_7kv" name="front.tag_cloud">
+      <segment>
+        <source>front.tag_cloud</source>
+        <target>Облако тегов</target>
+      </segment>
+    </unit>
+    <unit id="EY0kCkd" name="object.first_name_person">
+      <segment>
+        <source>object.first_name_person</source>
+        <target>Имя</target>
+      </segment>
+    </unit>
+    <unit id="kbFVQi6" name="front.reset_tags">
+      <segment>
+        <source>front.reset_tags</source>
+        <target>Сбросить метки</target>
+      </segment>
+    </unit>
+    <unit id="zQEZRYv" name="front.home">
+      <segment>
+        <source>front.home</source>
+        <target>Главная</target>
+      </segment>
+    </unit>
+    <unit id="FQHP9J8" name="front.catalog">
+      <segment>
+        <source>front.catalog</source>
+        <target>Каталог</target>
+      </segment>
+    </unit>
+    <unit id="O5WBIm8" name="front.video">
+      <segment>
+        <source>front.video</source>
+        <target>Видео</target>
+      </segment>
+    </unit>
+    <unit id="YIseaDI" name="front.video_deleted">
+      <segment>
+        <source>front.video_deleted</source>
+        <target>Видео удалено</target>
+      </segment>
+    </unit>
+    <unit id="wmLMZRG" name="object.banner">
+      <segment>
+        <source>object.banner</source>
+        <target>Баннер</target>
+      </segment>
+    </unit>
+    <unit id="x7TUB74" name="front.top_videos">
+      <segment>
+        <source>front.top_videos</source>
+        <target>ТОП видео</target>
+      </segment>
+    </unit>
+    <unit id="zjPVCaJ" name="front.authorization">
+      <segment>
+        <source>front.authorization</source>
+        <target>Авторизация</target>
+      </segment>
+    </unit>
+    <unit id="MnMyAg7" name="front.account_paid">
+      <segment>
+        <source>front.account_paid</source>
+        <target>Оплаченные</target>
+      </segment>
+    </unit>
+    <unit id="51q7cZF" name="front.account_not_paid">
+      <segment>
+        <source>front.account_not_paid</source>
+        <target>Неоплаченные </target>
+      </segment>
+    </unit>
+    <unit id="ayr6on7" name="front.account_setting">
+      <segment>
+        <source>front.account_setting</source>
+        <target>Личные данные</target>
+      </segment>
+    </unit>
+    <unit id="jM5Z0xu" name="check_payment_video">
+      <segment>
+        <source>check_payment_video</source>
+        <target>Оплата видео</target>
+      </segment>
+    </unit>
+    <unit id="vw6CTVx" name="front.go_back_to_the_main_page">
+      <segment>
+        <source>front.go_back_to_the_main_page</source>
+        <target>Вернуться на главную</target>
+      </segment>
+    </unit>
+    <unit id="Vv8RFfA" name="front.to_make_photo_web">
+      <segment>
+        <source>front.to_make_photo_web</source>
+        <target>Сделать фото</target>
+      </segment>
+    </unit>
+    <unit id="yqXpCaS" name="front.edit_image">
+      <segment>
+        <source>front.edit_image</source>
+        <target>Изменить</target>
+      </segment>
+    </unit>
+    <unit id="KUJq3Ym" name="warning_browser">
+      <segment>
+        <source>warning_browser</source>
+        <target><![CDATA[Sorry, your browser doesn't support embedded videos, but don't worry, you can <a href="%href%">download it</a> and watch it with your favorite video player!]]></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

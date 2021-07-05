@@ -1,0 +1,32 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{#<div class="loaderArea">#}
+{#    <div class="loader">#}
+{#        <img src="{% path setting.logoPreloader, 'reference' %}" alt="">#}
+{#        <img src="{{ asset('img/preloaderBeta.png') }}" alt="">#}
+{#    </div>#}
+{#</div>#}
+
+<main>
+    {% include 'components/blocks/authorization/block_authorization.html.twig' %}
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% if order is defined and order is not empty %}
+<div class="creating-new-video">
+    <h2 class="text-center title-text__md">{{ 'front.create_a_clip'|trans }}</h2>
+    <p class="text-center descript-text__onevideo wait-text">{{ 'front.onevideo_wait'|trans }}</p>
+{#    <div class="progress">#}
+{#        <div class="progress-bar progress-bar-new progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>#}
+{#    </div>#}
+
+{#    <div class="gifer">#}
+{#        {% if order.video.preloader is not empty %}#}
+{#            <video preload="metadata" playsinline webkit-playsinline  type="video/mp4"  codecs="avc1.42E01E, mp4a.40.2" src="{% path order.video.preloader, 'reference' %}" autoplay muted loop>#}
+{#                Sorry, your browser doesn't support embedded videos#}
+{#            </video>#}
+{#        {% else %}#}
+{#            <img src="{{ asset('img/icons/joys.gif') }}" alt="gif-load">#}
+{#        {% endif %}#}
+{#    </div>#}
+
+
+        <div class="gifer">
+            <img src="{{ asset('img/icons/joys.gif') }}" alt="gif-load">
+        </div>
+
+    <div class="creating-video__box text-center">
+        <img class="creating-loader-logo" src="{% path setting.logoHeader, 'reference' %}">
+        {#<img class="creating-loader-logo" src="{{ asset('img/preloaderBeta.png') }}" alt="">#}
+        {#<img class="creating-loader" src="{{ asset('img/745.gif') }}">#}
+        <p class="desc-text">{{ 'front.video_is_being_prepared_full'|trans }}</p>
+        <p class="desc-text">{{ 'front.link_finished_video_send_to_email'|trans }}</p>
+    </div>
+{#
+    <a class="btn btn__back btn-text" href="{{ path('home') }}">{{ 'front.return_to_home'|trans }}</a>
+    #}
+    <span class="renderID">{{ render.id }}</span>
+</div>
+{% else %}
+<div class="creating-video">
+    <h2 class="text-center title-text__md">{{ 'front.create_a_clip'|trans }}</h2>
+{#    <div class="progress">#}
+{#        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>#}
+{#    </div>#}
+
+    <div class="gifer">
+        {% if order.video.preloader is not empty %}
+            <video preload="metadata" playsinline webkit-playsinline  type="video/mp4"  codecs="avc1.42E01E, mp4a.40.2" src="{% path order.video.preloader, 'reference' %}" autoplay muted loop>
+                Sorry, your browser doesn't support embedded videos
+            </video>
+        {% else %}
+            <img src="{{ asset('img/icons/joys.gif') }}" alt="gif-load">
+        {% endif %}
+    </div>
+
+    <div class="col-12 d-flex justify-content-between how-info__content flex-wrap">
+        <div class="col-md-12 m-md-auto order-1 order-lg-0">
+            <p class="desc-text desc-text--black text-center desc-text--blue">
+                {{ 'front.order_not_found'|trans }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %}
+{#<script>#}
+{#    window.onload = function() {#}
+{#        const progress = document.querySelector('.progress-bar-new');#}
+{#        function loading() {#}
+
+{#            let width = parseInt(progress.style.width);#}
+{#            if (width >= 99) {#}
+{#                clearInterval(timerId)#}
+{#            } else {#}
+{#                width += 1;#}
+{#                progress.style.width = `${width}%`;#}
+{#            }#}
+{#        }#}
+{#        let timerId = setInterval(loading,1500);#}
+{#    }#}
+{#</script>#}

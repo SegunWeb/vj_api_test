@@ -1,0 +1,23 @@
+<div class="example-store create-movie">
+    <h2 class="text-center title-text__md">{% if order is defined %}{{ 'front.edit_a_clip'|trans }}{% else %}{{ 'front.create_a_clip'|trans }}{% endif %}</h2>
+    <!----movie------>
+    <div class="example-store-video video-box create-movie-video">
+       {# <img class="img-video d-none" src="{% if video.images is not empty %} {% path video.images, 'video_cover' %} {% else %} {% path video.congratulationExample, 'example' %} {% endif %}" alt="img"/> #}
+        <img class="img-video " src="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}" alt="img"/>
+        {% if video.congratulationExample is not empty %}
+            {% if video.congratulationExample.providerName == 'sonata.media.provider.video' %}
+                {% set fullPath %}{% path video.congratulationExample, 'reference' %}{% endset %}
+                {% set warning_browser = "warning_browser"|trans({'%href%': fullPath }) %}
+                <video class="d-flex justify-content-center" src="{% path video.congratulationExample, 'reference' %}">
+                    {{ warning_browser|raw }}
+                </video>
+            {% elseif video.congratulationExample.providerName == 'sonata.media.provider.youtube' %}
+                <iframe class="d-flex justify-content-center" data-src="https://www.youtube.com/embed/{{ video.congratulationExample.providerReference }}?rel=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+            {% elseif video.congratulationExample.providerName == 'sonata.media.provider.vimeo' %}
+                <iframe class="d-flex justify-content-center" data-src="https://player.vimeo.com/video/{{ video.congratulationExample.providerReference }}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            {% endif %}
+        {% endif %}
+        <button class="play-video"></button>
+    </div>
+</div>
+<!----create movie end---->

@@ -1,0 +1,124 @@
+{% if order is defined and order is not empty %}
+    {% set render = order.render.last() %}
+    <div class="video-ready">
+        <h2 class="text-center title-text__md  wrapper-text">{{ 'front.is_done'|trans }}</h2>
+        <div class="video-ready__box">
+            <div class="example-store-video video-box video-ready-box video-wrapp ">
+{#                <video crossorigin playsinline webkit-playsinline class="paids-videos-single" src="{{ asset('project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}" preload="metadata" controls poster="{% if order.video is not empty and order.video.banner is not empty %} {% path order.video.banner, 'video_cover' %} {% elseif order.video is not empty and order.video.congratulationExample is not empty  %} {% path order.video.congratulationExample, 'example' %} {% endif %}">#}
+{#                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}"  type="video/mp4" size="480" >#}
+{#                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'_720p.mp4') }}"  type="video/mp4" size="720" >#}
+{#                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}"  type="video/mp4" size="480" >#}
+{#                    {{ 'front.browser_not_support_video5'|trans({'%link%' : '<a href="project/'~order.id~'/'~render.projectUid~'.mp4" download>', '%close_link%' : '</a>' }) }}#}
+{#                </video>#}
+
+                <video class="paids-videos" preload="metadata" playsinline webkit-playsinline controls type="video/mp4" codecs="avc1.42E01E, mp4a.40.2"  data-href="{{ asset('project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}" src="{{ asset('project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}"  poster="{% if order.video is not empty and order.video.banner is not empty %} {% path order.video.banner, 'video_cover' %} {% elseif order.video is not empty and order.video.congratulationExample is not empty  %} {% path order.video.congratulationExample, 'example' %} {% endif %}" />
+
+
+{#                <video class="paids-videos" src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" preload="metadata" controls poster="{% if order.video is not empty and order.video.banner is not empty %} {% path order.video.banner, 'video_cover' %} {% elseif order.video is not empty and order.video.congratulationExample is not empty  %} {% path order.video.congratulationExample, 'example' %} {% endif %}">#}
+{#                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}"  type="video/mp4" size="1080" >#}
+{#                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'_720p.mp4') }}"  type="video/mp4" size="720" >#}
+{#                    <source src="{{ asset('project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}"  type="video/mp4" size="480">#}
+{#                    {{ 'front.browser_not_support_video5'|trans({'%link%' : '<a href="project/'~order.id~'/'~render.projectUid~'.mp4" download>', '%close_link%' : '</a>' }) }}#}
+{#                </video>#}
+            </div>
+            <div class="ready-cont">
+
+                {% if app.user is not empty %}
+                    {% if order.users.id == app.user.id %}
+                        <a href="{{ asset('project/'~order.id~'/'~render.projectUid~'.mp4') }}" class="save__title btn-text btn__save" download>{{ 'front.download'|trans }}</a>
+
+{#                        <p class="desc-text--blue"><a class="a2a_dd" href="https://www.addtoany.com/share">Копировать ссылку </a><i class="fas fa-share-alt"></i></p>#}
+
+                        <p class="desc-text___info desc-text__info--sm copy-link__text" data-clipboard-text="" id="url-link">Копировать ссылку </a><i class="fas fa-share-alt"></i></p>
+
+{#                        <p class="desc-text___info desc-text__info--sm copy-link__text" data-clipboard-text="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}" >Копировать ссылку <i class="fas fa-share-alt"></i></p>#}
+
+
+                        <div class="share-socials-wrapp">
+
+                            <div class="share-socials-wrapp">
+                                <!-- AddToAny BEGIN -->
+                                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                                    <a class="a2a_button_whatsapp"></a>
+                                    <a class="a2a_button_telegram"></a>
+                                    <a class="a2a_button_viber"></a>
+                                    <a class="a2a_button_facebook_messenger"></a>
+                                </div>
+                                <script>
+                                    var a2a_config = a2a_config || {};
+                                    a2a_config.onclick = 1;
+                                    a2a_config.locale = "ru";
+                                    a2a_config.num_services = 12;
+                                </script>
+                                <script async src="https://static.addtoany.com/menu/page.js"></script>
+                                <!-- AddToAny END -->
+                            </div>
+                        </div>
+
+
+{#                        <button class="save__title btn btn-text btn__save" data-clipboard-text="" id="url-link">поделиться</button>#}
+
+                    {% else %}
+                        {% if order.video is not empty %}
+                            <a href="{{ path('movie', {'slug' : order.video.slug}) }}" class="save__title btn-created btn btn-text btn__save">{{ 'front.make_yourself'|trans }}</a>
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    {% if order.video is not empty %}
+                        <a href="{{ path('movie', {'slug' : order.video.slug}) }}" class="save__title btn btn-created btn-text btn__save">{{ 'front.make_yourself'|trans }}</a>
+                    {% endif %}
+                {% endif %}
+
+{#                <button class="save__title btn btn-text btn__save" data-clipboard-text="" id="url-link">создать себе</button>#}
+
+
+            </div>
+{#            <div class="info-box info-box--link container">#}
+{#                <!-- <a href="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}" class="desc-text___info desc-text__info--sm" target="_blank">{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}</a> -->#}
+{#                <!-- <input class="copy-link" type="text" value="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}" /> -->#}
+{#                <p class="desc-text___info desc-text__info--sm copy-link__text" data-clipboard-text="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}" >Копировать ссылку в качестве 1080p</p>#}
+{#            </div>#}
+
+            <!--  720p -->
+{#            <div class="info-box info-box--link container">#}
+                <!-- <a href="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}" class="desc-text___info desc-text__info--sm" target="_blank">{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}</a> -->
+                <!-- <input class="copy-link" type="text"   value="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_720p.mp4') }}" /> -->
+{#                <p class="desc-text___info desc-text__info--sm copy-link__text" data-clipboard-text="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_720p.mp4') }}" >Копировать ссылку в качестве 720p</p>#}
+{#            </div>#}
+
+            <!-- 480p -->
+{#            <div class="info-box info-box--link container">#}
+{#                <!-- <a href="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}" class="desc-text___info desc-text__info--sm" target="_blank">{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'.mp4') }}</a> -->#}
+{#                <!-- <input class="copy-link" type="text"  value="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}" /> -->#}
+{#                <p class="desc-text___info desc-text__info--sm copy-link__text" data-clipboard-text="{{ asset('https://www.vijoys.com/project/'~order.id~'/'~render.projectUid~'_480p.mp4') }}" >Копировать ссылку в качестве 480p</p>#}
+{#            </div>#}
+        </div>
+        {% if app.user is not empty %}
+            {% if order.users.id == app.user.id %}
+            <div class="bank-container">
+                <p class="text-center">{{ 'object.del_full_video'|trans }}</p>
+                {#                 <p class="desc-text___info desc-text__info--sm copy-link__text">Копировать ссылку в качестве 480p</p>#}
+            </div>
+            {% endif %}
+        {% endif %}
+{#        <div class="video-ready__pay">#}
+{#            <p class="desc-text--blue">{{ 'front.share_videos'|trans }}</p>#}
+{#            <div class="socials socials__after">#}
+{#                <a class="socials__fb" target="_blank" href="{{ setting.socialFbLink }}"></a>#}
+{#                <a class="socials__yt" target="_blank" href="{{ setting.socialYtLink }}"></a>#}
+{#                <a class="socials__inst" target="_blank" href="{{ setting.socialInLink }}"></a>#}
+{#            </div>#}
+{#        </div>#}
+    </div>
+{% else %}
+    <div class="video-ready">
+        <div class="col-12 d-flex justify-content-between how-info__content flex-wrap">
+            <div class="col-md-12 m-md-auto order-1 order-lg-0">
+                <p class="desc-text desc-text--black text-center desc-text--blue">
+                    {{ 'front.order_not_found'|trans }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endif %}
+

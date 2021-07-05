@@ -1,0 +1,184 @@
+{% if placeholders[constant('App\\Constants\\VideoConstants::POSTCARD')] is defined %}
+
+    {% set baseURL = app.request.scheme~'://'~app.request.httpHost~app.request.basePath %}
+
+    {% set plc = placeholders[constant('App\\Constants\\VideoConstants::POSTCARD')][0] %}
+
+    <div class="step-two steps block__addfoto">
+
+        {% for plc in placeholders[constant('App\\Constants\\VideoConstants::POSTCARD')] %}
+
+            {% if order is defined %}
+
+                {% if placeholderRender[plc.type][plc.id] is defined %}
+
+                    {% set historyPlaceholder = placeholderRender[plc.type][plc.id] %}
+
+                    {% if historyPlaceholder is not empty %}
+
+                        {% set hpImage = historyPlaceholder.image %}
+
+                    {% endif %}
+
+                {% endif %}
+
+            {% endif %}
+
+            <postcard data-id="{{ plc.id }}" data-description="{{ plc.description }}" data-full="{% if hpImage is defined and hpImage is not empty %}{{ imageToBase64(hpImage) }}{% endif %}" data-face="" data-mouth="" data-mouth="" {% if loop.index == 1 %}class="active"{% endif %}></postcard>
+
+        {% endfor %}
+
+
+
+        {#<h2 class="text-center title-text__md title-text__step">{{ 'front.upload_a_photo'|trans }}</h2>#}
+        <div class="step-box__photo step-box canvas-face" data-placeholder="{{ plc.id }}"  data-width="{{ plc.imageWidth }}" data-height="{{ plc.imageHeight }}">
+            <div class="block_wrap-img">
+                {#  <img class="img-video d-none" src="{% if video.images is not empty %} {% path video.images, 'video_cover' %} {% else %} {% path video.congratulationExample, 'example' %} {% endif %}" alt="img"/> #}
+                <img  src="{% if video.banner is not empty %} {% path video.banner, 'video_cover' %} {% endif %}" alt="img"/>
+            </div>
+            <!----photo editor----->
+            <div class="image-editor photo postcard" id="photo-block-{{ plc.id }}" style="position: relative">
+
+                <p class="image-editor__descr title">{{plc.description}}</p>
+                
+                {#<p class="image-editor__descr desc">{{ 'front.minimal_images'|trans({'%width%' : plc.imageWidth, '%height%' : plc.imageHeight }) }}</p>#}
+                <!----photo loader----->
+                <input class="cropit-image-input loads load-photo postcard" type="file" name="{{ plc.id }}[]"  id="fileSource" accept="image/jpeg">
+                <input class="cropit-image-input loads load-photo postcard" type="file" name="load-{{ plc.id }}" capture="user" id="mob-input" accept="image/jpeg">
+               {# <button class="btn btn-text btn__load btn-add-foto">{{ 'front.upload_a_photo'|trans }}</button> #}
+
+
+                <!--- photo buttons --->
+                <button class="btn btn-text btn__load btn-add-foto btn-cam" for="load-{{ plc.id }}" id="selfie">{{ 'front.to_make_photo'|trans }}</button>
+                <div class="webcam-wrap">
+                    <div class="webcam">
+                        <p class="close close-cam"></p>
+                        <div id="my_camera"></div>
+                        <button class="button-web" type="button">{{ 'front.to_make_photo_web'|trans }}</button>
+                        <div id="results"></div>
+                    </div>
+                </div>
+                <!------>
+                <!--- photo buttons  --->
+                <p class="btn btn-text btn__load btn-add-foto ">
+                    <label id="filesorce" class="btn__add-label" for="fileSource">{{ 'front.download_from_device'|trans }}</label>
+                </p>
+                <!------>
+
+
+
+
+          <img src="" class="postcard-full" style="display: none">
+          <div class="cropit-preview cropit-preview__hor cropit-image-loaded" style="position: relative">
+              <div class="square-box-loader">
+                  <div class="square-box-loader-container">
+                      <div class="square-box-loader-corner-top"></div>
+                      <div class="square-box-loader-corner-bottom"></div>
+                  </div>
+                  <div class="square-box-loader-square"></div>
+              </div>
+
+              <div class="row_canvas">
+                  <div id="container_photo" class="canvas-container">
+                      <!-- <div class="step-box__photo step-box">
+                          <p class="text-center ">{{ 'front.photo_editor'|trans }} </p>
+                          <p class="image-editor__descr">{{ 'front.you_can_edit_photos_by_moving_mixers'|trans }}</p>
+                      </div> -->
+
+
+                  </div>
+              </div>
+              <div class="postcard-result" style="display: none;">
+                  <div class="container-face-auto" style=" position: relative;">
+                      <img class="postcard-image" style="position: absolute;left: 0;top: 30px; width: 154px;height: 223px;right: 0;margin: auto;">
+                      <img class="postcard-image-mouth floating" style="position: absolute;left: 0; width: 154px; top: 30px;z-index: 1; right: 0;margin: auto;">
+                      <img class="postcard-image-full" style="display: none">
+                  </div>
+              </div>
+          </div>
+              <div class="popup_foto-animated">
+
+                          <div class="image-editor photo" style="position: relative; text-align: center;">
+                              <div class="container-face" style="position: relative;margin: auto;">
+                                  <img class="postcard-image" style="position: absolute; width: 100%; left: 0px; top: 0;">
+                                  <img class="postcard-image-mouth floating" style="position: absolute; width: 100%; left: 0px; top: 0;">
+                                  <img class="postcard-image-full" style="display: none">
+                              </div>
+                          </div>
+
+              </div>
+             <!---- button ---->
+          <button class="btn btn-text btn-yellow  btn_redactor-foto-edit d-none">{{ 'front.edit'|trans }}</button>
+          <button class="btn btn-text btn-yellow btn_redactor-foto d-none">{{ 'front.see'|trans }}</button>
+          <button class="btn btn-text btn-yellow btn-close d-none">{{ 'front.edit_image'|trans }}</button>
+          <!----photo position----->
+          <div class="image-editor__box">
+              <div class="editor-box">
+                  <!----photo range----->
+                  <div class="center-editor-zoom">
+                      <p>{{ 'front.size'|trans }}</p>
+                      <div class="editor-zoom">
+                          <button class="editor-zoom__minus"></button>
+                          <input class="cropit-image-zoom-input editor-zoom__range" id="zoom" type="range" min="1" max="4000" step="1" value="200" width="500" disabled>
+                          <button class="editor-zoom__plus"></button>
+                      </div>
+                  </div>
+                  <div class="center-editor-zoom">
+                      <p>{{ 'front.slopes'|trans }}</p>
+                      <div class="editor-zoom incline">
+                          <button class="editor-zoom__minus inc-m"></button>
+                          <input class="cropit-image-zoom-input editor-zoom__range" id="rotate" type="range" min="0" max="360" step="1" value="180" disabled>
+                          <div class="line-for-zoom"></div>
+                          <button class="editor-zoom__plus inc-p"></button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+     {# <div class="popup-add-foto" style="display: none;">
+          <div class="aunt mx-auto">
+              <p class="close"></p>
+              <div class="aut-box">
+                 {#<p class="title-text__sm text-center">{{ 'front.upload_a_photo'|trans }}</p>
+                  <div class="btn__add-foto aut-box__desc">
+                     {#<div class="btn__add-foto-icon"><i class="fas fa-camera"></i></div>
+                      <p for="load-{{ plc.id }}" id="selfie">{{ 'front.to_make_photo'|trans }}</p>
+                  </div>
+                  <div class="btn__add-foto aut-box__mob">
+                    {#  <div class="btn__add-foto-icon "><i class="fas fa-camera"></i></div>
+                      <p>
+                          <label class="btn__add-label" for="mob-input" >{{ 'front.to_make_photo'|trans }}</label>
+                      </p>
+                  </div>
+                  <div class="btn__add-foto">
+                    {#  <div class="btn__add-foto-icon"><i class="fas fa-arrow-alt-circle-down"></i></div>
+                      <p>
+                          <label id="filesorce" class="btn__add-label" for="fileSource">{{ 'front.download_from_device'|trans }}</label>
+                      </p>
+                  </div>
+                 {# <div class="btn__add-foto">
+                      <div class="btn__add-foto-icon"><i class="fab fa-facebook-f"></i></div>
+                      <p onclick="window.open('{{ facebookLink }}', 'newwindow', 'toolbar=yes,top=50,left=500,width=800,height=600');">С моего Facebook</p>
+                  </div>
+              </div>
+
+              <div class="webcam">
+
+                  <div id="my_camera"></div>
+                <button class="btn button-web" type="button">{{ 'front.to_make_photo'|trans }}</button>
+                <div id="results"></div>
+               </div>
+          </div>
+      </div> #}
+
+
+            
+        </div>
+        <!----buttons box----->
+        <div class="step__btn">
+            <button class="btn btn-text btn__prev">{{ 'front.backwards'|trans }}</button>
+            <button class="btn btn-text btn__next postcard-button">{{ 'front.further'|trans }}</button>
+        </div>
+    </div>
+
+{% endif %}

@@ -1,0 +1,58 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{#<div class="loaderArea">#}
+{#     <div class="loader">#}
+{#        <img src="{% path setting.logoPreloader, 'reference' %}" alt="">#}
+{#        <img src="{{ asset('img/preloaderBeta.png') }}" alt="">#}
+{#    </div>#}
+{#</div>#}
+<!---header--->
+{% include 'components/blocks/header-red.html.twig' %}
+<!---header-end--->
+<!---header-end--->
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+    {% include 'components/pop-up/register_pop-up.html.twig' %}
+    {% include 'components/pop-up/auth_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main>
+    <div class="container user-info">
+        <h2 class="text-center title-text__md about__title">{{ title }}</h2>
+        <img src="{{ asset('img/icons/camera.png') }}">
+        <div class="row">
+            <div class="col-10 desc-text desc-text--black m-auto error-rending-text">
+                {{ content|raw }}
+            </div>
+        </div>
+        {% if url is defined %}
+        <script>
+            var ar = { fb_vijoys_url: "{{ url }}" };
+            window.opener.postMessage(ar, "*");
+            window.close();
+        </script>
+        {% endif %}
+    </div>
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+
+</body>
+</html>

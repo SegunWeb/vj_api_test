@@ -1,0 +1,56 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+{#<div class="loaderArea">#}
+{#    <div class="loader"></div>#}
+{#</div>#}
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{% set setting = setting() %}
+<!---header--->
+{% include 'components/blocks/header-red.html.twig' %}
+<!---header-end--->
+<!---header-end--->
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+    {% include 'components/pop-up/auth_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="all-video__box col">
+                <div class="col-12 d-flex justify-content-between how-info__content flex-wrap">
+                    <div class="col-md-12 m-md-auto order-1 order-lg-0">
+                        <p class="desc-text text-center desc-text--gray fs-2 mt-5 mb-5">
+                            <span class="fs-15  errors-text d-block">500</span>
+                            <span class="fs-3">{{ 'front.error_text_500'|trans }}</span>
+                        </p>
+                        <div class="text-center mb-5">
+                            <a class="btn btn__free btn__main  btn-text" href="https://www.vijoys.com/">назад на главную</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+
+{% block js %}
+    <script src="{{ asset('js/support.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>

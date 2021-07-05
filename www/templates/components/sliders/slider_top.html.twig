@@ -1,0 +1,23 @@
+{% if page.homeImageHeader.empty == false %}
+<div class="top-slider">
+    {% for slider in page.homeImageHeader.toArray %}
+    <!----top-slider-block---->
+    <div class="top-slider-wrap">
+        <img class="top-slider-wrap__bg" src="{% path slider.image, 'reference' %}"/>
+        <img class="top-slider-wrap__bg--tablet" src="{% path slider.imageTablet, 'reference' %}"/>
+        <img class="top-slider-wrap__bg--mob" src="{% path slider.imageMobile, 'reference' %}"/>
+        <div class="top-slider-box container">
+            <div class="top-slider-box__content">
+                <h1 class="title-text title-text__header">{{ slider.homeTitleHeader|trans }}</h1>
+                <p class="desc-text desc-text__header">{{ slider.homeDescriptionHeader|trans }}</p>
+                <div class="top-slider-btn">
+                    <a class="btn btn__free btn-text" href="{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::ALL_VIDEO_VALUES'), app.request.locale) }}#allvideo">{{ 'front.try_for_free'|trans }}</a>
+                    <a class="btn btn__example btn-text btn-text--blue" href="{{ slider.homeLinkExamples }}">{{ 'front.see_an_example'|trans }}</a>
+                </div>
+            </div>
+            <div class="top-slider-box__img"><img src="{% path slider.imageCircle, 'image' %}"/></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

@@ -1,0 +1,65 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+<!---header--->
+{% include 'components/blocks/header.html.twig' %}
+<!---header-end--->
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+    {% include 'components/pop-up/register_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/auth_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main>
+    <!----header_text---->
+{#    {% include 'components/blocks/home-page/block_title_text.html.twig' %}#}
+    <!----header_text---->
+    <!----top-slider---->
+    {#{% include 'components/sliders/slider_top.html.twig' %}#}
+    <!----top-slider-end---->
+    <!----video-top---->
+{#    {% include 'components/blocks/home-page/block_novelty-video.html.twig' %}#}
+
+    {% include 'components/blocks/home-page/block_novelty-category.html.twig' %}
+
+
+    <!----video-top-end---->
+    {# <!----info----->
+     {% include 'components/blocks/home-page/block_how.html.twig' %}
+    <!----info-end----->  #}
+    <!----recommended----->
+    {% include 'components/blocks/home-page/block_recommended-video.html.twig' %}
+    <!----recommended-end---->
+    {#<!----advantages----->
+    {% include 'components/blocks/home-page/block_advantages.html.twig' %}
+    <!----advantages-end----->#}
+    {#<!----video-testimonials----->
+    {% include 'components/blocks/home-page/block_testimonials-video.html.twig' %}
+    <!----video-testimonials-end----->#}
+    {#<!----testimonials----->
+    {% include 'components/blocks/home-page/block_testimonials.html.twig' %}
+    <!----testimonials-end----->#}
+     <!----block_seo_text----->
+    {% include 'components/blocks/home-page/block_seo_text.html.twig' %}
+    <!----block_seo_text-end---->
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+</body>
+</html>

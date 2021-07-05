@@ -1,0 +1,14 @@
+<div class="about-history">
+    <div class="about-history__content container">
+        <div class="row">
+            <div class="col-11 m-auto">
+                <h3 class="title-text__sm text-center  title-about title-text__article--sup">{{ 'front.how_we_do_it'|trans }}</h3>
+                <div class="desc-text desc-text--black m-auto">
+                    {% if page.homeContentOurAdvantages is not empty %}
+                        {{ page.homeContentOurAdvantages|raw }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

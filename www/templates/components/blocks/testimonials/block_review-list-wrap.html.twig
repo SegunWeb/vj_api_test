@@ -1,0 +1,44 @@
+{% if dynamic.review is defined %}
+    {% for review in dynamic.review %}
+        <div class="testimonials-wrap testim-wrap">
+            <div class="testim-box col-md-10 col-12 mx-auto">
+                <div class="user-photo__img testim-box__avatar">
+                    <img src="{% if review.users.avatar is not empty %}{% path review.users.avatar, 'reference' %}{% else %}img/common/circle-chl.png{% endif %}">
+                </div>
+                {% if review.users is not empty %}
+                <div class="testim-box__text">
+                    <div class="d-flex">
+                        <p class="desc-text desc-text__name">{{ review.users.fullName }}</p>
+                        <p class="desc-text desc-text__city">{{ review.users.city }}</p>
+                        <p class="desc-text desc-text__data desc-text__data--right">{{ review.createdAt|date('d.m.y') }}</p>
+                    </div>
+                    <p class="desc-text desc-text--black desc-text__md">
+                        {{ review.text }}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+            {% if review.commentReply is not empty %}
+            <div class="admin-box col-12 col-md-10 offset-md-1">
+                <div class="testim-box admin-testim-box col-12 offset-md-1">
+                    <div class="user-photo__img testim-box__avatar">
+                        <img src="{% if review.authorCommentReply.avatar is not empty %}{% path review.authorCommentReply.avatar, 'reference' %}{% else %}img/common/circle-chl.png{% endif %}">
+                    </div>
+                    <div class="testim-box__text testim-box__text--white">
+                        <div class="d-flex">
+                            {% if review.authorCommentReply is not empty %}
+                                <p class="desc-text desc-text__name">{{ review.authorCommentReply.fullName }}</p>
+                            {% endif %}
+                            <p class="desc-text desc-text__admin">{{ 'front.administrator'|trans }}</p>
+                            <p class="desc-text desc-text__data desc-text__data--right">{{ review.createdAt|date('d.m.y') }}</p>
+                        </div>
+                        <p class="desc-text desc-text--black desc-text__md">
+                            {{ review.commentReply }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endif %}

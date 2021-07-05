@@ -1,0 +1,494 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+imports:
+    - { resource: '../vendor/knplabs/doctrine-behaviors/config/orm-services.yml' }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: 'ru' #язык по умолчанию, он должен быть и в "locales"
+    locales: [ru] #список языков, всегда должен оставаться хотя бы язык поумолчанию в списку. Пример массива: [en, ru, pl, pt]
+    locales_in_line: ru #список должен соответствовать списку что и в "locales". Пример списка: en|ru|pl|pt
+    forbid_slug: ['css', 'images', 'assets', 'video', 'movie']
+    win_server: "%env(WIN_SERVER)%"
+    app_domain: '%env(APP_DOMAIN)%'
+    app_version: '%env(APP_VERSION)%'
+    app_domain_main: '%env(APP_DOMAIN_MAIN)%'
+    google_developer_key: '%env(GOOGLE_API_KEY)%'
+    google_client_id: '%env(GOOGLE_CLIENT_ID)%'
+    google_client_secret: '%env(GOOGLE_CLIENT_SECRET)%'
+    sonata.media.admin.media.controller: 'SilasJoisten\Sonata\MultiUploadBundle\Controller\MultiUploadController'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false       # Allows optimizing the container by removing unused services; this also means
+                            # fetching services directly from the container via $container->get() won't work.
+                            # The best practice is to be explicit about your dependencies anyway.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Application,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+    App\Repository\:
+        resource: '../src/Repository'
+        autowire: true
+        tags: ['doctrine.repository_service']
+
+    hashPasswordPersist:
+        class: 'App\Doctrine\HashPasswordSubscriber'
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    App\Validator\Constraints\:
+        resource: '../src/Validator/Constraints'
+        autowire: true
+        tags: ['doctrine.repository_service']
+
+    App\Service\:
+        resource: '../src/Service'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - ''
+            - ''
+            - ''
+        autowire: true
+        tags: ['doctrine.repository_service']
+        public: true
+
+    App\Helper\:
+        resource: '../src/Helper'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - ''
+            - ''
+            - ''
+        autowire: true
+        tags: ['doctrine.repository_service']
+        public: true
+
+    app.service.render:
+        class: 'App\Service\RenderService'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@service_container'
+            - '@router'
+        autowire: true
+        tags: ['doctrine.repository_service']
+        public: true
+
+    app.helper.changeLanguage:
+        class: 'App\Helper\ChangeLanguage'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@service_container'
+        autowire: true
+        tags: ['doctrine.repository_service']
+        public: true
+
+    app.service.order:
+        class: 'App\Service\OrderService'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@service_container'
+            - '@router'
+        autowire: true
+        tags: ['doctrine.repository_service']
+        public: true
+    app.controller.subscription:
+        class: 'App\Controller\SubscriptionController'
+
+    app.security.authentication_handler:
+        class: App\Handler\AuthenticationHandler
+        public: true
+        arguments:
+            - "@router"
+            - "@session"
+            - "@translator"
+            - "@security.authorization_checker"
+            - "@doctrine.orm.entity_manager"
+
+    app.password_resetting:
+        class: App\EventListener\PasswordResettingListener
+        arguments: [ '@router' ]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    #Sonata Admin Bundle::Class
+    app.admin.page:
+        class: App\Admin\PageAdmin
+        arguments:
+            - ~
+            - App\Entity\Page
+            - 'MevSortableTreeBundle:SortableTree'
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.content", label: "app.admin.label.page" , label_catalogue: "App" }
+        public: true
+
+    app.admin.header_menu:
+        class: App\Admin\HeaderMenuAdmin
+        arguments:
+            - ~
+            - App\Entity\HeaderMenu
+            - 'PixSortableBehaviorBundle:SortableAdmin'
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.menu", label: "app.admin.label.header_menu", label_catalogue: "App" }
+        public: true
+
+    app.admin.footer_menu:
+        class: App\Admin\FooterMenuAdmin
+        arguments:
+            - ~
+            - App\Entity\FooterMenu
+            - 'PixSortableBehaviorBundle:SortableAdmin'
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.menu", label: "app.admin.label.footer_menu", label_catalogue: "App" }
+        public: true
+
+    app.admin.holidays:
+        class: App\Admin\HolidaysAdmin
+        arguments:
+            - ~
+            - App\Entity\Holidays
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.directories", label: "app.admin.label.holidays", label_catalogue: "App" }
+        public: true
+
+    app.admin.first_name:
+        class: App\Admin\FirstNameAdmin
+        arguments:
+            - ~
+            - App\Entity\FirstName
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.directories", label: "app.admin.label.first_name", label_catalogue: "App" }
+        public: true
+
+    app.admin.review:
+        class: App\Admin\ReviewAdmin
+        arguments:
+            - ~
+            - App\Entity\Review
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.review", label: "app.admin.label.review", label_catalogue: "App" }
+        public: true
+
+    app.admin.review_video:
+        class: App\Admin\ReviewVideoAdmin
+        arguments:
+            - ~
+            - App\Entity\ReviewVideo
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.review", label: "app.admin.label.review_video", label_catalogue: "App" }
+        public: true
+
+    app.admin.mail_template:
+        class: App\Admin\MailTemplateAdmin
+        arguments:
+            - ~
+            - App\Entity\MailTemplate
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.setting", label: "app.admin.label.mail_template", label_catalogue: "App" }
+        public: true
+
+    app.admin.promo_code:
+        class: App\Admin\PromoCodeAdmin
+        arguments:
+            - ~
+            - App\Entity\PromoCode
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.promo_code", label: "app.admin.label.promo_code", label_catalogue: "App" }
+        public: true
+
+    app.admin.categories:
+        class: App\Admin\VideoCategoriesAdmin
+        arguments:
+            - ~
+            - App\Entity\VideoCategories
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.directories", label: "app.admin.label.video_categories", label_catalogue: "App" }
+        public: true
+
+    app.admin.video_placeholder:
+        class: App\Admin\VideoPlaceholderAdmin
+        arguments:
+            - ~
+            - App\Entity\VideoPlaceholder
+            - 'PixSortableBehaviorBundle:SortableAdmin'
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.video", label: "app.admin.label.placeholder", label_catalogue: "App", show_in_dashboard: false }
+        public: true
+
+    app.admin.page_home_slider:
+        class: App\Admin\PageHomeSliderAdmin
+        arguments:
+            - ~
+            - App\Entity\PageHomeSlider
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.page", label: "app.admin.label.page_home_slider", label_catalogue: "App", show_in_dashboard: false }
+        public: true
+
+    app.admin.video_render:
+        class: App\Admin\VideoRenderAdmin
+        arguments:
+            - ~
+            - App\Entity\VideoRender
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.render", label: "app.admin.label.render", label_catalogue: "App", show_in_dashboard: false }
+        public: true
+
+    app.admin.video:
+        class: App\Admin\VideoAdmin
+        arguments:
+            - ~
+            - App\Entity\Video
+            - App\Application\Sonata\AdminBundle\Controller\CRUDController
+        calls:
+            - [setTemplate, ['list', 'ApplicationSonataAdminBundle:CRUD:list_video.html.twig']]
+            - [setTemplate, ['edit', 'ApplicationSonataAdminBundle:CRUD:edit_video.html.twig']]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.video", label: "app.admin.label.video", label_catalogue: "App" }
+        public: true
+
+    app.admin.users:
+        class: App\Admin\UserAdmin
+        arguments:
+            - ~
+            - App\Entity\User
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.users", label: "app.admin.label.users", label_catalogue: "App" }
+        public: true
+
+    app.admin.help:
+        class: App\Admin\HelpAdmin
+        arguments:
+            - ~
+            - App\Entity\Help
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.help", label: "app.admin.label.help", label_catalogue: "App" }
+        public: true
+
+    app.admin.blog:
+        class: App\Admin\BlogAdmin
+        arguments:
+            - ~
+            - App\Entity\Blog
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.blog", label: "app.admin.label.blog", label_catalogue: "App" }
+        public: true
+
+    app.admin.blog_categories:
+        class: App\Admin\BlogCategoriesAdmin
+        arguments:
+            - ~
+            - App\Entity\BlogCategories
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.directories", label: "app.admin.label.blog_categories", label_catalogue: "App" }
+        public: true
+
+    app.admin.country:
+        class: App\Admin\CountryAdmin
+        arguments:
+            - ~
+            - App\Entity\Country
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.directories", label: "app.admin.label.country", label_catalogue: "App" }
+        public: true
+
+    app.admin.currency:
+        class: App\Admin\CurrencyAdmin
+        arguments:
+            - ~
+            - App\Entity\Currency
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.currency", label: "app.admin.label.currency", label_catalogue: "App" }
+        public: true
+
+    app.admin.order:
+        class: App\Admin\OrderAdmin
+        arguments:
+            - ~
+            - App\Entity\Order
+            - ~
+        calls:
+            - [setTemplate, ['list', 'ApplicationSonataAdminBundle:CRUD:list_order.html.twig']]
+            - [setTemplate, ['edit', 'ApplicationSonataAdminBundle:CRUD:edit.html.twig']]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.order", label: "app.admin.label.order", label_catalogue: "App" }
+        public: true
+
+    app.admin.setting:
+        class: App\Admin\SettingAdmin
+        arguments:
+            - ~
+            - App\Entity\Setting
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.setting", label: "app.admin.label.setting", label_catalogue: "App" }
+        public: true
+
+    app.admin.phrases_categories:
+        class: App\Admin\PhrasesCategoriesAdmin
+        arguments:
+            - ~
+            - App\Entity\PhrasesCategories
+            - 'PixSortableBehaviorBundle:SortableAdmin'
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.directories", label: "app.admin.label.phrases_categories", label_catalogue: "App" }
+        public: true
+
+    app.admin.subscriptions_type:
+        class: App\Admin\SubscriptionTypesAdmin
+        arguments:
+            - ~
+            - App\Entity\SubscriptionType
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.subscriptions", label: "object.subscription_types", label_catalogue: "App" }
+        public: true
+
+    app.admin.subscriptions:
+        class: App\Admin\SubscriptionsAdmin
+        arguments:
+            - ~
+            - App\Entity\Subscription
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.subscriptions", label: "object.subscriptions_label", label_catalogue: "App" }
+        public: true
+
+    app.admin.phrases:
+        class: App\Admin\PhrasesAdmin
+        arguments:
+            - ~
+            - App\Entity\Phrases
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.directories", label: "app.admin.label.phrases", label_catalogue: "App" }
+        public: true
+
+    app.admin.feedback:
+        class: App\Admin\FeedbackAdmin
+        arguments:
+            - ~
+            - App\Entity\Feedback
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.feedback", label: "app.admin.label.feedback", label_catalogue: "App" }
+        public: true
+
+    app.admin.translations:
+        class: App\Application\Sonata\AdminBundle\Admin\TranslationsAdmin
+        arguments:
+            - ~
+            - ~
+            - App\Application\Sonata\AdminBundle\Controller\TranslationsCRUDController
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "app.admin.group.translations", label: "app.admin.label.translations", label_catalogue: "App" }
+        public: true
+
+    #Gedmo listener's
+    gedmo.listener.translatable:
+        class: Gedmo\Translatable\TranslatableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+            - [ setDefaultLocale, [ "%locale%" ] ]
+            - [ setTranslationFallback, [ false ] ]
+
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+    gedmo.listener.sluggable:
+        class: Gedmo\Sluggable\SluggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default, priority: 1 }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+    gedmo.listener.sortable:
+        class: Gedmo\Sortable\SortableListener
+        calls:
+            - [setAnnotationReader, ['@annotation_reader']]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    sonata.media.provider.video:
+          class: 'App\Application\Sonata\MediaBundle\Provider\VideoProvider'
+          tags:
+              - { name: sonata.media.provider }
+          arguments:
+              - 'sonata.media.provider.video'
+              - '@sonata.media.filesystem.local'
+              - '@sonata.media.cdn.server'
+              - '@sonata.media.generator.default'
+              - '@sonata.media.thumbnail.format'
+              - allowed_extensions: ['mp4', 'avi', 'fly', 'mov', 'webm']
+              - allowed_mime_types: ['video/mp4', 'video/avi', 'video/x-flv', 'video/quicktime', 'video/webm']
+
+    sonata.media.provider.audio.phrase:
+          class: App\Application\Sonata\MediaBundle\Provider\AudioProvider
+          tags:
+              - { name: sonata.media.provider, multi_upload: true }
+          arguments:
+              - "sonata.media.provider.audio.phrase"
+              - "@sonata.media.filesystem.local"
+              - "@sonata.media.cdn.server"
+              - "@sonata.media.generator.default"
+              - "@sonata.media.thumbnail.format"
+              - ['mp3', 'mp4', 'wav']
+              - []
+              - '@sonata.media.metadata.proxy'
+          calls:
+              - [ setTemplates, [ { helper_thumbnail: "Media/Provider/audio_thumbnail.html.twig", helper_view: "Media/Provider/view_audio.html.twig" } ] ]
+          public: true
+    app.event_listener.pdoexception_listener:
+      class: App\EventListener\ModelManagerExceptionResponseListener
+      arguments:
+          - '@session'
+          - '@router'
+          - '@doctrine.orm.entity_manager'
+      tags:
+          - { name: kernel.event_listener, event: kernel.exception }
+      public: true # this maybe isn't needed
+
+    Sonata\MediaBundle\Entity\MediaManager:
+        alias: sonata.media.manager.media
+
+    Sonata\MediaBundle\Entity\GalleryManager:
+        alias: sonata.media.manager.gallery
+
+    App\Application\Sonata\MediaBundle\Admin\GalleryAdmin:
+        alias: sonata.media.admin.gallery

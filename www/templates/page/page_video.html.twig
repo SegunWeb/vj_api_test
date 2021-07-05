@@ -1,0 +1,50 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{#<div class="loaderArea">#}
+{#    <div class="loader">#}
+{#        <img src="{% path setting.logoPreloader, 'reference' %}" alt="">#}
+{#        <img src="{{ asset('img/preloaderBeta.png') }}" alt="">#}
+{#    </div>#}
+{#</div>#}
+<!---header--->
+{% include 'components/blocks/header-red.html.twig' %}
+<!---header-end--->
+
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+    {% include 'components/pop-up/register_pop-up.html.twig' %}
+    {% include 'components/pop-up/auth_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main>
+    {% if video is not empty %}
+        <!----page-video---->
+        {% include 'components/blocks/page_video/page_video_blocks.html.twig' %}
+        <!----page-video-end---->
+        {% include 'components/blocks/home-page/block_seo_text.html.twig' %}
+    {% else %}
+        {% include 'components/blocks/movie/block_video-not-found.html.twig' %}
+    {% endif %}
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+</body>
+</html>

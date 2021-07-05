@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+# Добавлен сюда для понижения приоритета загрузки, CMS должен срабатывать в случае если нет других роутингов
+CMS:
+    resource: App\Controller\CmsController
+    type: annotation

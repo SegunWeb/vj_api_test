@@ -1,0 +1,96 @@
+{% if placeholders[constant('App\\Constants\\VideoConstants::IMAGE')] is defined %}
+
+    {% set baseURL = app.request.scheme~'://'~app.request.httpHost~app.request.basePath %}
+
+    {% for plc in placeholders[constant('App\\Constants\\VideoConstants::IMAGE')] %}
+
+        {% if loop.index == 1 %}
+            <div class="step-two steps">
+
+          <h2 class="text-center title-text__md title-text__step">{{ 'front.upload_a_photo'|trans }}</h2>
+        {% endif %}
+
+        {% if order is defined %}
+
+            {% if placeholderRender[plc.type][plc.id] is defined %}
+
+                {% set historyPlaceholder = placeholderRender[plc.type][plc.id] %}
+
+                {% if historyPlaceholder is not empty %}
+
+                    {% set hpImage = historyPlaceholder.image %}
+
+                    {% set hpOrient = historyPlaceholder.imageOrientation %}
+
+                    {% if hpOrient == 'v' %}
+                        {% set hpOrient = 'v' %}
+                    {% else %}
+                        {% set hpOrient = 'h' %}
+                    {% endif %}
+
+                {% endif %}
+
+            {% endif %}
+
+        {% endif %}
+
+        <div class="step-box__photo step-box {% if loop.index > 1 %}mt-2{% endif %}" data-placeholder="{{ plc.id }}" data-id="{{ plc.id }}" data-width="{{ plc.imageWidth }}" data-height="{{ plc.imageHeight }}" data-orient="{% if order is defined %}{{ hpOrient }}{% endif %}">
+            <input class="cropit-image-input loads load-photo" type="file" name="{{ plc.id }}[]" id="load-{{ plc.id }}" accept="image/jpeg">
+            <div class="image-editor photo" id="photo-block-{{ plc.id }}">
+                <p class="image-editor__descr title">{{plc.description}}</p>
+                {#<p class="image-editor__descr">{{ 'front.minimal_images'|trans({'%width%' : plc.imageWidth, '%height%' : plc.imageHeight }) }}</p>#}
+                <!----photo loader----->
+                <label class="btn btn-text btn__load" for="load-{{ plc.id }}">{{ 'front.btn_load'|trans }}</label>
+                <!----photo----->
+                <div class="cropit-preview {% if (order is defined and hpOrient == 'v') %}cropit-preview__ver{% else %}cropit-preview__hor{% endif %}" style="position: relative {% if order is defined %}; display: flex{% endif %}">
+                    <span class="cropit-preview__size"></span>
+                    <img id="image" src="{% if order is defined and hpImage is not empty %}{{ baseURL }}{% path hpImage, 'reference' %}{% endif %}" style="max-height: 100%; display: none">
+                    <div class="square-box-loader">
+                        <div class="square-box-loader-container">
+                            <div class="square-box-loader-corner-top"></div>
+                            <div class="square-box-loader-corner-bottom"></div>
+                        </div>
+                        <div class="square-box-loader-square"></div>
+                    </div>
+                </div>
+                <!----photo position----->
+                <div class="image-editor__box" {% if order is defined and hpImage is not empty %}style="display: flex;"{% endif %}>
+                    <div class="editor-box">
+                        {% if plc.imageOrientation == 1%}
+                        <ul class="editor-position">
+                            <li class="vertical">
+                                <input class="edit edit-v" type="radio" name="positions{{ plc.id }}[{{ plc.id }}]" id="ver" value="v" {% if order is defined and hpOrient is not empty %} {% if hpOrient == 'v' %}checked{% endif %} {% elseif plc.imageWidth < plc.imageHeight %}checked{% endif %}/>
+                                <label class="edit__ver" for="ver">{{ 'front.upright'|trans }}</label>
+                            </li>
+                            <li class="horizontal">
+                                <input class="edit edit-h" type="radio" name="positions{{ plc.id }}[{{ plc.id }}]" id="hor" value="h" {% if order is defined and hpOrient is not empty %} {% if hpOrient == 'h' %}checked{% endif %}{% elseif plc.imageWidth >= plc.imageHeight %}checked{% endif %}/>
+                                <label class="edit__hor" for="hor">{{ 'front.horizontally'|trans }}</label>
+                            </li>
+                        </ul>
+                        {% endif %}
+                        <div class="editor-zoom">
+                            <button class="editor-zoom__minus"></button>
+                                <input class="cropit-image-zoom-input editor-zoom__range" type="range" value="0"/>
+                            <button class="editor-zoom__plus"></button>
+                        </div>
+                        <div class="editor-deg">
+                            <button class="editor-deg__line--left editor-deg__line rotate-ccw"></button>
+                            <button class="editor-deg__line--right editor-deg__line rotate-cwRotate"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if loop.last %}
+                <!----buttons box----->
+                <div class="step__btn">
+                    <button class="btn btn-text btn__prev">{{ 'front.backwards'|trans }}</button>
+                    <button class="btn btn-text btn__next {% if order is defined %}act_btn{% endif %}">{{ 'front.further'|trans }}</button>
+                </div>
+            </div>
+        {% endif %}
+
+    {% endfor %}
+
+{% endif %}

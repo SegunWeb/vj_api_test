@@ -1,0 +1,94 @@
+<div class="filter-store">
+   <!-- <img class="filter-store__bg" src="{{ asset('img/bg/elem/base22.png') }}"/> -->
+    <h2 class="text-center title-text__md">{{ 'front.choose_movie'|trans }}</h2>
+    <div class="filter-store__box">
+        <div class="filter-store-lang">
+            <p class="text-center title-text__filter">{{ 'front.language'|trans }}</p>
+            <ul class="lang-group radio-group">
+                {% if locales is defined %}
+                    {% for locale in locales %}
+                    <li>
+                        <input class="checkbox" type="checkbox" name="lang[]" id="{{ locale }}" value="{{ locale }}" {% if app.request.query.has('lang') == true and locale in app.request.query.get('lang') %} checked="checked" {% else %} {% if app.request.locale == locale %}checked="checked" {% endif %} {% endif %}/>
+                        <label for="{{ locale }}">{{ locale|trans }}</label>
+                    </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="filter-store-age">
+            <p class="text-center title-text__filter">{{ 'front.to_whom'|trans }}</p>
+            <ul class="age-group radio-group">
+                {% if dynamic is not empty and dynamic.category is not empty %}
+                    {% for category in dynamic.category %}
+                        <li>
+                            <input class="checkbox" type="radio" name="category" id="{{ category.title }}" value="{{ category.id }}" {% if app.request.query.has('category') == true and category.id == app.request.query.get('category') %} checked="checked"{% else %} {% if loop.index == 1 %}checked="checked" {% endif %} {% endif %}/>
+                            <label for="{{ category.title }}">{{ category.title }}</label>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="filter-store-gender">
+            <p class="text-center title-text__filter">{{ 'front.sex'|trans }}</p>
+            <ul class="gender-group radio-group">
+                <li>
+                    <input class="checkbox" type="radio" name="gender" id="all" value="{{ constant('App\\Constants\\SexConstants::All') }}" {% if app.request.query.has('sex') == true and constant('App\\Constants\\SexConstants::All') == app.request.query.get('sex') %}checked="checked" {% else %} {% if app.request.query.has('sex') == false %}checked="checked" {% endif %} {% endif %}/>
+                    <label class="active-radio" for="all">{{ 'front.all'|trans }}</label>
+                </li>
+                <li>
+                    <input class="checkbox" type="radio" name="gender" id="girl" value="{{ constant('App\\Constants\\SexConstants::MALE') }}" {% if app.request.query.has('sex') == true and constant('App\\Constants\\SexConstants::MALE') == app.request.query.get('sex') %}checked="checked" {% endif %}/>
+                    <label for="girl">{{ 'front.girl'|trans }}</label>
+                </li>
+                <li>
+                    <input class="checkbox" type="radio" name="gender" id="boy" value="{{ constant('App\\Constants\\SexConstants::FEMALE') }}" {% if app.request.query.has('sex') == true and constant('App\\Constants\\SexConstants::FEMALE') == app.request.query.get('sex') %}checked="checked" {% endif %}/>
+                    <label for="boy">{{ 'front.boy'|trans }}</label>
+                </li>
+            </ul>
+        </div>
+        <div class="filter-store-video">
+            <p class="text-center title-text__filter">{{ 'front.variable_video'|trans }}</p>
+            <ul class="radio-group">
+                <li>
+                    <input class="checkbox" type="radio" name="video-option" id="all-video" value="{{ constant('App\\Constants\\VideoTypeConstants::All') }}" {% if app.request.query.has('option') == true and constant('App\\Constants\\VideoTypeConstants::All') == app.request.query.get('option') %}checked="checked" {% else %} {% if app.request.query.has('option') == false %}checked="checked" {% endif %} {% endif %}>
+                    <label class="active-radio" for="all-video">{{ 'front.everything'|trans }}</label>
+                </li>
+                <li>
+                    <input class="checkbox" type="radio" name="video-option" id="personal-video" value="{{ constant('App\\Constants\\VideoTypeConstants::PERSONAL') }}" {% if app.request.query.has('option') == true and constant('App\\Constants\\VideoTypeConstants::PERSONAL') == app.request.query.get('option') %}checked="checked" {% endif %}>
+                    <label for="personal-video">{{ 'front.personal_vodeo'|trans }}</label>
+                </li>
+                <li>
+                    <input class="checkbox" type="radio" name="video-option" id="postcard-video" value="{{ constant('App\\Constants\\VideoTypeConstants::POSTCARD') }}" {% if app.request.query.has('option') == true and constant('App\\Constants\\VideoTypeConstants::POSTCARD') == app.request.query.get('option') %}checked="checked" {% endif %}>
+                    <label for="postcard-video">{{ 'front.postcard'|trans }}</label>
+                </li>
+            </ul>
+        </div>
+        <div class="filter-store-box">
+            <div class="filter-store-event list">
+                <p class="text-center title-text__filter">{{ 'front.event'|trans }}</p>
+                <div class="event-list">
+                    <p class="list__title dropdown-toggle" data-toggle="dropdown" data-id="{% if app.request.query.has('event') == true %}{{ app.request.query.get('event') }}{% endif %}" role="button" aria-expanded="false">{{ 'front.not_selected'|trans }}</p>
+                    <ul class="list__wrap dropdown-menu">
+                    {% if dynamic is not empty and dynamic.event is not empty %}
+                        {% for event in dynamic.event %}
+                            <li class="elem" id="{{ event.id }}"><span>{{ event.title }}</span></li>
+                        {% endfor %}
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="filter-store-people list">
+                <p class="text-center title-text__filter">{{ 'front.number_of_persons'|trans }}</p>
+                <div class="people-list">
+                    <p class="list__title dropdown-toggle" data-toggle="dropdown" data-id="{% if app.request.query.has('number_of_persons') == true %}{{ app.request.query.get('number_of_persons') }}{% endif %}" role="button" aria-expanded="false">{{ 'front.not_selected'|trans }}</p>
+                    <ul class="list__wrap dropdown-menu">
+                        <li class="elem" id="1"><span>{{ 'front.video_for_one_person'|trans }}</span></li>
+                        <li class="elem" id="2"><span>{{ 'front.video_for_two_person'|trans }}</span></li>
+                        <li class="elem" id="3"><span>{{ 'front.video_for_three_person'|trans }}</span></li>
+                        <li class="elem" id="4"><span>{{ 'front.video_for_four_person'|trans }}</span></li>
+                        <li class="elem" id="5"><span>{{ 'front.video_for_five_person'|trans }}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

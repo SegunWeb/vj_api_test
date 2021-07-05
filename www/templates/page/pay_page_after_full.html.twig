@@ -1,0 +1,48 @@
+{% include 'components/blocks/head.html.twig' %}
+<body class="bg-color">
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{#<div class="loaderArea">#}
+{#    <div class="loader">#}
+{#        <img src="{% path setting.logoPreloader, 'reference' %}" alt="">#}
+{#        <img src="{{ asset('img/preloaderBeta.png') }}" alt="">#}
+{#    </div>#}
+{#</div>#}
+<!---header--->
+{% include 'components/blocks/header-full.html.twig' %}
+<!---header-end--->
+<main>
+    {% include 'components/blocks/pay_page_after/block_view-fulll-version.html.twig' %}
+</main>
+
+<!---footer-end--->
+<script src="{{ asset('js/librarys/jquery.min.js') }}"></script>
+<script src="{{ asset('js/librarys/jquery-ui-1.10.4.custom.min.js') }}"></script>
+<script src="{{ asset('js/librarys/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/librarys/slick.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.5.6/plyr.js"></script>
+<script src="{{ asset('js/clipboard.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/librarys/hammer.min.js') }}"></script>
+{% block js %}
+
+{% endblock %}
+
+</body>
+</html>

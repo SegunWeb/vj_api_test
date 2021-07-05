@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="pt" trgLang="pt">
+  <file id="SonataMediaBundle.pt">
+    <unit id="N6wg1MG" name="Upload mp4 file only">
+      <segment>
+        <source>Upload mp4 file only</source>
+        <target>Загрузить видео (mp4, avi, fly, mov, webm)</target>
+      </segment>
+    </unit>
+    <unit id="NEG_LUA" name="sonata.media.provider.mp4">
+      <segment>
+        <source>sonata.media.provider.mp4</source>
+        <target>Загрузить видео с компьютера</target>
+      </segment>
+    </unit>
+    <unit id="etiyKk5" name="sonata.media.provider.mp4.description">
+      <segment>
+        <source>sonata.media.provider.mp4.description</source>
+        <target>Добавить видео (допустимо лишь mp4)</target>
+      </segment>
+    </unit>
+    <unit id="H7W899G" name="sonata.media.provider.video.description">
+      <segment>
+        <source>sonata.media.provider.video.description</source>
+        <target>Добавить видео с компьютера</target>
+      </segment>
+    </unit>
+    <unit id="cjA8KDG" name="sonata.media.provider.video">
+      <segment>
+        <source>sonata.media.provider.video</source>
+        <target>Загрузить видео файлом</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

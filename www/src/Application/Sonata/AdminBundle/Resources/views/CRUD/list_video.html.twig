@@ -1,0 +1,19 @@
+{% extends '@SonataAdmin/CRUD/base_list.html.twig' %}
+
+
+{% block list_header %}
+    <div class="container-fluid">
+        <div class="toggle-columns-wrapper">
+            {% set columns = admin.getColumns() %}
+            {% for column in columns %}
+                {% if column.name != 'batch' %}
+                    <label for="{{ column.name }}">
+                        <input checked type="checkbox" id="{{ column.name }}" value="{{ column.options.label }}">
+                        <span>{{ column.options.label }}</span>
+                    </label>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

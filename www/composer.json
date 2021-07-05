@@ -1,0 +1,108 @@
+{
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": "^7.2",
+    "ext-ctype": "*",
+    "ext-curl": "*",
+    "ext-iconv": "*",
+    "api-platform/api-pack": "^1.3",
+    "beelab/tag-bundle": "^1.4",
+    "cocur/background-process": "^0.7.0",
+    "doctrine/doctrine-bundle": "^1.6.10",
+    "doctrine/doctrine-migrations-bundle": "v2.0.0-alpha1",
+    "doctrine/migrations": "v2.0.0-beta1",
+    "doctrine/orm": "^2.5.11",
+    "friendsofsymfony/ckeditor-bundle": "^2.0",
+    "friendsofsymfony/user-bundle": "~2.0",
+    "geoip2/geoip2": "~2.0",
+    "google/apiclient": "^2.2",
+    "jms/i18n-routing-bundle": "3.0.3",
+    "jms/serializer": "1.13.0",
+    "knplabs/doctrine-behaviors": "^1.6",
+    "knplabs/knp-paginator-bundle": "^4.0",
+    "lexik/jwt-authentication-bundle": "~2.3",
+    "mikeevstropov/sortable-tree-bundle": "^1.1",
+    "paypal/rest-api-sdk-php": "*",
+    "php-translation/symfony-bundle": "^0.8.1",
+    "pixassociates/sortable-behavior-bundle": "^1.5",
+    "presta/sitemap-bundle": "^1.7",
+    "sensio/framework-extra-bundle": "^5.2",
+    "silasjoisten/sonata-multiupload-bundle": "^3.1",
+    "sonata-project/admin-bundle": "^3.43",
+    "sonata-project/core-bundle": "3.15.1",
+    "sonata-project/doctrine-orm-admin-bundle": "^3.7",
+    "sonata-project/media-bundle": "3.x-dev as 3.18.1",
+    "sonata-project/translation-bundle": "2.4.0",
+    "stof/doctrine-extensions-bundle": "^1.3",
+    "symfony/asset": "4.2.*",
+    "symfony/console": "4.2.*",
+    "symfony/debug-bundle": "4.2.*",
+    "symfony/dotenv": "4.2.*",
+    "symfony/filesystem": "4.2.*",
+    "symfony/finder": "4.2.*",
+    "symfony/flex": "^1.1",
+    "symfony/form": "4.2.*",
+    "symfony/framework-bundle": "4.2.*",
+    "symfony/monolog-bundle": "^3.4",
+    "symfony/process": "4.2.*",
+    "symfony/swiftmailer-bundle": "^3.2",
+    "symfony/translation": "4.2.*",
+    "symfony/twig-bundle": "4.2.*",
+    "symfony/validator": "4.2.*",
+    "symfony/yaml": "4.2.*"
+  },
+
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/"
+    }
+  },
+  "replace": {
+    "paragonie/random_compat": "2.*",
+    "symfony/polyfill-ctype": "*",
+    "symfony/polyfill-iconv": "*",
+    "symfony/polyfill-php71": "*",
+    "symfony/polyfill-php70": "*",
+    "symfony/polyfill-php56": "*"
+  },
+  "scripts": {
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    },
+    "post-install-cmd": [
+      "@auto-scripts"
+    ],
+    "post-update-cmd": [
+      "@auto-scripts"
+    ]
+  },
+  "conflict": {
+    "symfony/symfony": "*"
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "4.2.*"
+    }
+  },
+  "require-dev": {
+    "doctrine/doctrine-fixtures-bundle": "3.0.2",
+    "symfony/maker-bundle": "^1.33",
+    "symfony/profiler-pack": "^1.0",
+    "symfony/var-dumper": "4.2.*",
+    "symfony/web-server-bundle": "4.2.*"
+  }
+}

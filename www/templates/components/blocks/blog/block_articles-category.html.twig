@@ -1,0 +1,12 @@
+{% if dynamic.category is not empty %}
+    <div class="list-articles col-12 col-xs-8 col-lg-3">
+        <p class="title-text__sm text-center title-text__article title-text__article--theme">{{ 'front.theme'|trans }}</p>
+        <div class="list-articles__box">
+            {% for category in dynamic.category %}
+                <a href="/{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::BLOG_VALUES'), app.request.locale) }}?category={{ category.id }}">
+                    <p class="desc-text__article {% if category.id == app.request.query.get('category') %}list-act{% endif %} {% if blog is defined and blog is not empty and blog.category.contains(category) %}list-act{% endif %}">{{ category.title }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

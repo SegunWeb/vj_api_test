@@ -1,0 +1,59 @@
+[23-04-2019 11:17:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[23-04-2019 11:17:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[23-04-2019 11:17:06] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[23-04-2019 11:17:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-06-2019 12:26:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-06-2019 12:26:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-06-2019 12:26:06] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-06-2019 12:26:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-06-2019 12:26:08] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"CURRENCY_NOT_ALLOWED","message":"Currency is not supported","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"7c3eb7732c45f"}
+[03-06-2019 12:26:11] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-06-2019 12:26:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-06-2019 12:26:12] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-06-2019 12:26:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-06-2019 12:26:13] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"CURRENCY_NOT_ALLOWED","message":"Currency is not supported","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"655f4b6489f15"}
+[03-09-2019 08:39:45] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-09-2019 08:39:47] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-09-2019 08:39:47] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-09-2019 08:39:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-09-2019 08:39:48] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"CURRENCY_NOT_ALLOWED","message":"Currency is not supported","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"3ede3b9e4cc6"}
+[03-09-2019 08:39:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-09-2019 08:39:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-09-2019 08:39:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-09-2019 08:40:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-09-2019 08:40:01] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"CURRENCY_NOT_ALLOWED","message":"Currency is not supported","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"9ed961eb6ab8b"}
+[03-09-2019 08:41:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-09-2019 08:41:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-09-2019 08:41:06] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-09-2019 08:41:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-09-2019 08:41:08] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"CURRENCY_NOT_ALLOWED","message":"Currency is not supported","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"c986e27e54d57"}
+[03-09-2019 08:41:53] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-09-2019 08:41:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-09-2019 08:41:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-09-2019 08:41:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-09-2019 08:41:55] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"CURRENCY_NOT_ALLOWED","message":"Currency is not supported","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"d26bc7b5e1a95"}
+[03-09-2019 08:43:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-09-2019 08:43:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-09-2019 08:43:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-09-2019 08:43:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-09-2019 08:43:15] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"CURRENCY_NOT_ALLOWED","message":"Currency is not supported","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"c8b13cb72971"}
+[03-09-2019 08:44:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-09-2019 08:45:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-09-2019 08:45:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-09-2019 08:45:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-09-2019 08:45:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-09-2019 08:45:40] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-09-2019 08:45:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-09-2019 08:45:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[04-09-2019 13:10:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[04-09-2019 13:10:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[04-09-2019 13:10:44] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[04-09-2019 13:10:46] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[21-06-2020 18:03:47] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[21-06-2020 18:03:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-06-2020 18:03:48] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[21-06-2020 18:03:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[21-06-2020 18:13:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[21-06-2020 18:13:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-06-2020 18:13:15] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[21-06-2020 18:13:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201

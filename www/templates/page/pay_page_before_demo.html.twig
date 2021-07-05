@@ -1,0 +1,49 @@
+{% include 'components/blocks/head.html.twig' %}
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBDQLTK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="loaderArea">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+</div>
+
+{#<div class="loaderArea">#}
+{#     <div class="loader">#}
+{#        <image src="{% path setting.logoPreloader, 'reference' %}" alt="">#}
+{#        <image src="{{ asset('image/preloaderBeta.png') }}" alt="">#}
+{#    </div>#}
+{#</div>#}
+<!---header--->
+{% include 'components/blocks/header-red.html.twig' %}
+<!---header-end--->
+<!---header-end--->
+{% if app.user is defined and app.user is empty %}
+    <!----pop-up---->
+    {% include 'components/pop-up/register_pop-up.html.twig' %}
+    {% include 'components/pop-up/auth_pop-up.html.twig' %}
+
+    {% include 'components/pop-up/recovery_password-pop-up.html.twig' %}
+    <!----pop-up-end---->
+{% endif %}
+<main>
+
+    {% include 'components/blocks/pay_page_before/block_view-demo-version.html.twig' %}
+
+</main>
+<!---footer--->
+{% include 'components/blocks/footer.html.twig' %}
+
+{% block js %}
+    <script src="{{ asset('js/payment.js') }}?v=5"></script>
+{% endblock %}
+
+</body>
+</html>

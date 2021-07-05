@@ -1,0 +1,126 @@
+{% if app.request.query.has('page') %}
+    {% set offset = dynamic.offset * dynamic.limit %}
+{% else %}
+    {% set offset = dynamic.video|length %}
+{% endif %}
+
+<div class="all-video" data-count="{{ offset }}" data-page="{{ app.request.query.get('page', 1) }}" id="allvideo">
+    <!--<image class="all-video__bg" src="{{ asset('image/bg/elem/base3.png') }}"/>-->
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center title-text__md col-12">{{ 'front.selected_videos'|trans }}</h2>
+            <div class="all-video__box col">
+                {% if dynamic.video is not empty %}
+                    {% for video in dynamic.video %}
+                    <!----all-video-content----->
+
+                        <div class="recommended-content recommended-content__block recommended-content__block--sm">
+                            <a class="place-links" href="{{ path('movie', {'slug' : video.slug }) }}">
+                                <img class="img-videoz" src="{% if video.images is not empty %} {% path video.images, 'video_cover' %} {% else %} {% path video.congratulationExample, 'example' %} {% endif %}" alt="img"/>
+                                <div class="wrap-elem-rec">
+                                    {# <p class="title-text__xs title-number-people">{{ 'movie_for %number% people'|trans({'%number%': video.numberPersons }) }}</p> #}
+                                    {#                            <p class="title-text__xs title-number-people">Для {{ video.numberPersons }}</p>#}
+                                    {#<p class="title-text__xs title-text__xs--stretch margin-text">{{ video.title }}</p>#}
+                                    {#                            <button class="btn btn-new-more btn__more btn-text btn-text--blue btn-text--md">{{ 'front.more'|trans }}</button>#}
+                                </div>
+                            </a>
+                            {# <p class="desc-text desc-text--black">{{ video.description }}</p>
+                             <div class="price">
+
+                                 {% if currency is not empty %}
+                                     {% if currency.codeISO == 'UAH' %}
+                                         {% set price = video.priceUah %}
+                                     {% elseif currency.codeISO == 'RUB' %}
+                                         {% set price = video.priceRub %}
+                                     {% elseif currency.codeISO == 'EUR' %}
+                                         {% set price = video.priceEur %}
+                                     {% else %}
+                                         {% set price = video.priceUsd %}
+                                     {% endif %}
+                                 {% else %}
+                                     {% set price = video.priceUsd %}
+                                 {% endif %}
+
+                                 {% if video.hidePrice == 0 and price > 0 %}
+                                     <div class="price-box">
+
+                                         <div class="price-box__main">
+                                             <p class="price-text {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency">{% if currency is not empty %} {{ currency.sing }}{% else %}${% endif %}</span>
+                                         </div>
+                                         {% if video.discount > 0 %}
+                                             <div class="price-box__discount">
+                                                 {% set discount = (price * video.discount) / 100 %}
+                                                 {% set discount = price - discount %}
+                                                 <p class="price-text price-text--red">{{ discount }}</p><span class="price-text__currency price-text__currency--red">{% if currency is not empty %} {{ currency.sing }}{% else %}${% endif %}</span>
+                                             </div>
+                                         {% endif %}
+                                     </div>
+                                 {% endif %}
+                                 <a class="btn btn__more btn-text btn-text--blue btn-text--md" href="{{ path('movie', {'slug' : video.slug }) }}">{{ 'front.more'|trans }}</a>
+                             </div> #}
+                        </div>
+
+
+
+
+
+{#                    <div class="all-video-content col-md-4">#}
+{#                        <a href="{{ path('movie', {'slug' : video.slug }) }}" class="all-video-box video-box" style="display:block;">#}
+{#                            <image class="image-video" src="{% if video.images is not empty %} {% path video.images, 'video_cover' %} {% else %} {% path video.congratulationExample, 'example' %} {% endif %}" alt="image"/>#}
+{#                          #}
+{#                        </a>#}
+{#                        #}
+{#                        <p class="title-text__xs title-number-people">{{ 'movie_for %number% people'|trans({'%number%': video.numberPersons }) }}</p>#}
+
+{#                        <p class="title-text__xs title-text__xs--black margin-text">{{ video.title }}</p>#}
+{#                        <p class="desc-text desc-text--black">{{ video.description|length > 360 ? video.description|slice(0, 360) ~ '...' : video.description  }}</p>#}
+{#                        <div class="price">#}
+
+{#                            {% if dynamic.currency is not empty %}#}
+{#                                {% if dynamic.currency.codeISO == 'UAH' %}#}
+{#                                    {% set price = video.priceUah %}#}
+{#                                {% elseif dynamic.currency.codeISO == 'RUB' %}#}
+{#                                    {% set price = video.priceRub %}#}
+{#                                {% elseif dynamic.currency.codeISO == 'EUR' %}#}
+{#                                    {% set price = video.priceEur %}#}
+{#                                {% else %}#}
+{#                                    {% set price = video.priceUsd %}#}
+{#                                {% endif %}#}
+{#                            {% else %}#}
+{#                                {% set price = video.priceUsd %}#}
+{#                            {% endif %}#}
+
+{#                            {% if video.hidePrice == 0 and price > 0 %}#}
+{#                                <div class="price-box">#}
+{#                                    <div class="price-box__main">#}
+{#                                        <p class="price-text price-text--lg {% if video.discount > 0 %}price-text__discount{% endif %}">{{ price }}</p><span class="price-text__currency price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                    </div>#}
+{#                                    {% if video.discount > 0 %}#}
+{#                                        <div class="price-box__discount">#}
+{#                                            {% set discount = (price * video.discount) / 100 %}#}
+{#                                            {% set discount = price - discount %}#}
+{#                                            <p class="price-text price-text--lg price-text--red">{{ discount }}</p><span class="price-text__currency price-text__currency--red price-text__currency--lg">{% if dynamic.currency is not empty %} {{ dynamic.currency.sing }}{% else %}${% endif %}</span>#}
+{#                                        </div>#}
+{#                                    {% endif %}#}
+{#                                </div>#}
+{#                            {% endif %}#}
+{#                            <a class="btn btn__more btn-text btn-text--blue btn-text--md" href="{{ path('movie', {'slug' : video.slug }) }}">{{ 'front.create_movie'|trans }}</a>#}
+{#                        </div>#}
+{#                    </div>#}
+                    {% endfor %}
+                {% else %}
+                    <div class="col-12 d-flex justify-content-between how-info__content flex-wrap">
+                        <div class="col-md-12 m-md-auto order-1 order-lg-0">
+                            <p class="desc-text desc-text--black text-center desc-text--blue">
+                                {{ 'front.no_videos_found'|trans }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+{#        {% if dynamic.video_count > offset %}#}
+{#            <button class="btn btn__all btn-text show-more-video">{{ 'front.show_more'|trans }}</button>#}
+{#        {% endif %}#}
+    </div>
+</div>

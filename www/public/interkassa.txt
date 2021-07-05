@@ -1,0 +1,19 @@
+Array
+(
+    [ik_co_id] => 5d0cc0831ae1bd24818b4567
+    [ik_co_prs_id] => 408066165859
+    [ik_inv_id] => 181429101
+    [ik_inv_st] => success
+    [ik_inv_crt] => 2019-11-15 15:30:54
+    [ik_inv_prc] => 2019-11-15 15:31:59
+    [ik_trn_id] => 91779872
+    [ik_pm_no] => 762-1573824632
+    [ik_pw_via] => visa_cpaytrz_merchant_uah
+    [ik_am] => 5.00
+    [ik_co_rfn] => 5.0000
+    [ik_ps_price] => 2.15
+    [ik_cur] => RUB
+    [ik_desc] => Оплата видео №762 на VideoJoy
+    [ik_sign] => X9lkZepCUsFugiKDUF66DA==
+)
+ - X9lkZepCUsFugiKDUF66DA== = X9lkZepCUsFugiKDUF66DA==;  - 0=1

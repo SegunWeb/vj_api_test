@@ -1,0 +1,17 @@
+<ul class="col-12 account-radio ">
+{#    <li>#}
+{#        <a href="/{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::USER_ACCOUNT_VALUES'), app.request.locale) }}" class="{% if type is defined and type == 'all' %}active{% endif %}">{{ 'front.all_videos'|trans }}</a>#}
+{#    </li>#}
+    <li>
+        <a href="/{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::USER_ACCOUNT_PAID_VALUES'), app.request.locale) }}" class="{% if type is defined and type == 'paid' %}active{% endif %}">{{ 'front.paid'|trans }}</a>
+    </li>
+    <li>
+        <a href="/{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::USER_ACCOUNT_NOT_PAID_VALUES'), app.request.locale) }}" class="{% if type is defined and type == 'not-paid' %}active{% endif %}">{{ 'front.not_paid'|trans }}</a>
+    </li>
+    <li>
+        <a href="/{{ dynamicLinkCmsPage(constant('App\\Constants\\TypePageConstants::USER_ACCOUNT_SETTING_VALUES'), app.request.locale) }}" class="{% if type is defined and type == 'setting' %}active{% endif %}">{{ 'front.personal_data'|trans }}</a>
+    </li>
+    <li>
+        <a class="btn__out" href="/logout">{{ 'front.logout'|trans }}</a>
+    </li>
+</ul>
